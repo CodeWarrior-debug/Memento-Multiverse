@@ -3,17 +3,17 @@ import { Box } from 'rebass';
 // import Shop from './pages/Shop';
 import Header from './components/Header';
 import Footer from './components/Footer';
-// import Login from './pages/Login';
-// import Logout from './pages/Logout';
+import Login from './pages/Login';
+//import Logout from './pages/Logout';
 // import SignUp from './pages/SignUp';
 // import ConsumerDashboard from './pages/Consumer-Dashboard';
 // import AdminDashboard from './pages/Admin-Dashboard';
 // import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher} from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faUser} from '@fortawesome/free-solid-svg-icons';
 import {faGithub} from '@fortawesome/free-brands-svg-icons'
 
-library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faGithub);
+library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faGithub, faUser);
 
 
 
@@ -37,7 +37,7 @@ function App() {
       flex: '1 1 auto',
       p: 3
     }}>
-    Content
+    <Login />
   {/* <Router>
       <Nav />
       <Route exact path="/" component={Shop} />
