@@ -1,46 +1,46 @@
-const { Model, DataTypes } = require ('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Product extends Model {}
 
 Product.init(
     {
-        id:{
-            type: DataTypes.Integer,
+        id: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
         },
-        franchise_id:{
-            type: DataTypes.Integer,
+        franchise_id: {
+            type: DataTypes.INTEGER,
             allowNull: false
         },
-        fake_price:{
-            type: DataTypes.number,
+        fake_price: {
+            type: DataTypes.NUMBER,
             allowNull: false
         },
-        name:{
-            type: DataTypes.text,
+        name: {
+            type: DataTypes.TEXT,
             allowNull: false
         },
-        image_link:{
-            type: DataTypes.text,
+        image_link: {
+            type: DataTypes.TEXT,
             allowNull: false
         },
-        image_name:{
-            type: DataTypes.text,
+        image_name: {
+            type: DataTypes.TEXT,
             allowNull: false
         },
-        fun_description:{
-            type: DataTypes.text,
+        fun_description: {
+            type: DataTypes.TEXT,
             allowNull: false
         },
-        fake_quantity:{
-            type: DataTypes.Integer,
+        fake_quantity: {
+            type: DataTypes.INTEGER,
             allowNull: true
         }
-        },
-       {
+    },
+    {
         sequelize,
         timestamps: true,
         freezeTableName: true,
@@ -49,4 +49,4 @@ Product.init(
     }
 );
 
-module.exports=Product;
+module.exports = Product;
