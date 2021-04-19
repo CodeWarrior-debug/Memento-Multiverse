@@ -26,6 +26,7 @@
     "if-env": "^1.0.4",
     "react-bootstrap": "^1.5.2",
     "react-table": "^7.6.3",
+    "rebass": "^4.0.7",
     "sequelize": "^6.6.2"
   }
 }
