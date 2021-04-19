@@ -7,6 +7,10 @@ import Header from './components/Header';
 // import ConsumerDashboard from './pages/Consumer-Dashboard';
 // import AdminDashboard from './pages/Admin-Dashboard';
 // import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEnvelope, faKey, faSignInAlt, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart);
 
 
 
