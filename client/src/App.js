@@ -8,9 +8,9 @@ import Header from './components/Header';
 // import AdminDashboard from './pages/Admin-Dashboard';
 // import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome);
+library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher);
 
 
 
