@@ -16,18 +16,22 @@ function Header() {
                 color='white'
                 bg='black'
                 alignItems='center'>
-                <Text p={4} fontWeight='bold'>Memento Multiverse</Text>
+                <Text p={4} fontWeight='bold' fontSize="30px" color="#eee">Memento Multiverse</Text>
                 <Box mx='auto' />
                 <Link className="navLink" variant='nav' href='/home'>
+                    <FontAwesomeIcon icon="home" />
+                    {' '}
                     Shop
                 </Link>
                 <Link className="navLink" variant='nav' href='/login'>
+                    <FontAwesomeIcon className="icons" icon="shopping-cart" />
+                    {' '}
                     Cart
-                    <FontAwesomeIcon icon="shopping-cart" />
                 </Link>
                 <Link className="navLink" variant='nav' href='/login'>
-                    Login
                     <FontAwesomeIcon icon="sign-in-alt" />
+                    {' '}
+                    Login
                 </Link>
             </Flex>
         </div>
