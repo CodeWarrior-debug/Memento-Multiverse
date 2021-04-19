@@ -1,6 +1,6 @@
 import React from 'react'
 
-function AdminDasboard() {
+function index() {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function AdminDasboard() {
     )
 }
 
-export default AdminDasboard;
+export default index;
