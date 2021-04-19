@@ -4,6 +4,8 @@ function index() {
     return (
         <div>
             
+            {/* React-table will go here */}
+
         </div>
     )
 }
