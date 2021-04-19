@@ -8,12 +8,10 @@ module.exports = {
               console.log(ItemDB);
               res.json(ItemDB);
           })
-          .catch(err => {
+          .catch((err) => {
               console.log(err);
           })
-    }
-
-},
+    },
 
     findOne: function(res,req) {
         db.Item
@@ -26,5 +24,6 @@ module.exports = {
               console.log(err);
           })
     }
+}
 
 module.exports = Items;
