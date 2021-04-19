@@ -55,3 +55,11 @@ Button {
 .redirect {
     color: black !important
 }
+.dashcards {
+    border: #121212;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 20px;
+    padding-left: 2%;
+    padding-right: 2%;;
+}
