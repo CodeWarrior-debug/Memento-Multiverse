@@ -25,7 +25,7 @@ Product.init(
         },
         image_link: {
             type: DataTypes.TEXT,
-            allowNull: false
+            allowNull: true
         },
         image_name: {
             type: DataTypes.TEXT,
