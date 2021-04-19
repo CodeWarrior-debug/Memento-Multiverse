@@ -40,3 +40,18 @@ a:-webkit-any-link {
     width: 100% !important;
     margin-left: 2% !important;
 }
+Button {
+    background-color: #121212;
+    border-radius: 40px !important;
+    width: 50%;
+    margin-top: 2% !important;
+    margin-bottom: 2% !important;
+}
+.btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.redirect {
+    color: black !important
+}
