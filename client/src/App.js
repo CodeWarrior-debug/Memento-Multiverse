@@ -38,6 +38,15 @@ function App() {
       p: 3
     }}>
     Content
+  {/* <Router>
+      <Nav />
+      <Route exact path="/" component={Shop} />
+      <Route path="/" component={Login} />
+      <Route path="/" component={Logout} />
+      <Route path="/" component={SignUp} />
+      <Route path="/" component={ConsumerDashboard} />
+      <Route path="/" component={AdminDashboard} />
+  </Router> */}
   </Box>
   <Box
     sx={{
@@ -46,15 +55,6 @@ function App() {
     <Footer />
   </Box>
 </Box>
-      {/* <Router>
-          <Nav />
-          <Route exact path="/" component={Shop} />
-          <Route path="/" component={Login} />
-          <Route path="/" component={Logout} />
-          <Route path="/" component={SignUp} />
-          <Route path="/" component={ConsumerDashboard} />
-          <Route path="/" component={AdminDashboard} />
-      </Router> */}
     </>
   );
 }
