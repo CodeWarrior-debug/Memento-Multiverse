@@ -16,7 +16,13 @@ function Consumer() {
     return (
         <div className="container">
             <Box className="dashcards">
-               Hi
+               <h2 className="dash">Shopping Cart</h2>
+               <p className="dash">Items in cart</p>
+               <Button className="dash">Open</Button>
+            </Box>
+            <Box className="dashcards2">
+               <h2 className="dash">Your Orders</h2>
+               <Button className="dash">Open</Button>
             </Box>
 
         </div>
