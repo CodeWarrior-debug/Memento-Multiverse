@@ -3,3 +3,13 @@ a:-webkit-any-link {
     cursor: pointer;
     margin-right: 2%;
 }
+.footicons {
+    font-size: 30px;
+    margin: 5%;
+
+}
+.centerfoot {
+    padding-right: 45% !important;
+    padding-top: .25%;
+    padding-bottom: .25%;
+}
