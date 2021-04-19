@@ -4,6 +4,8 @@ function AdminDasboard() {
     return (
         <div>
             
+        {/* React-table will go here */}
+
         </div>
     )
 }
