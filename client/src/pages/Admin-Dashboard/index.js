@@ -3,8 +3,9 @@ import React from 'react'
 function AdminDasboard() {
     return (
         <div>
-            
-        {/* React-table will go here */}
+
+            {/* Admin header */}
+            {/* Toggle buttons to display info to the admin */}
 
         </div>
     )
