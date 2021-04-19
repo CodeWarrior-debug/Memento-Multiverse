@@ -1,0 +1,134 @@
+[
+    {
+        "idproducts": "1",
+        "show": "Tool Time",
+        "fake_price": "4.99",
+        "product_name": "Vengeance Mug",
+        "image_link": "https://ih1.redbubble.net/image.902763758.9069/ur,mug_lifestyle,square,1000x1000.jpg",
+        "image_name": "tool_pain_mug.jpg",
+        "fun_description": "...",
+        "fake_quantity": "13",
+        "fake_sold": "9999"
+    },
+    {
+        "idproducts": "2",
+        "show": "Tool Time",
+        "fake_price": "3.99",
+        "product_name": "Wilson Peering Mask",
+        "image_link": "https://ih1.redbubble.net/image.1525149683.6765/ur,mask_flatlay_front,tall_portrait,750x1000.jpg",
+        "image_name": "wilson_mask_neighborino.jpg",
+        "fun_description": "...",
+        "fake_quantity": "45",
+        "fake_sold": "1000000"
+    },
+    {
+        "idproducts": "3",
+        "show": "Tool Time",
+        "fake_price": "12.99",
+        "product_name": "I Don't Think So T-Shirt",
+        "image_link": "https://ih1.redbubble.net/image.61095920.1396/ssrco,classic_tee,two_models,fafafa:ca443f4786,front,square_three_quarter,1000x1000.jpg",
+        "image_name": "dont_think_so_tim_tshirt.jpg",
+        "fun_description": "...",
+        "fake_quantity": "11",
+        "fake_sold": "1"
+    },
+    {
+        "idproducts": "4",
+        "show": "Tool Time",
+        "fake_price": "12.99",
+        "product_name": "More Power Binford T-Shirt",
+        "image_link": "https://ih1.redbubble.net/image.2105524442.5240/ssrco,slim_fit_t_shirt,flatlay,fafafa:ca443f4786,front,wide_portrait,750x1000-bg,f8f8f8.jpg",
+        "image_name": "more_power_tshirt.jpg",
+        "fun_description": "...",
+        "fake_quantity": "75",
+        "fake_sold": "426"
+    },
+    {
+        "idproducts": "5",
+        "show": "Tool Time",
+        "fake_price": "12.99",
+        "product_name": "Merry Xmas To Al T-Shirt",
+        "image_link": "",
+        "image_name": "xmas_al_tshirt.jpg",
+        "fun_description": "...",
+        "fake_quantity": "1",
+        "fake_sold": "1"
+    },
+    {
+        "idproducts": "6",
+        "show": "Tool Time",
+        "fake_price": "20.99",
+        "product_name": "Wrench Throw Pillow",
+        "image_link": "",
+        "image_name": "wrench_throw_pic.jpg",
+        "fun_description": "...",
+        "fake_quantity": "50",
+        "fake_sold": "50"
+    },
+    {
+        "idproducts": "7",
+        "show": "Tool Time",
+        "fake_price": "14699.99",
+        "product_name": "Binford 6100 Power Tool",
+        "image_link": "",
+        "image_name": "binford_6100_press.jpg",
+        "fun_description": "...",
+        "fake_quantity": "1",
+        "fake_sold": "9999999"
+    },
+    {
+        "idproducts": "8",
+        "show": "Tool Time",
+        "fake_price": "69.99",
+        "product_name": "Binford Hard Hat",
+        "image_link": "",
+        "image_name": "hard_hat.jpg",
+        "fun_description": "...",
+        "fake_quantity": "10000",
+        "fake_sold": "1"
+    },
+    {
+        "idproducts": "9",
+        "show": "Tool Time",
+        "fake_price": "12.99",
+        "product_name": "No Instructions T-Shirt",
+        "image_link": "",
+        "image_name": "tshirt_real_men_dont_need_instructions.jpg",
+        "fun_description": "...",
+        "fake_quantity": "154",
+        "fake_sold": "456888"
+    },
+    {
+        "idproducts": "10",
+        "show": "Tool Time",
+        "fake_price": "79.99",
+        "product_name": "Tool Time TV Cast Poster",
+        "image_link": "",
+        "image_name": "Tim-Allen-Richard-Karn-Debbe-Dunning-Home-Improvement.jpg",
+        "fun_description": "...",
+        "fake_quantity": "57",
+        "fake_sold": "24"
+    },
+    {
+        "idproducts": "11",
+        "show": "Tool Time",
+        "fake_price": "199.99",
+        "product_name": "Home Improvement Cast Poster",
+        "image_link": "",
+        "image_name": "full_cast_pic.jpg",
+        "fun_description": "...",
+        "fake_quantity": "1",
+        "fake_sold": "1"
+    },
+    {
+        "idproducts": "12",
+        "show": "Tool Time",
+        "fake_price": "3.99",
+        "product_name": "Hidey Ho Wilson Mask",
+        "image_link": "",
+        "image_name": "hidey_ho_neighbor.jpg",
+        "fun_description": "...",
+        "fake_quantity": "579",
+        "fake_sold": "854"
+    }
+]

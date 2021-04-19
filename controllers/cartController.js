@@ -69,7 +69,7 @@ const cart = {
     },
 
     // Creating the order when the customer is ready to buy
-    createOrder = function (req, res) {
+    createOrder: = function (req, res) {
         if (req, res) {
             db.Cart.find({user: req.user.id})
             .then((res) => {
