@@ -1,0 +1,12 @@
+[
+    {
+        "idFranchise": "1",
+        "name": "testadmin",
+        "logo": "none@gmail.com"
+    },
+    {
+        "idFranchise": "2",
+        "name": "test",
+        "logo": "none2@gmail.com"
+    }
+]
