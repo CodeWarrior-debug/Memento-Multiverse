@@ -7,7 +7,7 @@ import Login from './pages/Login';
 //import Logout from './pages/Logout';
 // import SignUp from './pages/SignUp';
 import Consumer from './pages/Consumer-Dashboard';
-// import AdminDashboard from './pages/Admin-Dashboard';
+import Admin from './pages/Admin-Dashboard';
 // import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faUser} from '@fortawesome/free-solid-svg-icons';
@@ -37,7 +37,7 @@ function App() {
       flex: '1 1 auto',
       p: 3
     }}>
-    <Consumer />
+    <Admin />
   {/* <Router>
       <Nav />
       <Route exact path="/" component={Shop} />
