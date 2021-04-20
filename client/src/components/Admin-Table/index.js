@@ -142,3 +142,14 @@ function SelectColumnFilter({
 // This is a custom filter UI that uses a
 // slider to set the filter value between a column's
 // min and max values
+function SliderColumnFilter({
+    column: { filterValue, setFilter, preFilteredRows, id },
+}) {
+    // Calculate the min and max
+    // using the preFolteredRows
+
+    const [min, max] = React.useMemo(() => {
+        let min = preFilteredRows.length ? preFilteredRows[0].values[id] : 0
+        let max = preFilteredRows.length ? preFilteredRows[0].values[id] : 0
+    })
+}
