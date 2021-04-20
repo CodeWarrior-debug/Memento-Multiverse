@@ -1,14 +1,16 @@
-import React from 'react'
+import React from 'react';
+import {
+    Box,
+    Button,
+} from 'rebass';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function AdminDasboard() {
+function Admin() {
     return (
         <div>
-
-            {/* Admin header */}
-            {/* Toggle buttons to display info to the admin */}
 
         </div>
     )
 }
 
-export default AdminDasboard;
+export default Admin;
