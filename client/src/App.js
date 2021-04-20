@@ -1,6 +1,6 @@
 import { Box } from 'rebass';
 // import Nav from './components/Nav';
-// import Shop from './pages/Shop';
+import Shop from './pages/Shop';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Login from './pages/Login';
@@ -37,7 +37,7 @@ function App() {
       flex: '1 1 auto',
       p: 3
     }}>
-    <SignUp />
+    <Shop />
   {/* <Router>
       <Nav />
       <Route exact path="/" component={Shop} />
