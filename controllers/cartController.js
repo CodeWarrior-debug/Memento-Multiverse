@@ -58,9 +58,9 @@ const cart = {
     },
 
     // Updating user cart
-    updateONe: function (req, res) {
+    updateOne: function (req, res) {
         if (req.user) {
-            db.cart.updateONe({_id: req.body.id}, {orderQty: req.body.quantity})
+            db.cart.updateOne({_id: req.body.id}, {orderQty: req.body.quantity})
             .then((updated) => {
                 console.log('Your cart has been updated', updated);
                 res.json(updated);
@@ -69,7 +69,7 @@ const cart = {
     },
 
     // Creating the order when the customer is ready to buy
-    createOrder: = function (req, res) {
+    createOrder: function (req, res) {
         if (req, res) {
             db.Cart.find({user: req.user.id})
             .then((res) => {
