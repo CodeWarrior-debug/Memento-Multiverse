@@ -26,4 +26,11 @@ router.post('/signup', function (req, res) {
 router.post('/login', function (req, res) {
     console.log('login');
     res.json(req.user);
+});
+
+// Route for Logout
+router.get('/logout', function (req, res) {
+    console.log('You are logged out!');
+    req.logout();
+    res.sendStatus(200);
 })
