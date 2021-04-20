@@ -1,12 +1,12 @@
 [
     {
         "idFranchise": "1",
-        "name": "testadmin",
+        "name": "Seinfeld",
         "logo": "none@gmail.com"
     },
     {
         "idFranchise": "2",
-        "name": "test",
+        "name": "Rick and Morty",
         "logo": "none2@gmail.com"
     }
 ]
