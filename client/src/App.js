@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import Login from './pages/Login';
 //import Logout from './pages/Logout';
 // import SignUp from './pages/SignUp';
-// import ConsumerDashboard from './pages/Consumer-Dashboard';
+import Consumer from './pages/Consumer-Dashboard';
 // import AdminDashboard from './pages/Admin-Dashboard';
 // import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -37,7 +37,7 @@ function App() {
       flex: '1 1 auto',
       p: 3
     }}>
-    <Login />
+    <Consumer />
   {/* <Router>
       <Nav />
       <Route exact path="/" component={Shop} />

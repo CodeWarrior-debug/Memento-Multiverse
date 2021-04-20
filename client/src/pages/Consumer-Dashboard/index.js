@@ -1,14 +1,28 @@
-import React from 'react'
+import React from 'react';
+import {
+    Box,
+    Button,
+} from 'rebass';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function index() {
+function Consumer() {
     return (
-        <div>
-            {/* Client Dash header */}
-            {/* Shopping Cart horizontal section with number of items in cart and an open button */}
-            {/* Your Orders horizontal section with an expan button to see orders you have made */}
-            {/* Shopping Trends section with graph */}
+        <div className="container">
+            <Box className="dashcards">
+               <h2 className="dash">Shopping Cart</h2>
+               <p className="dash">Items in cart</p>
+               <Button className="dash">Open</Button>
+            </Box>
+            <Box className="dashcards2">
+               <h2 className="dash">Your Orders</h2>
+               <Button className="dash">Open</Button>
+            </Box>
+            <Box className="dashcards">
+               <Box>Table</Box>
+            </Box>
+
         </div>
     )
 }
 
-export default index;
+export default Consumer;

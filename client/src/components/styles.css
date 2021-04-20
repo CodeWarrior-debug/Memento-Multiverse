@@ -25,6 +25,7 @@ a:-webkit-any-link {
 }
 .container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 .formCard {
@@ -54,4 +55,33 @@ Button {
 }
 .redirect {
     color: black !important
+}
+.dashcards {
+    border: #121212;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 20px;
+    padding: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly; 
+    width: 100% !important;
+    margin-bottom: 3% !important;
+}
+.dashcards2 {
+    border: #121212;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 20px;
+    padding: 2%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content:space-evenly; 
+    width: 100% !important;
+    margin-bottom: 3% !important;
+}
+.dash {
+    margin-right: 20% !important;
+    justify-content: center;
+    width: auto;
 }
