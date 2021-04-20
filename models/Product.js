@@ -5,30 +5,30 @@ class Product extends Model {}
 
 Product.init(
     {
-        id: {
+        idproducts: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
         },
-        franchise_id: {
-            type: DataTypes.INTEGER,
+        show: {
+            type: DataTypes.STRING,
             allowNull: false
         },
         fake_price: {
-            type: DataTypes.NUMBER,
+            type: DataTypes.DECIMAL(10,2),
             allowNull: false
         },
-        name: {
-            type: DataTypes.TEXT,
+        product_name: {
+            type: DataTypes.STRING,
             allowNull: false
         },
         image_link: {
-            type: DataTypes.TEXT,
-            allowNull: true
+            type: DataTypes.STRING,
+            allowNull: false
         },
         image_name: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
             allowNull: false
         },
         fun_description: {
@@ -37,7 +37,11 @@ Product.init(
         },
         fake_quantity: {
             type: DataTypes.INTEGER,
-            allowNull: true
+            allowNull: false
+        },
+        fake_sold: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         }
     },
     {
@@ -45,7 +49,7 @@ Product.init(
         timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'product'
+        modelName: 'product',
     }
 );
 
