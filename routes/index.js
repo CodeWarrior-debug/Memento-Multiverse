@@ -11,7 +11,6 @@ const orderRoutes = requre('./orderRoutes');
 router.use('/', loginRoutes);
 router.use('/', logoutRoutes);
 router.use('/', shopRoutes);
-router.use('/', shopRoutes);
 router.use('/', signupRoutes);
 router.use('/', adminRoutes);
 router.use('/', consumerRoutes);
