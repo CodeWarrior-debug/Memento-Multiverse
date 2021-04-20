@@ -72,6 +72,7 @@ const EditableCell = ({
         setValue(e.target.value)
     }
 
+    // We'll only update the external data when the input is blurred
     const onBlur = () => {
         updateMyData(index, id, value)
     }
@@ -103,4 +104,20 @@ function DefaultColumnFilter({
             placeholder={`Search ${count} records...`}
         />
     )
+}
+
+// This is a custom filter UI for selecting
+// a unique option from a list
+function SelectColumnFilter({
+    column: { filterValue, setFilter, preFilteredRows, id },
+}) {
+    // Calculate the options for filtering
+    // using the preFilteredRows
+    const options = React.useMemo(() => {
+        const options new Set()
+        preFilteredRows.forEach(row => {
+            options.add(row.values[id])
+        })
+        return [...options.values()]
+    }, [id, preFilteredRows])
 }
