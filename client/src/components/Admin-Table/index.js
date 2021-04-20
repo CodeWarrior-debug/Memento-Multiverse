@@ -329,7 +329,7 @@ function Table({ columns, data, updateMyData, skipReset }) {
 
     // Rendering the UI for the table
     return (
-    <>
+        <>
             <table {...getTableProps()}>
                 <thead>
                     {headerGroups.map(headerGroup => (
@@ -388,8 +388,6 @@ function Table({ columns, data, updateMyData, skipReset }) {
                     })}
                 </tbody>
             </table>
-            {/*
-      */}
             <div className="pagination">
                 <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
                     {'<<'}
@@ -403,4 +401,232 @@ function Table({ columns, data, updateMyData, skipReset }) {
                 <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
                     {'>>'}
                 </button>{' '}
-                
+                <span>
+                    Page{' '}
+                    <strong>
+                        {pageIndex + 1} of {pageOptions.length}
+                    </strong>{' '}
+                </span>
+                <span>
+                    | Go to page:{' '}
+                    <input
+                        type="number"
+                        defaultValue={pageIndex + 1}
+                        onChange={e => {
+                            const page = e.target.value ? Number(e.target.value) - 1 : 0
+                            gotoPage(page)
+                        }}
+                        style={{ width: '100px' }}
+                    />
+                </span>{' '}
+                <select
+                    value={pageSize}
+                    onChange={e => {
+                        setPageSize(Number(e.target.value))
+                    }}
+                >
+                    {[10, 20, 30, 40, 50].map(pageSize => (
+                        <option key={pageSize} value={pageSize}>
+                            Show {pageSize}
+                        </option>
+                    ))}
+                </select>
+            </div>
+            <pre>
+                <code>
+                    {JSON.stringify(
+                        {
+                            pageIndex,
+                            pageSize,
+                            pageCount,
+                            canNextPage,
+                            canPreviousPage,
+                            sortBy,
+                            groupBy,
+                            expanded: expanded,
+                            filters,
+                            selectedRowIds: selectedRowIds,
+                        },
+                        null,
+                        2
+                    )}
+                </code>
+            </pre>
+        </>
+    )
+}
+
+// Define a custom filter filter function!
+function filterGreaterThan(rows, id, filterValue) {
+    return rows.filter(row => {
+        const rowValue = row.values[id]
+        return rowValue >= filterValue
+    })
+}
+
+// This is an autoRemove method on the filter function that
+// when given the new filter value and returns true, the filter
+// will be automatically removed. Normally this is just an undefined
+// check, but here, we want to remove the filter if it's not a number
+filterGreaterThan.autoRemove = val => typeof val !== 'number'
+
+// This is a custom aggregator that
+// takes in an array of leaf values and
+// returns the rounded median
+function roundedMedian(leafValues) {
+    let min = leafValues[0] || 0
+    let max = leafValues[0] || 0
+
+    leafValues.forEach(value => {
+        min = Math.min(min, value)
+        max = Math.max(max, value)
+    })
+
+    return Math.round((min + max) / 2)
+}
+
+const IndeterminateCheckbox = React.forwardRef(
+    ({ indeterminate, ...rest }, ref) => {
+        const defaultRef = React.useRef()
+        const resolvedRef = ref || defaultRef
+
+        React.useEffect(() => {
+            resolvedRef.current.indeterminate = indeterminate
+        }, [resolvedRef, indeterminate])
+
+        return (
+            <>
+                <input type="checkbox" ref={resolvedRef} {...rest} />
+            </>
+        )
+    }
+)
+
+function App() {
+    const columns = React.useMemo(
+        () => [
+            {
+                Header: 'Name',
+                columns: [
+                    {
+                        Header: 'First Name',
+                        accessor: 'firstName',
+                        // Use a two-stage aggregator here to first
+                        // count the total rows being aggregated,
+                        // then sum any of those counts if they are
+                        // aggregated further
+                        aggregate: 'count',
+                        Aggregated: ({ value }) => `${value} Names`,
+                    },
+                    {
+                        Header: 'Last Name',
+                        accessor: 'lastName',
+                        // Use our custom `fuzzyText` filter on this column
+                        filter: 'fuzzyText',
+                        // Use another two-stage aggregator here to
+                        // first count the UNIQUE values from the rows
+                        // being aggregated, then sum those counts if
+                        // they are aggregated further
+                        aggregate: 'uniqueCount',
+                        Aggregated: ({ value }) => `${value} Unique Names`,
+                    },
+                ],
+            },
+            {
+                Header: 'Info',
+                columns: [
+                    {
+                        Header: 'Age',
+                        accessor: 'age',
+                        Filter: SliderColumnFilter,
+                        filter: 'equals',
+                        // Aggregate the average age of visitors
+                        aggregate: 'average',
+                        Aggregated: ({ value }) => `${value} (avg)`,
+                    },
+                    {
+                        Header: 'Visits',
+                        accessor: 'visits',
+                        Filter: NumberRangeColumnFilter,
+                        filter: 'between',
+                        // Aggregate the sum of all visits
+                        aggregate: 'sum',
+                        Aggregated: ({ value }) => `${value} (total)`,
+                    },
+                    {
+                        Header: 'Status',
+                        accessor: 'status',
+                        Filter: SelectColumnFilter,
+                        filter: 'includes',
+                    },
+                    {
+                        Header: 'Profile Progress',
+                        accessor: 'progress',
+                        Filter: SliderColumnFilter,
+                        filter: filterGreaterThan,
+                        // Use our custom roundedMedian aggregator
+                        aggregate: roundedMedian,
+                        Aggregated: ({ value }) => `${value} (med)`,
+                    },
+                ],
+            },
+        ],
+        []
+    )
+
+    const [data, setData] = React.useState(() => makeData(10000))
+    const [originalData] = React.useState(data)
+
+    // We need to keep the table from resetting the pageIndex when we
+    // Update data. So we can keep track of that flag with a ref.
+    const skipResetRef = React.useRef(false)
+
+    // When our cell renderer calls updateMyData, we'll use
+    // the rowIndex, columnId and new value to update the
+    // original data
+    const updateMyData = (rowIndex, columnId, value) => {
+        // We also turn on the flag to not reset the page
+        skipResetRef.current = true
+        setData(old =>
+            old.map((row, index) => {
+                if (index === rowIndex) {
+                    return {
+                        ...row,
+                        [columnId]: value,
+                    }
+                }
+                return row
+            })
+        )
+    }
+
+    // After data changes, we turn the flag back off
+    // so that if data actually changes when we're not
+    // editing it, the page is reset
+    React.useEffect(() => {
+        skipResetRef.current = false
+    }, [data])
+
+    // Let's add a data resetter/randomizer to help
+    // illustrate that flow...
+    const resetData = () => {
+        // Don't reset the page when we do this
+        skipResetRef.current = true
+        setData(originalData)
+    }
+
+    return (
+        <Styles>
+            <button onClick={resetData}>Reset Data</button>
+            <Table
+                columns={columns}
+                data={data}
+                updateMyData={updateMyData}
+                skipReset={skipResetRef.current}
+            />
+        </Styles>
+    )
+}
+
+export default App
+
