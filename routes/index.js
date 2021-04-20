@@ -6,6 +6,7 @@ const signupRoutes = require('./signupRoutes');
 const adminRoutes = require('./adminRoutes');
 const consumerRoutes = require('./consumerRoutes');
 const userAuth = require('./userAuth');
+const orderRoutes = requre('./orderRoutes');
 
 router.use('/', loginRoutes);
 router.use('/', logoutRoutes);
@@ -15,5 +16,6 @@ router.use('/', signupRoutes);
 router.use('/', adminRoutes);
 router.use('/', consumerRoutes);
 router.use('/', userAuth);
+router.use('/', orderRoutes);
 
 module.exports = router;
