@@ -20,12 +20,12 @@ function Admin() {
                 <Link variant='nav' href='#!'>
                 <FontAwesomeIcon icon="warehouse" />
                     {' '}
-                    Invintory
+                    Inventory
                 </Link>
                 <Link variant='nav' href='#!'>
                 <FontAwesomeIcon icon="chart-pie" />
                     {' '}
-                    Sales by Francise
+                    Sales by Franchise
                 </Link>
                 <Link variant='nav' href='#!'>
                 <FontAwesomeIcon icon="dollar-sign" />
