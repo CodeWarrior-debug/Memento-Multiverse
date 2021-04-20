@@ -2,6 +2,7 @@ a:-webkit-any-link {
     color: #eee;
     cursor: pointer;
     margin-right: 2%;
+    text-decoration: none;
 }
 .footicons {
     font-size: 30px;
