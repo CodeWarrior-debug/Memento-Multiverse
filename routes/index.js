@@ -7,6 +7,7 @@ const adminRoutes = require('./adminRoutes');
 const consumerRoutes = require('./consumerRoutes');
 const userAuth = require('./userAuth');
 const orderRoutes = requre('./orderRoutes');
+const apiRoutes = require('./api')
 
 router.use('/', loginRoutes);
 router.use('/', logoutRoutes);
@@ -16,5 +17,6 @@ router.use('/', adminRoutes);
 router.use('/', consumerRoutes);
 router.use('/', userAuth);
 router.use('/', orderRoutes);
+router.use('/', apiRoutes);
 
 module.exports = router;
