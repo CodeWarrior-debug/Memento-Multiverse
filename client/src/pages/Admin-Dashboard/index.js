@@ -18,18 +18,28 @@ function Admin() {
                 alignItems='center'>
                 <Box />
                 <Link variant='nav' href='#!'>
-                    Invintory
+                <FontAwesomeIcon icon="warehouse" />
+                    {' '}
+                    Inventory
                 </Link>
                 <Link variant='nav' href='#!'>
-                    Sales by Francise
+                <FontAwesomeIcon icon="chart-pie" />
+                    {' '}
+                    Sales by Franchise
                 </Link>
                 <Link variant='nav' href='#!'>
+                <FontAwesomeIcon icon="dollar-sign" />
+                    {' '}
                     All Sales
                 </Link>
                 <Link variant='nav' href='#!'>
+                <FontAwesomeIcon icon="money-check" />
+                    {' '}
                     Expenses
                 </Link>
                 <Link variant='nav' href='#!'>
+                <FontAwesomeIcon icon="chart-line" />
+                    {' '}
                     Net Revenu
                 </Link>
             </Flex>
