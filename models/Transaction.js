@@ -5,13 +5,13 @@ class Transaction extends Model {}
 
 Transaction.init(
     {
-        id:{
+        idTransactions:{
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
         },
-        prouduct_id: {
+        product_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
