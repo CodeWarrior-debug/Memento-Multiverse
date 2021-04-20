@@ -14,8 +14,6 @@ import { prefix } from '@fortawesome/free-brands-svg-icons';
 
 // TODO: import Data from Data.js <-- find out how to get the data to put inside the tables
 
-
-//  Create an editable cell renderer
 const Styles = styled.div`
     padding: 1rem;
 
@@ -58,13 +56,16 @@ const Styles = styled.div`
     }
 `
 
+
+//  Create an editable cell renderer
 const EditableCell = ({
     value: initialValue,
     row: { index },
     column: { id },
-    updateMyData,
+    updateMyData, // This is a custom function that we supplied to our table instance
     editable
 }) => {
+    //  We need to keep and update the state of the cell normally
     const [value, setValue] = React.useState(initialValue)
 
     const onChange = e => {
