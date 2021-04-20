@@ -7,3 +7,15 @@ const cartController = require('../controllers/cartController');
 router.route('/allproducts').get(itemsController.findAll);
 
 router.route('/item/:ItemId').get(itemsController.findOne);
+
+router.route('/addToCart').post(cartController.create);
+
+router.route('/userCart/:id').get(cartController.findOne);
+
+router.route('/deletecart/:id').delete(cartController.deleteOne);
+
+router.route('/updateCartQty').put(cartController.updateOne);
+
+router.route('/completeOrder').post(cartController.createOrder);
+
+module.exports = router;
