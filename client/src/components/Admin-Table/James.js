@@ -67,4 +67,58 @@ onChange={e => { setPageSize(Number(e.target.value))
             return Math.round((min + max) / 2)
         })
     }
-    
+
+    const IndeterminateCheckbox = React.forwardRef(({
+        indeterminate, ...rest }, ref) => {
+            const defaultRef = React.useRef()
+            const resolvedRef = ref || defaultRef
+
+        React.useEffect(()=> {
+            resolvedRef.current.indeterminate = indeterminate
+        }, [resolvedRef, indeterminate])
+
+        return (
+            <>
+            <input type='checkbox' ref={resolvedRef} {...rest} />
+        </>
+        )
+
+        }
+    )
+
+    function App(){
+        const columns = React.useMemo(
+            ()=> [{
+                Header:'Name',
+                columns: [8{
+                    Header:'First Name',
+                    accessor:'firstName',
+                    aggregate: 'count',
+                    Aggregated:({ value }) => `${value} Names`,
+                },
+            {
+                Header: 'Last Name',
+                accessor: 'lastName',
+                filter: 'fuzzyText',
+                aggregate: 'uniqueCount',
+                Aggregated:({ value }) => `${value} Unique Names`,
+            },
+        ],
+            },
+            Header: 'Info',
+            columns: [ 
+                {
+                    Header: 'Age',
+                    accessor: 'age',
+                    Filter: SliderColumnFilter,
+                    filter: 'equals',
+                    aggregate: 'average',
+                    Aggregated: ({ value }) => `${value} (avg)`,
+                },
+                {
+                    Header: 'Visits'
+                }
+              ]
+        ]
+        )
+    }
