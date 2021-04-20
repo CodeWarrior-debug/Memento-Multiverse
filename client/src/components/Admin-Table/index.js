@@ -532,7 +532,7 @@ const IndeterminateCheckbox = React.forwardRef(
   }
 )
 
-function App() {
+function AdminTable() {
   const columns = React.useMemo(
     () => [
       {
@@ -658,4 +658,4 @@ function App() {
   )
 }
 
-export default App
+export default AdminTable;
