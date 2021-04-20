@@ -73,6 +73,7 @@ const EditableCell = ({
         updateMyData(index, id, value)
     }
 
+    // If the initialValue is changed externall, sync it up with our state
     React.useEffect(() => {
         setValue(initialValue)
     }, [initialValue])
@@ -84,6 +85,7 @@ const EditableCell = ({
     return <input value={value} onChange={onChange} onBlur={onBlur} />
 }
 
+// Define a default UI for filtering
 function DefaultColumnFilter({
     column: { filteredValue, preFilteredRows, setFilter }
 }) {
@@ -93,7 +95,7 @@ function DefaultColumnFilter({
         <input
             value={filteredValue || ''}
             onChange={e => {
-                setFilter(e.target.value || undefined)
+                setFilter(e.target.value || undefined) // Set undefined to remove the filtering entirely
             }}
             placeholder={`Search ${count} records...`}
         />
