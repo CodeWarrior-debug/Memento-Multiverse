@@ -5,7 +5,7 @@ class Franchise extends Model {}
 
 Franchise.init(
     {
-        id: {
+        idFranchise: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
@@ -20,11 +20,7 @@ Franchise.init(
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
-        },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
+        }
     },
     {
         sequelize,
