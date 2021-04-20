@@ -14,8 +14,6 @@ import { prefix } from '@fortawesome/free-brands-svg-icons';
 
 // TODO: import Data from Data.js <-- find out how to get the data to put inside the tables
 
-
-//  Create an editable cell renderer
 const Styles = styled.div`
     padding: 1rem;
 
@@ -58,19 +56,23 @@ const Styles = styled.div`
     }
 `
 
+
+//  Create an editable cell renderer
 const EditableCell = ({
     value: initialValue,
     row: { index },
     column: { id },
-    updateMyData,
+    updateMyData, // This is a custom function that we supplied to our table instance
     editable
 }) => {
+    //  We need to keep and update the state of the cell normally
     const [value, setValue] = React.useState(initialValue)
 
     const onChange = e => {
         setValue(e.target.value)
     }
 
+    // We'll only update the external data when the input is blurred
     const onBlur = () => {
         updateMyData(index, id, value)
     }
@@ -101,5 +103,127 @@ function DefaultColumnFilter({
             }}
             placeholder={`Search ${count} records...`}
         />
+    )
+}
+
+// This is a custom filter UI for selecting
+// a unique option from a list
+function SelectColumnFilter({
+    column: { filterValue, setFilter, preFilteredRows, id },
+}) {
+    // Calculate the options for filtering
+    // using the preFilteredRows
+    const options = React.useMemo(() => {
+        const options new Set()
+        preFilteredRows.forEach(row => {
+            options.add(row.values[id])
+        })
+        return [...options.values()]
+    }, [id, preFilteredRows])
+
+    // Render a multi-select box
+    return (
+        <select
+            value={filterValue}
+            onChange={e => {
+                setFilter(e.target.value || undefined)
+            }}
+        >
+            <option value=""></option>
+            {options.map((option, i) => (
+                <option key={i} value={option}>
+                    {option}
+                </option>
+            ))}
+        </select>
+    )
+}
+
+// This is a custom filter UI that uses a
+// slider to set the filter value between a column's
+// min and max values
+function SliderColumnFilter({
+    column: { filterValue, setFilter, preFilteredRows, id },
+}) {
+    // Calculate the min and max
+    // using the preFolteredRows
+
+    const [min, max] = React.useMemo(() => {
+        let min = preFilteredRows.length ? preFilteredRows[0].values[id] : 0
+        let max = preFilteredRows.length ? preFilteredRows[0].values[id] : 0
+        preFilteredRows.forEach(row => {
+            min = Math.min(row.values[id], min)
+            max = Math.max(row.values[id], max)
+        })
+        return [min, max]
+    }, [id, preFilteredRows])
+
+    return (
+        <>
+            <input
+                type="range"
+                min={min}
+                max={max}
+                value={filteredValue || min}
+                onChange={e => {
+                    setFilter(parseInt(e.target.value, 10))
+                }}
+            />
+            <button onclick={() => setFilter(undefined)}>Off</button>
+        </>
+    )
+}
+
+// This is a custom UI for out 'between' or number range
+// filter, It uses two number boxes and filters rows to
+// ones that have values between the two
+function NumberRangeColumnFilter({
+    column: { filterValue = [], preFilteredRows, setFilter, id },
+}) {
+    const [min, max] = React.useMemo(() => {
+        let min = preFilteredRows.length ? preFilteredRows[0].values[id] : 0
+        let max = preFilteredRows.length ? preFilteredRows[0].values[id] : 0
+        preFilteredRows.forEach(row => {
+            min = Math.min(row.values[id], min)
+            max = Math.max(row.values[id], max)
+        })
+        return [min, max]
+    }, [id, preFilteredRows])
+
+
+    return (
+        <div
+            style{{
+                display: 'flex',
+            }}
+        >
+            <input
+                value={filterValue[0] || ''}
+                type="number"
+                onChange={e => {
+                    const val = e.target.value
+                    setFilter((old = []) => [val ? parseInt(val, 10) : undefined, old[1]])
+                }}
+                placeholder={`Min (${min})`}
+                style={{
+                    width: '70px',
+                    marginRight: '0.5rem',
+                }}
+            />
+            to
+            <input
+                value={filterValue[1] || ''}
+                type="number"
+                onChange={e => {
+                    const val = e.target.value
+                    setFilter((old = []) => [old[0], val ? parseInt(val, 10) : undefined])
+                }}
+                placeholder={`Max (${max})`}
+                style={{
+                    width: '70px',
+                    marginLeft: '0.5rem',
+                }}
+            />
+        </div>
     )
 }
