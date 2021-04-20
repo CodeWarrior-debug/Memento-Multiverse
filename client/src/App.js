@@ -1,11 +1,11 @@
 import { Box } from 'rebass';
 // import Nav from './components/Nav';
-// import Shop from './pages/Shop';
+import Shop from './pages/Shop';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Login from './pages/Login';
 //import Logout from './pages/Logout';
-// import SignUp from './pages/SignUp';
+ import SignUp from './pages/SignUp';
 import Consumer from './pages/Consumer-Dashboard';
 import Admin from './pages/Admin-Dashboard';
 // import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -37,7 +37,7 @@ function App() {
       flex: '1 1 auto',
       p: 3
     }}>
-    <Admin />
+    <Shop />
   {/* <Router>
       <Nav />
       <Route exact path="/" component={Shop} />

@@ -16,11 +16,11 @@ const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
   // Once JavaScript recogonizes the `await` keyword it waits for the promise to be fufilled before moving on.
-  await Product.bulkCreate(productSeedData);
-  await Transaction.bulkCreate(transactionsDataSeed);
-  await User.bulkCreate(userDataSeed);
   await Franchise.bulkCreate(franchiseSeed);
-
+  await Product.bulkCreate(productSeedData);
+  await User.bulkCreate(userDataSeed);
+  await Transaction.bulkCreate(transactionsDataSeed);
+  
   process.exit(0);
 };
 
