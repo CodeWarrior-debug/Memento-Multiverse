@@ -36,5 +36,20 @@ onChange={e => { setPageSize(Number(e.target.value))
             sortBy, groupBy, expanded: expanded,
             filters,
             selectedRowIds: selectedRowIds,
-         }
+         },
+         null,
+         2,
+
      )}
+     </code>
+     </pre>
+     </>
+     )
+    }
+
+    function filterGreaterThank (rows, id, filterValue) {
+        return rows.filter( row => { 
+            const rowValue = row.values[id]
+            return rowValue >= filterValue
+        })
+    }
