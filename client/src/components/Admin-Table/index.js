@@ -190,6 +190,7 @@ function NumberRangeColumnFilter({
         return [min, max]
     }, [id, preFilteredRows])
 
+
     return (
         <div
             style{{
