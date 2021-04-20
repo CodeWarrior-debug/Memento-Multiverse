@@ -620,6 +620,8 @@ function App() {
         []
     )
 
+    // TODO: change the name of makeData to whatever we made the name
+
     const [data, setData] = React.useState(() => makeData(10000))
     const [originalData] = React.useState(data)
 
