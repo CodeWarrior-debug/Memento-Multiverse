@@ -1,37 +1,27 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class User extends Model {}
+class Franchise extends Model {}
 
-User.init(
+Franchise.init(
     {
-        idUsers: {
+        id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
         },
-        user_name: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
         },
-        email: {
+        logo: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
-            validate: {
-                isEmail: true
-            }
         },
         password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [8],
-            },
-        },
-        user_role: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -41,8 +31,8 @@ User.init(
         timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'user',
+        modelName: 'franchise',
     }
 );
 
-module.exports = User;
+module.exports = Franchise;

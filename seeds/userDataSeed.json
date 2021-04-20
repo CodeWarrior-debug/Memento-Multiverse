@@ -1,14 +1,14 @@
 [
     {
         "idUsers": "1",
-        "user_name": "test",
+        "user_name": "testadmin",
         "email": "none@gmail.com",
         "password": "12345678",
-        "user_role": "user"
+        "user_role": "admin"
     },
     {
         "idUsers": "2",
-        "user_name": "testadmin",
+        "user_name": "test",
         "email": "none2@gmail.com",
         "password": "12345678",
         "user_role": "user"
