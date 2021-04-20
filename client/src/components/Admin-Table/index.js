@@ -403,3 +403,4 @@ function Table({ columns, data, updateMyData, skipReset }) {
                 <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
                     {'>>'}
                 </button>{' '}
+                
