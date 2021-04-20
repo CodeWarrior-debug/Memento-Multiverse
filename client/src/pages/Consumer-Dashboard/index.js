@@ -1,14 +1,7 @@
 import React from 'react';
 import {
-    Label,
-    Input,
-    Checkbox,
-} from '@rebass/forms';
-import {
     Box,
     Button,
-    Flex,
-    Text
 } from 'rebass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -23,6 +16,9 @@ function Consumer() {
             <Box className="dashcards2">
                <h2 className="dash">Your Orders</h2>
                <Button className="dash">Open</Button>
+            </Box>
+            <Box className="dashcards">
+               <Box>Table</Box>
             </Box>
 
         </div>
