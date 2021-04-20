@@ -12,11 +12,11 @@ import Admin from './pages/Admin-Dashboard';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faUser, faWarehouse, faChartLine, faChartPie, faDollarSign, faMoneyCheck} from '@fortawesome/free-solid-svg-icons';
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
-import AllSales from "../pages/AllSales/index.js";
-import Expenses from "../pages/Expenses/index.js";
-import Inventory from "../pages/Inventory/index.js";
-import NetRevenue from "../pages/NetRevenue/index.js";
-import SalesByFranchise from "../pages/SalesByFranchise/index.js";
+// import AllSales from "../pages/AllSales/index.js";
+// import Expenses from "../pages/Expenses/index.js";
+// import Inventory from "../pages/Inventory/index.js";
+// import NetRevenue from "../pages/NetRevenue/index.js";
+// import SalesByFranchise from "../pages/SalesByFranchise/index.js";
 
 library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faGithub, faUser, faWarehouse, faChartLine, faChartPie, faDollarSign, faMoneyCheck);
 

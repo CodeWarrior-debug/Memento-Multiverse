@@ -12,7 +12,7 @@ import {
   useExpanded,
   useRowSelect,
 } from 'react-table'
-import matchSorter from 'match-sorter'
+import {matchSorter} from 'match-sorter'
 
 import makeData from './makeData'
 
