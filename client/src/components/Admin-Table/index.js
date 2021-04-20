@@ -10,9 +10,56 @@ import {
     useRowSelect
 } from 'react-table';
 import matchSorter from 'match-sorter';
-import { prefix } from '@fortawesome/free-brands-svg-icons';
 
 // TODO: import Data from Data.js <-- find out how to get the data to put inside the tables
+// TODO: makedata is undefined on line 576 because we have to add our own data and name it 
+// import makeData from './makeData'
+// Make data from makeData.js:
+
+// -------------------------------------------------------------------------------------------------
+
+// import namor from 'namor' <-- find out what is namor
+
+// const range = len => {
+//     const arr = []
+//     for (let i = 0; i< len; i++) {
+//         arr.push(i)
+//     }
+//     return arr
+// }
+
+// const newPerson = () => {
+//     const statusChance = Math.random()
+//     return {
+//         firstName: NavigationPreloadManager.generate({ words: 1, numbers: 0 }),
+//         lastname: NavigationPreloadManager.generate({ words: 1, numbers: 0 }),
+//         age: Math.floor(Math.random() * 30),
+//         visits: Math.floor(Math.random() * 100),
+//         progress: Math.floor(Math.random() * 100),
+//         status:
+//             statusChance > 0.66
+//               ? 'relationship'
+//               : statusChance > 0.33
+//               ? 'complicated'
+//               : 'single',
+//     }
+// }
+
+// export default function makeData(...lens) {
+//     const makeDataLevel = (depth = 0) => {
+//         const len = lens[depth]
+//         return range(len).map(d => {
+//             return {
+//                 ...newPerson(),
+//                 subRows: lens[depth + 1] ? makeDataLevel(depth + 1) : undefined,
+//             }
+//         })
+//     }
+
+//     return makeDataLevel()
+// }
+
+// -------------------------------------------------------------------------------------------------
 
 const Styles = styled.div`
     padding: 1rem;
@@ -77,7 +124,7 @@ const EditableCell = ({
         updateMyData(index, id, value)
     }
 
-    // If the initialValue is changed externall, sync it up with our state
+    // If the initialValue is changed externally, sync it up with our state
     React.useEffect(() => {
         setValue(initialValue)
     }, [initialValue])
@@ -93,7 +140,7 @@ const EditableCell = ({
 function DefaultColumnFilter({
     column: { filteredValue, preFilteredRows, setFilter }
 }) {
-    const count - preFilteredRows.length
+    const count = preFilteredRows.length
 
     return (
         <input
@@ -114,7 +161,7 @@ function SelectColumnFilter({
     // Calculate the options for filtering
     // using the preFilteredRows
     const options = React.useMemo(() => {
-        const options new Set()
+        const options = new Set()
         preFilteredRows.forEach(row => {
             options.add(row.values[id])
         })
@@ -147,7 +194,6 @@ function SliderColumnFilter({
 }) {
     // Calculate the min and max
     // using the preFolteredRows
-
     const [min, max] = React.useMemo(() => {
         let min = preFilteredRows.length ? preFilteredRows[0].values[id] : 0
         let max = preFilteredRows.length ? preFilteredRows[0].values[id] : 0
@@ -164,7 +210,7 @@ function SliderColumnFilter({
                 type="range"
                 min={min}
                 max={max}
-                value={filteredValue || min}
+                value={filterValue || min}
                 onChange={e => {
                     setFilter(parseInt(e.target.value, 10))
                 }}
@@ -193,7 +239,7 @@ function NumberRangeColumnFilter({
 
     return (
         <div
-            style{{
+            style = {{
                 display: 'flex',
             }}
         >
@@ -573,6 +619,8 @@ function App() {
         ],
         []
     )
+
+    // TODO: change the name of makeData to whatever we made the name
 
     const [data, setData] = React.useState(() => makeData(10000))
     const [originalData] = React.useState(data)
