@@ -25,7 +25,8 @@ library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt
 function App() {
   return (
     <>
-    <Box
+    <Admin/>
+    {/* <Box
   sx={{
     display: 'flex',
     flexDirection: 'column',
@@ -42,7 +43,7 @@ function App() {
       flex: '1 1 auto',
       p: 3
     }}>
-    <Shop />
+    <Shop /> */}
   {/* <Router>
       <Nav />
       <Route exact path="/" component={Shop} />
@@ -52,14 +53,14 @@ function App() {
       <Route path="/" component={ConsumerDashboard} />
       <Route path="/" component={AdminDashboard} />
   </Router> */}
-  </Box>
+  {/* </Box>
   <Box
     sx={{
       p: 3
     }}>
     <Footer />
   </Box>
-</Box>
+</Box> */}
     </>
   );
 }

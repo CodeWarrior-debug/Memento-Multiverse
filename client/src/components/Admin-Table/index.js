@@ -13,7 +13,7 @@ import matchSorter from 'match-sorter';
 
 // TODO: import Data from Data.js <-- find out how to get the data to put inside the tables
 // TODO: makedata is undefined on line 576 because we have to add our own data and name it 
-// import makeData from './makeData'
+import makeData from './makeData'
 // Make data from makeData.js:
 
 // -------------------------------------------------------------------------------------------------
