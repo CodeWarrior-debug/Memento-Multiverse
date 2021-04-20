@@ -19,5 +19,22 @@
 onChange={e => { setPageSize(Number(e.target.value))
 }}>
 
-</select>
+{[10,20,20,40,50].map(pageSize => (
+    <option okey = {pageSize} value = {pageSize}> Show {pageSize}</option>
 
+))}
+</select>
+</div> 
+<pre><code>
+    {JSON.stringify( 
+        {
+            pageIndex,
+            pageSize,
+            pageCount,
+            canNextPage,
+            canPreviousPage,
+            sortBy, groupBy, expanded: expanded,
+            filters,
+            selectedRowIds: selectedRowIds,
+         }
+     )}
