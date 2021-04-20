@@ -11,8 +11,8 @@ Product.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        show: {
-            type: DataTypes.STRING,
+        franchise_id: {
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         fake_price: {
