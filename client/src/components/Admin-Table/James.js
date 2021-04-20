@@ -47,9 +47,24 @@ onChange={e => { setPageSize(Number(e.target.value))
      )
     }
 
-    function filterGreaterThank (rows, id, filterValue) {
+    function filterGreaterThan (rows, id, filterValue) {
         return rows.filter( row => { 
             const rowValue = row.values[id]
             return rowValue >= filterValue
         })
     }
+
+    filterGreaterThan.autoRemove = val => typeof val !== 'number'
+
+    function roundedMedian(leafValues){
+        let min = leafValues[0] || 0
+        let max = leafValues[0] || 0
+
+        leaf Values.forEach(value => {
+            min = Math.min(min, value) 
+            max = Math.max(max, value) 
+
+            return Math.round((min + max) / 2)
+        })
+    }
+    
