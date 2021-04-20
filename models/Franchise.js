@@ -17,9 +17,8 @@ Franchise.init(
             unique: true,
         },
         logo: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
+            type: DataTypes.TEXT,
+            allowNull: false
         }
     },
     {
