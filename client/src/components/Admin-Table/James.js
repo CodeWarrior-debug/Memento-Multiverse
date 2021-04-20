@@ -116,9 +116,34 @@ onChange={e => { setPageSize(Number(e.target.value))
                     Aggregated: ({ value }) => `${value} (avg)`,
                 },
                 {
-                    Header: 'Visits'
-                }
-              ]
-        ]
+                    Header: 'Visits',
+                    accessor: 'visits',
+                    Filter: NumberRangeColumnFilter,
+                    filter: 'between',
+                    aggregate:'sum',
+                    Aggregated: ({ value }) => `${value} (total)`,
+                },
+                {
+                    Header: 'Status',
+                accessor:'status',
+                Filter: SliderColumnFilter,
+                filter:'includes',
+            },
+            {
+                Header: 'Profile Progress',
+                accesor: 'progress',
+                Filter: SliderColumnFilter,
+                filter: filterGreaterThan,
+                aggregate: 'roundedMedian',
+                Aggregated: ({ value }) => `${value} (med)`
+            },
+              ],
+            },
+            ],
+            []
         )
-    }
+    
+        const [data, setData] = React.useState(() => makeData(10000))
+        const[originalData] = React.useState(data)
+
+        const skipResetRef = React.useRef(false)
