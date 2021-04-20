@@ -10,9 +10,56 @@ import {
     useRowSelect
 } from 'react-table';
 import matchSorter from 'match-sorter';
-import { prefix } from '@fortawesome/free-brands-svg-icons';
 
 // TODO: import Data from Data.js <-- find out how to get the data to put inside the tables
+// TODO: makedata is undefined on line 576 because we have to add our own data and name it 
+// import makeData from './makeData'
+// Make data from makeData.js:
+
+// -------------------------------------------------------------------------------------------------
+
+// import namor from 'namor' <-- find out what is namor
+
+// const range = len => {
+//     const arr = []
+//     for (let i = 0; i< len; i++) {
+//         arr.push(i)
+//     }
+//     return arr
+// }
+
+// const newPerson = () => {
+//     const statusChance = Math.random()
+//     return {
+//         firstName: NavigationPreloadManager.generate({ words: 1, numbers: 0 }),
+//         lastname: NavigationPreloadManager.generate({ words: 1, numbers: 0 }),
+//         age: Math.floor(Math.random() * 30),
+//         visits: Math.floor(Math.random() * 100),
+//         progress: Math.floor(Math.random() * 100),
+//         status:
+//             statusChance > 0.66
+//               ? 'relationship'
+//               : statusChance > 0.33
+//               ? 'complicated'
+//               : 'single',
+//     }
+// }
+
+// export default function makeData(...lens) {
+//     const makeDataLevel = (depth = 0) => {
+//         const len = lens[depth]
+//         return range(len).map(d => {
+//             return {
+//                 ...newPerson(),
+//                 subRows: lens[depth + 1] ? makeDataLevel(depth + 1) : undefined,
+//             }
+//         })
+//     }
+
+//     return makeDataLevel()
+// }
+
+// -------------------------------------------------------------------------------------------------
 
 const Styles = styled.div`
     padding: 1rem;
@@ -192,7 +239,7 @@ function NumberRangeColumnFilter({
 
     return (
         <div
-            style{{
+            style = {{
                 display: 'flex',
             }}
         >
