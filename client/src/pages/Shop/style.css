@@ -1,0 +1,16 @@
+.shop {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.toggel {
+    height: 60vh;
+    border-radius: 20px;
+    border: #121212 solid;
+    width: 10% !important;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+}
