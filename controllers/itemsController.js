@@ -1,9 +1,13 @@
 const db = require("../models");
 
 module.exports = {
-    findAll: function(req, res) {
-        db.Product
-          .findAll()
+    findFranchiseProducts: function(req, res) {
+        db.Product.findAll({
+            where: {
+              franchiseId: 3 //TODO: find variable
+            }
+          })
+        //   .findAll()
           .then(ItemDB => {
               console.log(ItemDB);
               res.json(ItemDB);
@@ -15,7 +19,7 @@ module.exports = {
 
     findOne: function(req,res) {
         db.Product
-          .find(req.query)
+          .findByPk(req.params.ItemId)
           .then(getOneItem => {
             console.log('Your requested item: ', getOneItem);
             res.json(getOneItem);

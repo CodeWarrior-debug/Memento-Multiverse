@@ -1,6 +1,6 @@
 //import React, { useState } from 'react';
 import { Box } from 'rebass';
-import {BrowserRouter, Route} from 'react-router-dom'
+
 // import Nav from './components/Nav';
 import Shop from './pages/Shop';
 import Header from './components/Header';
@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
  import SignUp from './pages/SignUp';
- import MyCart from './pages/MyCart';
+//  import MyCart from './pages/MyCart';
 import Consumer from './pages/Consumer-Dashboard';
 import Admin from './pages/Admin-Dashboard';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -63,7 +63,7 @@ function App() {
       p: 3
     }}>
 
-  <BrowserRouter>
+  <Router>
       <Route exact path="/" component={Shop} />
       <Route path="/product/" component={ProductPage}/>
       {/* <Route path="/" component={Login} />
@@ -71,7 +71,7 @@ function App() {
       <Route path="/" component={SignUp} />
       <Route path="/" component={ConsumerDashboard} />
       <Route path="/" component={AdminDashboard} /> */}
-  </BrowserRouter>
+  </Router>
   </Box>
   <Box
     sx={{
