@@ -12,13 +12,13 @@ import {
 } from 'rebass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function Login({ Login }) {
-    const [details, setDetails] = useState({username: "", password: ""});
+function Login({ handleLogIn }) {
+    const [form, setForm] = useState({username: "", password: ""});
 
     const submitHandler = e => {
         e.preventDefault();
-
-        Login(details);
+        console.log(handleLogIn)
+        handleLogIn(form);
     }
 
     return (
@@ -42,8 +42,8 @@ function Login({ Login }) {
                                 id='username'
                                 name='username'
                                 placeholder='username'
-                                onChange={e => setDetails({ ...details, username: e.target.value })}
-                                value={details.username}
+                                onChange={e => setForm({ ...form, username: e.target.value })}
+                                value={form.username}
                             />
                         </Box>
                         <Box width={1 / 2} px={3}>
@@ -58,8 +58,8 @@ function Login({ Login }) {
                                 id='password'
                                 name='password'
                                 placeholder='password'
-                                onChange={e => setDetails({ ...details, password: e.target.value })}
-                                value={details.password}
+                                onChange={e => setForm({ ...form, password: e.target.value })}
+                                value={form.password}
                             />
                         </Box>
                         <Label width={[1 / 2, 1 / 4]} p={2}>
