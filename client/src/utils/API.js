@@ -2,8 +2,11 @@ import axios from 'axios';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
+    getAll: ()=>{
+        return axios.get('/api/products/')
+    },
     getOneItem: function (itemId) {
-        return axios.get('/item/' + itemId);
+        return axios.get('/api/products/' + itemId);
     },
 
     addToCart: function (item) {

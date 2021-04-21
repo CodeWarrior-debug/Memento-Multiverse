@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Card from '../../components/Card.js';
+import Card from '../../components/Card';
 import {
     Box,
     Flex,
@@ -7,6 +7,7 @@ import {
 } from 'rebass';
 import { Label, Radio } from '@rebass/forms'
 import './style.css'
+import API from '../../utils/API.js';
 
 
 function Shop() {
@@ -14,81 +15,10 @@ function Shop() {
 
     const [itemList, setItemList] = useState([]);
     useEffect(() => {
-        setItemList([{
-            id: 1,
-            image: "https://imgur.com/9nfklQu.png",
-            title: "Mega Seed",
-            price: "25",
-            stock: "340",
-            sold: "127",
-
-        },
-        {
-            id: 2,
-            image: "https://imgur.com/srBEPdv.png",
-            title: "Jerry's Mind Blowers",
-            price: "Free",
-            stock: "99999",
-            sold: "0",
-
-
-        },
-        {
-            id: 3,
-            image: "https://imgur.com/nT6qzNy.png",
-            title: "Mulan McNugget Sauce",
-            price: "400",
-            stock: "300",
-            sold: "127",
-
-        },
-        {
-            id: 4,
-            image: "https://imgur.com/XdTxABN.png",
-            title: "Plumbus",
-            price: "6.5",
-            stock: "69",
-            sold: "34",
-
-        },
-        {
-            id: 4,
-            image: "https://imgur.com/XdTxABN.png",
-            title: "Plumbus",
-            price: "6.5",
-            stock: "69",
-            sold: "34",
-
-        },
-        {
-            id: 1,
-            image: "https://imgur.com/9nfklQu.png",
-            title: "Mega Seed",
-            price: "25",
-            stock: "340",
-            sold: "127",
-
-        },
-        {
-            id: 2,
-            image: "https://imgur.com/srBEPdv.png",
-            title: "Jerry's Mind Blowers",
-            price: "Free",
-            stock: "99999",
-            sold: "0",
-
-
-        },
-        {
-            id: 3,
-            image: "https://imgur.com/nT6qzNy.png",
-            title: "Mulan McNugget Sauce",
-            price: "400",
-            stock: "300",
-            sold: "127",
-
-        },
-        ])
+        API.getAll()
+        .then((list)=>{
+            setItemList(list.data)
+        })
 
     }, [])
     return (

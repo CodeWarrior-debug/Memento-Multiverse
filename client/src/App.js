@@ -1,6 +1,5 @@
 //import React, { useState } from 'react';
 import { Box } from 'rebass';
-import {BrowserRouter, Route} from 'react-router-dom'
 // import Nav from './components/Nav';
 import Shop from './pages/Shop';
 import Header from './components/Header';
@@ -63,15 +62,15 @@ function App() {
       p: 3
     }}>
 
-  <BrowserRouter>
+  <Router>
       <Route exact path="/" component={Shop} />
-      <Route path="/product/" component={ProductPage}/>
+      <Route path="/product/:id" component={ProductPage}/>
       {/* <Route path="/" component={Login} />
       <Route path="/" component={Logout} />
       <Route path="/" component={SignUp} />
       <Route path="/" component={ConsumerDashboard} />
       <Route path="/" component={AdminDashboard} /> */}
-  </BrowserRouter>
+  </Router>
   </Box>
   <Box
     sx={{

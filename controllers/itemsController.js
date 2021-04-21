@@ -15,7 +15,7 @@ module.exports = {
 
     findOne: function(req,res) {
         db.Product
-          .find(req.query)
+          .findByPk(req.params.ItemId)
           .then(getOneItem => {
             console.log('Your requested item: ', getOneItem);
             res.json(getOneItem);
