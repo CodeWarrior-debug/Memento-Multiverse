@@ -8,11 +8,13 @@ import {
 import { Label, Input, Checkbox } from '@rebass/forms'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function SignUp() {
-  const [username, setUsername] = useState();
+function SignUp({ SignUp }) {
+  const [details, setDetails] = useState({username: "", email: "", password: ""});
 
   const handleSignUp = e => {
     e.preventDefault();
+
+    SignUp(details);
   }
 
 
