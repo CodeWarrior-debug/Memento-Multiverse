@@ -18,7 +18,7 @@ function Login({ Login }) {
     const submitHandler = e => {
         e.preventDefault();
 
-
+        Login(details);
     }
 
     return (
@@ -42,6 +42,8 @@ function Login({ Login }) {
                                 id='username'
                                 name='username'
                                 placeholder='username'
+                                onChange={e => setDetails({ ...details, username: e.target.value })}
+                                value={details.username}
                             />
                         </Box>
                         <Box width={1 / 2} px={3}>
