@@ -16,7 +16,7 @@ function SignUp() {
 
   const handleSignUp = e => {
     e.preventDefault();
-    
+
 
   }
 
@@ -45,6 +45,7 @@ function SignUp() {
               id='username'
               name='username'
               placeholder='Username'
+              onChange={e => setUsername(e.target.value)}
             />
 
             {/* email */}
@@ -77,6 +78,7 @@ function SignUp() {
               id='password'
               name='password'
               placeholder='password'
+              onChange={e => setPassword(e.target.value)}
             />
 
             {/* confirm password */}
