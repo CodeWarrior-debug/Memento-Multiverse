@@ -1,9 +1,9 @@
 const db = require("../models");
 
 module.exports = {
-    findAll: function(res, req) {
-        db.Item 
-          .find(req.query)
+    findAll: function(req, res) {
+        db.Product
+          .findAll()
           .then(ItemDB => {
               console.log(ItemDB);
               res.json(ItemDB);
@@ -13,8 +13,8 @@ module.exports = {
           })
     },
 
-    findOne: function(res,req) {
-        db.Item
+    findOne: function(req,res) {
+        db.Product
           .find(req.query)
           .then(getOneItem => {
             console.log('Your requested item: ', getOneItem);
@@ -25,5 +25,3 @@ module.exports = {
           })
     }
 }
-
-module.exports = Items;
