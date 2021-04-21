@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Box,
   Flex,
@@ -8,8 +8,16 @@ import {
 import { Label, Input, Checkbox } from '@rebass/forms'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-
 function SignUp() {
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+  const [email, setEmail] = useState();
+
+  const handleSignUp = e => {
+    e.preventDefault();
+  }
+
+
   return (
     <div className="container">
       {/* Form with username, email, password, confirm password, checkbox for auth and signup button */}
@@ -34,14 +42,15 @@ function SignUp() {
               id='username'
               name='username'
               placeholder='Username'
+              onChange={e => setUsername(e.target.value)}
             />
 
             {/* email */}
             <Box>
               <Label htmlFor='email'>
                 <div className="form">
-                <FontAwesomeIcon icon="envelope" />
-                    {' '}
+                  <FontAwesomeIcon icon="envelope" />
+                  {' '}
                   Email
           </div>
               </Label>
@@ -50,6 +59,7 @@ function SignUp() {
                 name='email'
                 type='email'
                 placeholder='jane@example.com'
+                onChange={e => setEmail(e.target.value)}
               />
             </Box>
 
@@ -66,6 +76,7 @@ function SignUp() {
               id='password'
               name='password'
               placeholder='password'
+              onChange={e => setPassword(e.target.value)}
             />
 
             {/* confirm password */}
@@ -95,7 +106,7 @@ function SignUp() {
           </Box>
         </Flex>
         {/* Signup button */}
-        <Button type="submit" mr={2}>Sign Up</Button>
+        <Button type="submit" mr={2} onSubmit={handleSignUp}>Sign Up</Button>
       </Box>
     </div>
   )
