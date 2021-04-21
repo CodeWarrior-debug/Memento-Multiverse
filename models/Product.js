@@ -31,11 +31,9 @@ Product.init(
         },
         fake_quantity: {
             type: DataTypes.INTEGER,
-            allowNull: false
         },
         fake_sold: {
             type: DataTypes.INTEGER,
-            allowNull: false
         }
     },
     {
