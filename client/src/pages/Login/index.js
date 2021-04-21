@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Label,
     Input,
@@ -12,13 +12,21 @@ import {
 } from 'rebass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function Login() {
+function Login({ Login }) {
+    const [details, setDetails] = useState({username: "", password: ""});
+
+    const submitHandler = e => {
+        e.preventDefault();
+
+        Login(details);
+    }
+
     return (
             <div className="container">
                 <Box
                     className="formCard"
                     as='form'
-                    onSubmit={e => e.preventDefault()}
+                    onSubmit={submitHandler}
                     py={3}>
                     <Flex mx={-2} mb={3}>
                         <Box width={1 / 2} px={3}>
@@ -34,6 +42,8 @@ function Login() {
                                 id='username'
                                 name='username'
                                 placeholder='username'
+                                onChange={e => setDetails({ ...details, username: e.target.value })}
+                                value={details.username}
                             />
                         </Box>
                         <Box width={1 / 2} px={3}>
@@ -48,6 +58,8 @@ function Login() {
                                 id='password'
                                 name='password'
                                 placeholder='password'
+                                onChange={e => setDetails({ ...details, password: e.target.value })}
+                                value={details.password}
                             />
                         </Box>
                         <Label width={[1 / 2, 1 / 4]} p={2}>
