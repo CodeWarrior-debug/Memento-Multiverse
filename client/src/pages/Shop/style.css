@@ -5,12 +5,23 @@
     justify-content: space-evenly;
 }
 .toggel {
-    height: 60vh;
+    height: 80vh;
     border-radius: 20px;
     border: #121212 solid;
-    width: 10% !important;
+    width: 20% !important;
+    margin-left: 2% !important;
 }
 .container{
     display: flex;
     flex-direction: row;
+}
+.switch {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20% !important;
+    width: 120% !important;
+    margin-left: 30% !important;
+}
+.radio {
+    margin-left: -25% !important
 }

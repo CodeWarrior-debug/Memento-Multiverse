@@ -92,8 +92,8 @@ Button {
     border-style: solid;
     border-radius: 20px;
     padding: .5%;
-    display: 1, 0, 21% !important;
-    flex-direction: column;
+    display: grid !important;
+    grid-template-columns: 4;
     text-align: center;
     justify-content: space-evenly; 
     width: 20% !important;
@@ -105,11 +105,13 @@ Button {
     flex-direction: column;
 }
 .smallerboot {
-    display: flex;
-    flex-direction:row;
+    display: grid;
+    grid-template-columns: 2;
     justify-content: space-evenly;
 }
 .toes {
+    display: grid;
+    grid-template-rows: 3;
     text-align: center;
     margin-left: 5% !important;
 }
@@ -118,7 +120,7 @@ Button {
     margin-top: 3% !important
 }
 img {
-    width: 130px;
+    width: 150px;
     border-radius: 10px;
     border: #121212 solid;
 }
@@ -127,21 +129,17 @@ img {
     width: 100% !important;
     height: 10% !important;
     position: center;
+    margin-bottom: 2% !important
 }
 .display {
     display: table-row !important;
-    font-size: 28px !important;
+    font-size: 1.5rem !important;
     font-style: bold !important;
     font-weight: 600 !important;
     text-align: center;
 }
-@media only screen and (max-width:1782px) {
-    .display {
-        font-size: 25px !important;
-    }
-}
 @media only screen and (max-width:1515px) {
     .display {
-        font-size: 20px !important;
+        font-size: 1rem !important;
     }
 }
