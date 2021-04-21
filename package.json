@@ -34,6 +34,7 @@
     "if-env": "^1.0.4",
     "match-sorter": "^6.3.0",
     "mysql2": "^2.2.5",
+    "namor": "^2.0.2",
     "passport": "^0.4.1",
     "react-bootstrap": "^1.5.2",
     "react-table": "^7.6.3",

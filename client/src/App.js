@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Box } from 'rebass';
 // import Nav from './components/Nav';
 import Shop from './pages/Shop';
@@ -18,49 +19,58 @@ import Inventory from "./pages/Inventory/";
 import NetRevenue from "./pages/NetRevenue/";
 import SalesByFranchise from "./pages/SalesByFranchise/";
 
+
 library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faGithub, faUser, faWarehouse, faChartLine, faChartPie, faDollarSign, faMoneyCheck);
 
 
 
 function App() {
+  // const [token, setToken] = useState();
+
+  // if (!token){
+  //   return <Login setToken = {setToken}/>
+  // }
+
   return (
     <>
-    <Box
-  sx={{
-    display: 'flex',
-    flexDirection: 'column',
-    minHeight: '100vh'
-  }}>
-  <Box
-    sx={{
-      p: 3
-    }}>
-    <Header />
-  </Box>
-  <Box
-    sx={{
-      flex: '1 1 auto',
-      p: 3
-    }}>
-    <Shop />
-  {/* <Router>
-      <Nav />
-      <Route exact path="/" component={Shop} />
-      <Route path="/" component={Login} />
-      <Route path="/" component={Logout} />
-      <Route path="/" component={SignUp} />
-      <Route path="/" component={ConsumerDashboard} />
-      <Route path="/" component={AdminDashboard} />
-  </Router> */}
-  </Box>
-  <Box
-    sx={{
-      p: 3
-    }}>
-    <Footer />
-  </Box>
-</Box>
+     <Admin />
     </>
+    
+//      <Box
+//   sx={{
+//     display: 'flex',
+//     flexDirection: 'column',
+//     minHeight: '100vh'
+//   }}>
+//   <Box
+//     sx={{
+//       p: 3
+//     }}>
+//     <Header />
+//   </Box>
+//   <Box
+//     sx={{
+//       flex: '1 1 auto',
+//       p: 3
+//     }}>
+//   <Shop />
+//    <Router>
+//       <Nav />
+//       <Route exact path="/" component={Shop} />
+//       <Route path="/" component={Login} />
+//       <Route path="/" component={Logout} />
+//       <Route path="/" component={SignUp} />
+//       <Route path="/" component={ConsumerDashboard} />
+//       <Route path="/" component={AdminDashboard} />
+//   </Router>
+//    </Box>
+//   <Box
+//     sx={{
+//       p: 3
+//     }}>
+//     <Footer />
+//   </Box>
+// </Box> 
   );
 }
 
