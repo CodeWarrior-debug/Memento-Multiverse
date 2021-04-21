@@ -60,6 +60,8 @@ function SignUp({ SignUp }) {
                 name='email'
                 type='email'
                 placeholder='jane@example.com'
+                onChange={e => setDetails({ ...details, email: e.target.value })}
+                value={details.email}
               />
             </Box>
 
