@@ -26,7 +26,7 @@ function SignUp({ SignUp }) {
       <Box
         className="formCard"
         as='form'
-        onSubmit={e => e.preventDefault()}
+        onSubmit={handleSignUp}
         py={3}>
         <Flex mx={-2} mb={3}>
           <Box width={1 / 2} px={3}>
@@ -42,6 +42,8 @@ function SignUp({ SignUp }) {
               id='username'
               name='username'
               placeholder='Username'
+              onChange={e => setDetails({ ...details, username: e.target.value })}
+              value={details.username}
             />
 
             {/* email */}
