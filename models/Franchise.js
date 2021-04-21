@@ -5,12 +5,6 @@ class Franchise extends Model {}
 
 Franchise.init(
     {
-        idFranchise: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
-        },
         name: {
             type: DataTypes.STRING,
             allowNull: false,
