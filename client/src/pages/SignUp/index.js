@@ -78,6 +78,8 @@ function SignUp({ SignUp }) {
               id='password'
               name='password'
               placeholder='password'
+              onChange={e => setDetails({ ...details, password: e.target.value })}
+              value={details.password}
             />
 
             {/* confirm password */}
