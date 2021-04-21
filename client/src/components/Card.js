@@ -4,19 +4,22 @@ import './styles.css';
 import {
     Box,
     Flex,
+    Button
 } from 'rebass'
 
 const Card = ({ image, title, price, stock, sold, description }) => (
-    <Box className="dashcards">
+    <Box className="biggerboot">
         <Flex>
             <div>
-                <Box>
+                <Box className="boot">
+                <Box className="title">
+                    <p className="display">{title}</p>
+                </Box>
+                <Box className="smallerboot">
+                <Box className="imgs">
                     <img src={image} alt="item"></img>
                 </Box>
-                <Box>
-                    <h1>{title}</h1>
-                </Box>
-                <Box>
+                <Box className="toes">
                     <h3><div>
                         Price:{" "}{price}
                     </div>
@@ -28,10 +31,7 @@ const Card = ({ image, title, price, stock, sold, description }) => (
                         </div>
                     </h3>
                 </Box>
-                <Box>
-                    <p>
-                        Description:{" "}{description}
-                    </p>
+                </Box>
                 </Box>
             </div>
 
