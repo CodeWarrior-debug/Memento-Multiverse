@@ -142,7 +142,7 @@ function Shop() {
             <Box>
                 <div className="shop">
                     {
-                        itemList.map((item) => <Card className="item" key={item.id} {...item} />)
+                        itemList.map((item, i) => <Card className="item" key={i} {...item} />)
                     }
 
                 </div>

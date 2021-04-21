@@ -1,4 +1,5 @@
 import { Box } from 'rebass';
+import {BrowserRouter, Route} from 'react-router-dom'
 // import Nav from './components/Nav';
 import Shop from './pages/Shop';
 import Header from './components/Header';
@@ -6,6 +7,7 @@ import Footer from './components/Footer';
 import Login from './pages/Login';
 //import Logout from './pages/Logout';
  import SignUp from './pages/SignUp';
+ import MyCart from './pages/MyCart';
 import Consumer from './pages/Consumer-Dashboard';
 import Admin from './pages/Admin-Dashboard';
 // import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -17,6 +19,7 @@ import Expenses from "./pages/Expenses/";
 import Inventory from "./pages/Inventory/";
 import NetRevenue from "./pages/NetRevenue/";
 import SalesByFranchise from "./pages/SalesByFranchise/";
+import ProductPage from './pages/ProductPage';
 
 library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faGithub, faUser, faWarehouse, faChartLine, faChartPie, faDollarSign, faMoneyCheck);
 
@@ -42,16 +45,16 @@ function App() {
       flex: '1 1 auto',
       p: 3
     }}>
-    <Shop />
-  {/* <Router>
-      <Nav />
+
+  <BrowserRouter>
       <Route exact path="/" component={Shop} />
-      <Route path="/" component={Login} />
+      <Route path="/product/" component={ProductPage}/>
+      {/* <Route path="/" component={Login} />
       <Route path="/" component={Logout} />
       <Route path="/" component={SignUp} />
       <Route path="/" component={ConsumerDashboard} />
-      <Route path="/" component={AdminDashboard} />
-  </Router> */}
+      <Route path="/" component={AdminDashboard} /> */}
+  </BrowserRouter>
   </Box>
   <Box
     sx={{
