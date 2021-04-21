@@ -64,13 +64,13 @@ function App() {
     }}>
 
   <Router>
-      <Route exact path="/" component={Shop} />
-      <Route path="/product/" component={ProductPage}/>
-      {/* <Route path="/" component={Login} />
-      <Route path="/" component={Logout} />
-      <Route path="/" component={SignUp} />
-      <Route path="/" component={ConsumerDashboard} />
-      <Route path="/" component={AdminDashboard} /> */}
+      <Route exact path="/shop" component={Shop} />
+      <Route path="/product" component={ProductPage}/>
+      <Route path="/login" component={Login} />
+      <Route path="/logout" component={Logout} />
+      <Route path="/signup" component={SignUp} />
+      <Route path="/dashboard" component={Consumer} />
+      <Route path="/dashboard" component={Admin} />
   </Router>
   </Box>
   <Box
