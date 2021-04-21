@@ -8,16 +8,13 @@ import {
 import { Label, Input, Checkbox } from '@rebass/forms'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-
 function SignUp() {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-
+  const [email, setEmail] = useState();
 
   const handleSignUp = e => {
     e.preventDefault();
-
-
   }
 
 
@@ -62,6 +59,7 @@ function SignUp() {
                 name='email'
                 type='email'
                 placeholder='jane@example.com'
+                onChange={e => setEmail(e.target.value)}
               />
             </Box>
 
