@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Box,
   Flex,
@@ -8,8 +8,16 @@ import {
 import { Label, Input, Checkbox } from '@rebass/forms'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+function SignUp({ SignUp }) {
+  const [details, setDetails] = useState({username: "", email: "", password: ""});
 
-function SignUp() {
+  const handleSignUp = e => {
+    e.preventDefault();
+
+    SignUp(details);
+  }
+
+
   return (
     <div className="container">
       {/* Form with username, email, password, confirm password, checkbox for auth and signup button */}
@@ -18,7 +26,7 @@ function SignUp() {
       <Box
         className="formCard"
         as='form'
-        onSubmit={e => e.preventDefault()}
+        onSubmit={handleSignUp}
         py={3}>
         <Flex mx={-2} mb={3}>
           <Box width={1 / 2} px={3}>
@@ -34,14 +42,16 @@ function SignUp() {
               id='username'
               name='username'
               placeholder='Username'
+              onChange={e => setDetails({ ...details, username: e.target.value })}
+              value={details.username}
             />
 
             {/* email */}
             <Box>
               <Label htmlFor='email'>
                 <div className="form">
-                <FontAwesomeIcon icon="envelope" />
-                    {' '}
+                  <FontAwesomeIcon icon="envelope" />
+                  {' '}
                   Email
           </div>
               </Label>
@@ -50,6 +60,8 @@ function SignUp() {
                 name='email'
                 type='email'
                 placeholder='jane@example.com'
+                onChange={e => setDetails({ ...details, email: e.target.value })}
+                value={details.email}
               />
             </Box>
 
@@ -66,6 +78,8 @@ function SignUp() {
               id='password'
               name='password'
               placeholder='password'
+              onChange={e => setDetails({ ...details, password: e.target.value })}
+              value={details.password}
             />
 
             {/* confirm password */}
@@ -95,7 +109,7 @@ function SignUp() {
           </Box>
         </Flex>
         {/* Signup button */}
-        <Button type="submit" mr={2}>Sign Up</Button>
+        <Button type="submit" mr={2} onSubmit={handleSignUp}>Sign Up</Button>
       </Box>
     </div>
   )

@@ -1,3 +1,4 @@
+//import React, { useState } from 'react';
 import { Box } from 'rebass';
 import {BrowserRouter, Route} from 'react-router-dom'
 // import Nav from './components/Nav';
@@ -5,12 +6,12 @@ import Shop from './pages/Shop';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Login from './pages/Login';
-//import Logout from './pages/Logout';
+import Logout from './pages/Logout';
  import SignUp from './pages/SignUp';
  import MyCart from './pages/MyCart';
 import Consumer from './pages/Consumer-Dashboard';
 import Admin from './pages/Admin-Dashboard';
-// import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faUser, faWarehouse, faChartLine, faChartPie, faDollarSign, faMoneyCheck} from '@fortawesome/free-solid-svg-icons';
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
@@ -21,14 +22,30 @@ import NetRevenue from "./pages/NetRevenue/";
 import SalesByFranchise from "./pages/SalesByFranchise/";
 import ProductPage from './pages/ProductPage';
 
+
 library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faGithub, faUser, faWarehouse, faChartLine, faChartPie, faDollarSign, faMoneyCheck);
 
 
 
 function App() {
+
+  const handleLogIn = data => {
+    console.log('something');
+    console.log(data);
+
+  }
+  // const [token, setToken] = useState();
+
+  // if (!token){
+  //   return <Login setToken = {setToken}/>
+  // }
+
   return (
     <>
-    <Box
+     {/* <Login Login={Login} /> */}
+    {/* </> */}
+    
+     <Box
   sx={{
     display: 'flex',
     flexDirection: 'column',
@@ -62,8 +79,8 @@ function App() {
     }}>
     <Footer />
   </Box>
-</Box>
-    </>
+</Box> 
+</>
   );
 }
 
