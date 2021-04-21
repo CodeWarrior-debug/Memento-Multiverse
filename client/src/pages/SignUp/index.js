@@ -9,14 +9,17 @@ import { Label, Input, Checkbox } from '@rebass/forms'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
-const handleSignUp = e => {
-  e.preventDefault();
-
-
-}
-
 function SignUp() {
   const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+
+
+  const handleSignUp = e => {
+    e.preventDefault();
+    
+
+  }
+
 
   return (
     <div className="container">
@@ -48,8 +51,8 @@ function SignUp() {
             <Box>
               <Label htmlFor='email'>
                 <div className="form">
-                <FontAwesomeIcon icon="envelope" />
-                    {' '}
+                  <FontAwesomeIcon icon="envelope" />
+                  {' '}
                   Email
           </div>
               </Label>
