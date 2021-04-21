@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Box,
   Flex,
@@ -9,7 +9,15 @@ import { Label, Input, Checkbox } from '@rebass/forms'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
+const handleSignUp = e => {
+  e.preventDefault();
+
+
+}
+
 function SignUp() {
+  const [username, setUsername] = useState();
+
   return (
     <div className="container">
       {/* Form with username, email, password, confirm password, checkbox for auth and signup button */}
@@ -95,7 +103,7 @@ function SignUp() {
           </Box>
         </Flex>
         {/* Signup button */}
-        <Button type="submit" mr={2}>Sign Up</Button>
+        <Button type="submit" mr={2} onSubmit={handleSignUp}>Sign Up</Button>
       </Box>
     </div>
   )
