@@ -10,8 +10,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function SignUp() {
   const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
-  const [email, setEmail] = useState();
 
   const handleSignUp = e => {
     e.preventDefault();
@@ -42,7 +40,6 @@ function SignUp() {
               id='username'
               name='username'
               placeholder='Username'
-              onChange={e => setUsername(e.target.value)}
             />
 
             {/* email */}
@@ -59,7 +56,6 @@ function SignUp() {
                 name='email'
                 type='email'
                 placeholder='jane@example.com'
-                onChange={e => setEmail(e.target.value)}
               />
             </Box>
 
@@ -76,7 +72,6 @@ function SignUp() {
               id='password'
               name='password'
               placeholder='password'
-              onChange={e => setPassword(e.target.value)}
             />
 
             {/* confirm password */}
