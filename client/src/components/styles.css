@@ -86,3 +86,60 @@ Button {
     justify-content: center;
     width: auto;
 }
+.biggerboot {
+    border: #121212;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 20px;
+    padding: .5%;
+    display: grid !important;
+    grid-template-columns: 4;
+    text-align: center;
+    justify-content: space-evenly; 
+    width: 20% !important;
+    margin: 5px !important;
+    margin-bottom: 3% !important;
+}
+.boot {
+    display: flex;
+    flex-direction: column;
+}
+.smallerboot {
+    display: grid;
+    grid-template-columns: 2;
+    justify-content: space-evenly;
+}
+.toes {
+    display: grid;
+    grid-template-rows: 3;
+    text-align: center;
+    margin-left: 5% !important;
+}
+.imgs {
+    margin-right: 2% !important;
+    margin-top: 3% !important
+}
+img {
+    width: 150px;
+    border-radius: 10px;
+    border: #121212 solid;
+}
+.title {
+    margin-left: 3% !important;
+    width: 100% !important;
+    height: 10% !important;
+    position: center;
+    margin-bottom: 2% !important
+}
+.display {
+    display: table-row !important;
+    font-size: 1.5rem !important;
+    font-style: bold !important;
+    font-weight: 600 !important;
+    text-align: center;
+}
+@media only screen and (max-width:1515px) {
+    .display {
+        font-size: 1rem !important;
+    }
+}
