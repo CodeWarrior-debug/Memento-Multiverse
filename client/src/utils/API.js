@@ -28,8 +28,6 @@ export default {
     createCheckout: function (total) {
         console.log('Creating your order', total);
         return axios.post('/createCheckout', total);
-    },
-
-    
+    }
 }
 
