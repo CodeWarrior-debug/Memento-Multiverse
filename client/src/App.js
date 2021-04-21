@@ -34,7 +34,7 @@ function App() {
 
   return (
     <>
-     <Admin />
+     <Login Login={Login} />
     </>
     
 //      <Box
