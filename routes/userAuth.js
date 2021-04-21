@@ -23,7 +23,7 @@ router.post('/signup', function (req, res) {
 });
 
 // Route for Login
-router.post('/login', function (req, res) {
+router.post('/login', passport.authenticate('local'), function (req, res) {
     console.log('login');
     res.json(req.user);
 });
