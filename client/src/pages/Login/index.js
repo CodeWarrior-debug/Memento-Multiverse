@@ -12,13 +12,21 @@ import {
 } from 'rebass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function Login() {
+function Login({ Login }) {
+    const [details, setDetails] = useState({username: "", email: "", password: ""});
+
+    const submitHandler = e => {
+        e.preventDefault();
+
+
+    }
+
     return (
             <div className="container">
                 <Box
                     className="formCard"
                     as='form'
-                    onSubmit={e => e.preventDefault()}
+                    onSubmit={submitHandler}
                     py={3}>
                     <Flex mx={-2} mb={3}>
                         <Box width={1 / 2} px={3}>
