@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
  import SignUp from './pages/SignUp';
- import MyCart from './pages/MyCart';
+//  import MyCart from './pages/MyCart';
 import Consumer from './pages/Consumer-Dashboard';
 import Admin from './pages/Admin-Dashboard';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -63,13 +63,13 @@ function App() {
     }}>
 
   <Router>
-      <Route exact path="/" component={Shop} />
-      <Route path="/product/:id" component={ProductPage}/>
-      {/* <Route path="/" component={Login} />
-      <Route path="/" component={Logout} />
-      <Route path="/" component={SignUp} />
-      <Route path="/" component={ConsumerDashboard} />
-      <Route path="/" component={AdminDashboard} /> */}
+      <Route exact path="/shop" component={Shop} />
+      <Route path="/product" component={ProductPage}/>
+      <Route path="/login" component={Login} />
+      <Route path="/logout" component={Logout} />
+      <Route path="/signup" component={SignUp} />
+      <Route path="/dashboard" component={Consumer} />
+      <Route path="/dashboard" component={Admin} />
   </Router>
   </Box>
   <Box
