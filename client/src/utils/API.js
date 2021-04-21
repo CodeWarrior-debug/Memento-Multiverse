@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
     getOneItem: function (itemId) {
         return axios.get('/item/' + itemId);
@@ -27,6 +28,8 @@ export default {
     createCheckout: function (total) {
         console.log('Creating your order', total);
         return axios.post('/createCheckout', total);
-    }
+    },
+
+    
 }
 
