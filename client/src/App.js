@@ -1,6 +1,5 @@
 //import React, { useState } from 'react';
 import { Box } from 'rebass';
-
 // import Nav from './components/Nav';
 import Shop from './pages/Shop';
 import Header from './components/Header';
