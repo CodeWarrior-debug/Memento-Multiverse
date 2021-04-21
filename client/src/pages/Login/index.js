@@ -13,7 +13,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Login({ Login }) {
-    const [details, setDetails] = useState({username: "", email: "", password: ""});
+    const [details, setDetails] = useState({username: "", password: ""});
 
     const submitHandler = e => {
         e.preventDefault();
@@ -58,6 +58,8 @@ function Login({ Login }) {
                                 id='password'
                                 name='password'
                                 placeholder='password'
+                                onChange={e => setDetails({ ...details, password: e.target.value })}
+                                value={details.password}
                             />
                         </Box>
                         <Label width={[1 / 2, 1 / 4]} p={2}>
