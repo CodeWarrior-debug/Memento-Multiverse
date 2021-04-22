@@ -26,11 +26,6 @@ if (process.env.NODE_ENV === "production") {
 // Define any API routes before this runs
 app.use(routes);
 
-const User = require('./models/User');
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
