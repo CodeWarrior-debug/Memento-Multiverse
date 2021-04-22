@@ -1,4 +1,3 @@
-const { json } = require("sequelize/types");
 const db = require("../models");
 
 // Creating the cart for the user
@@ -89,7 +88,7 @@ const cart = {
     }
 }
 
-
+module.exports = cart;
 
 
 

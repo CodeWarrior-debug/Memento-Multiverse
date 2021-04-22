@@ -5,12 +5,6 @@ class Product extends Model {}
 
 Product.init(
     {
-        idproducts: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
-        },
         franchise_id: {
             type: DataTypes.INTEGER,
             allowNull: false
@@ -37,11 +31,9 @@ Product.init(
         },
         fake_quantity: {
             type: DataTypes.INTEGER,
-            allowNull: false
         },
         fake_sold: {
             type: DataTypes.INTEGER,
-            allowNull: false
         }
     },
     {

@@ -8,11 +8,13 @@ import {
 import { Label, Input, Checkbox } from '@rebass/forms'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function SignUp() {
-  const [username, setUsername] = useState();
+function SignUp({ SignUp }) {
+  const [details, setDetails] = useState({username: "", email: "", password: ""});
 
   const handleSignUp = e => {
     e.preventDefault();
+
+    SignUp(details);
   }
 
 
@@ -24,7 +26,7 @@ function SignUp() {
       <Box
         className="formCard"
         as='form'
-        onSubmit={e => e.preventDefault()}
+        onSubmit={handleSignUp}
         py={3}>
         <Flex mx={-2} mb={3}>
           <Box width={1 / 2} px={3}>
@@ -40,6 +42,8 @@ function SignUp() {
               id='username'
               name='username'
               placeholder='Username'
+              onChange={e => setDetails({ ...details, username: e.target.value })}
+              value={details.username}
             />
 
             {/* email */}
@@ -56,6 +60,8 @@ function SignUp() {
                 name='email'
                 type='email'
                 placeholder='jane@example.com'
+                onChange={e => setDetails({ ...details, email: e.target.value })}
+                value={details.email}
               />
             </Box>
 
@@ -72,6 +78,8 @@ function SignUp() {
               id='password'
               name='password'
               placeholder='password'
+              onChange={e => setDetails({ ...details, password: e.target.value })}
+              value={details.password}
             />
 
             {/* confirm password */}

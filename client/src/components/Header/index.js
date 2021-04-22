@@ -18,12 +18,12 @@ function Header() {
                 alignItems='center'>
                 <Text p={4} fontWeight='bold' fontSize="30px" color="#eee">Memento Multiverse</Text>
                 <Box mx='auto' />
-                <Link className="navLink" variant='nav' href='/home'>
+                <Link className="navLink" variant='nav' href='/shop'>
                     <FontAwesomeIcon icon="home" />
                     {' '}
                     Shop
                 </Link>
-                <Link className="navLink" variant='nav' href='/home'>
+                <Link className="navLink" variant='nav' href='/dashboard'>
                     <FontAwesomeIcon icon="chalkboard-teacher" />
                     {' '}
                     Dashboard
@@ -33,7 +33,7 @@ function Header() {
                     {' '}
                     Cart
                 </Link>
-                <Link className="navLink" variant='nav' href='/login'>
+                <Link className="navLink" variant='nav' href='/logoutc'>
                     <FontAwesomeIcon icon="sign-out-alt" />
                     {' '}
                     Logout
