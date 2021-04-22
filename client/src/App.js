@@ -26,9 +26,9 @@ library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt
 
 
 function App() {
-  const [user, setUser] = useState({ name: '', email: '' })
+  const [user, setUser] = useState({ username: '', email: '' })
 
-  const login = details => {
+  const loginAuth = details => {
     console.log(details);
   }
 
@@ -99,17 +99,20 @@ function App() {
             flex: '1 1 auto',
             p: 3
           }}>
-
-          <Router>
-            <Route exact path="/" component={Shop} />
-            <Route exact path="/shop" component={Shop} />
-            <Route path="/product" component={ProductPage} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={SignUp} />
-            <Route path="/dashboard" component={Consumer} />
-            <Route path="/dashboard" component={Admin} />
-            <Route path="/cart" component={MyCart} />
-          </Router>
+          {(user.username != '') ? (
+            <Router>
+              <Route exact path="/" component={Shop} />
+              <Route exact path="/shop" component={Shop} />
+              <Route path="/product" component={ProductPage} />
+              <Route path="/login" component={Login} />
+              <Route path="/signup" component={SignUp} />
+              <Route path="/dashboard" component={Consumer} />
+              <Route path="/dashboard" component={Admin} />
+              <Route path="/cart" component={MyCart} />
+            </Router>
+          ) : (
+            <Login login={loginAuth} />
+          )}
         </Box>
         <Box
           sx={{

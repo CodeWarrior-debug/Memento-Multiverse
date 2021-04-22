@@ -12,7 +12,7 @@ import {
 } from 'rebass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function Login({ handleLogIn }) {
+function Login({ loginAuth }) {
     const [form, setForm] = useState({username: "", password: ""});
 
     const submitHandler = e => {
@@ -57,7 +57,7 @@ function Login({ handleLogIn }) {
                             <Input
                                 id='password'
                                 name='password'
-                                type='password'
+                                type=
                                 placeholder='password'
                                 onChange={e => setForm({ ...form, password: e.target.value })}
                                 value={form.password}
