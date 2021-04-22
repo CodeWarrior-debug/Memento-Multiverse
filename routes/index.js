@@ -3,4 +3,4 @@ const API = require('./API');
 
 router.use('/api', API)
 
-module.exports =router;
+module.exports = router;

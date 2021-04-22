@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-    getAll: ()=>{
+    getAll: () => {
         return axios.get('/api/products/')
     },
     getOneItem: function (itemId) {
@@ -20,7 +20,7 @@ export default {
 
     deleteFromCart: function (id) {
         console.log('Item has been removed from cart');
-        return axios.delete('/deleteFromCart'+ id);
+        return axios.delete('/deleteFromCart' + id);
     },
 
     updateCartQty: function (qty) {
@@ -32,8 +32,12 @@ export default {
         console.log('Creating your order', total);
         return axios.post('/createCheckout', total);
     },
-    getAllTransactions: ()=>{
+
+    getAllTransactions: () => {
         return axios.get('/api/transactions')
+    },
+
+    login: function (userInfo) {
+        return axios.post('/api/users/login', userInfo);
     }
 }
-
