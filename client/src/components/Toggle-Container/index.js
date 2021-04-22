@@ -1,40 +1,38 @@
-import { Component } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from 'react';
 import {
     Box,
     Flex,
 } from 'rebass';
 import React from 'react';
 import Toggle from '../Toggle';
+import API from '../../utils/API';
 
-class ToggleContainer extends Component {
-    state = { franchiseData: [{id: 1, name: "Seinfeld", logo: "text"}, {id: 2, name: "Rick and Morty", logo: "morty"}] }
+const ToggleContainer = () => {
+    // state = { franchiseData: [{id: 1, name: "Seinfeld", logo: "text"}, {id: 2, name: "Rick and Morty", logo: "morty"}] }
+    const [franchiseData, setfranchiseData] = useState([]);
 
-    componentDidMount() {
-        axios.get('')
-          .then(res => {
-            console.log(res.data);
-            this.setState({ franchiseData: res.data });
-          });
-      }
+    useEffect(()=>{
+        API.getFranchises()
+        .then(franchise=>setfranchiseData(franchise.data))
+    }, [])
 
-
-    render() { 
         return ( 
             <Box className="toggle">
                 <Flex>
                     <Box>
-                        {this.state.franchiseData.map((franchise) =>
+                        {franchiseData.map((franchise) =>
                         <Toggle key={franchise.id}
                         name={franchise.name}
                         id={franchise.id}
+
+                        //Need to populate the toggle
                         /> 
+                        
                         )}
                     </Box>
                 </Flex>
             </Box>
          );
     }
-}
  
 export default ToggleContainer;
