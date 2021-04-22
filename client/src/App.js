@@ -5,7 +5,6 @@ import Shop from './pages/Shop';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Login from './pages/Login';
-import Logout from './pages/Logout';
 import SignUp from './pages/SignUp';
 import MyCart from './pages/MyCart';
 import Consumer from './pages/Consumer-Dashboard';
@@ -33,17 +32,42 @@ function App() {
     console.log(data);
 
   }
-  const [token, setToken] = useState();
+  // const [token, setToken] = useState();
 
-  if (!token){
-    return <Login setToken = {setToken}/>
-  }
+  // if (!token) {
+  //   return (
+  //     <>
+  //       <Box
+  //         sx={{
+  //           display: 'flex',
+  //           flexDirection: 'column',
+  //           minHeight: '100vh'
+  //         }}>
+  //         <Box
+  //           sx={{
+  //             p: 3
+  //           }}>
+  //           <Header />
+  //         </Box>
+  //         <Box
+  //           sx={{
+  //             flex: '1 1 auto',
+  //             p: 3
+  //           }}></Box>
+  //         <Login setToken={setToken} />
+  //       </Box>
+  //       <Box
+  //         sx={{
+  //           p: 3
+  //         }}>
+  //         <Footer />
+  //       </Box>
+  //     </>
+  //   )
+  // }
 
   return (
     <>
-      {/* <Login Login={Login} /> */}
-      {/* </> */}
-
       <Box
         sx={{
           display: 'flex',
