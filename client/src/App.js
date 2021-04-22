@@ -28,12 +28,12 @@ library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt
 function App() {
   const [user, setUser] = useState({ username: '', email: '' })
 
-  const loginAuth = details => {
-    console.log(details);
+  const loginAuth = data => {
+    console.log(data);
   }
 
-  const Logout = details => {
-    console.log(details);
+  const logout = data => {
+    console.log('logout');
   }
 
 
