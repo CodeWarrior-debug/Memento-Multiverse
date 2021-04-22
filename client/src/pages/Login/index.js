@@ -13,7 +13,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Login({ loginAuth, error }) {
-    const [form, setForm] = useState({ username: "", password: "" });
+    const [form, setForm] = useState({ username: '', password: '' });
 
     const submitHandler = e => {
         e.preventDefault();
@@ -31,6 +31,7 @@ function Login({ loginAuth, error }) {
                 <Flex mx={-2} mb={3}>
                     <Box width={1 / 2} px={3}>
                         <h1>Sign In</h1>
+                        {(error !=="") ? (<div className="error">{error}</div> ) : ""}
                         <Label>
                             <div className="form">
                                 <FontAwesomeIcon icon="user" />
