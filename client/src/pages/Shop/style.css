@@ -5,23 +5,21 @@
     justify-content: space-evenly;
 }
 .toggle {
-    height: 80vh;
+    height: 95vh;
     border-radius: 20px;
     border: #121212 solid;
-    width: 20% !important;
+    width: 30% !important;
     margin-left: 2% !important;
+    display: grid;
+    grid-template-columns: 1;
 }
 .container{
     display: flex;
     flex-direction: row;
 }
-.switch {
-    display: flex;
-    flex-direction: row;
-    margin-top: 20% !important;
-    width: 120% !important;
-    margin-left: 30% !important;
-}
-.radio {
-    margin-left: -25% !important
+
+.tog {
+    display: grid;
+    grid-template-rows: 1;
+
 }
