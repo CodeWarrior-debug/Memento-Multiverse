@@ -94,6 +94,7 @@ function App() {
             <Route path="/signup" component={SignUp} />
             <Route path="/dashboard" component={Consumer} />
             <Route path="/dashboard" component={Admin} />
+            <Route path="/cart" component={MyCart} />
           </Router>
         </Box>
         <Box
