@@ -4,6 +4,8 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const sequelize = require("sequelize");
 const  route  = require("./routes");
+const passport = require("passport");
+const LocalStrategy = require('passport-local').Strategy;
 
 
 
@@ -19,6 +21,6 @@ app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.listen(PORT, function() {
-  console.log(`🌎 ==> API server now on port ${PORT}!`);
+sequelize.sync({ force: false }).then(() => {
+app.listen(PORT, () => console.log(`🌎 ==> API server now on port ${PORT}!`));
 });
