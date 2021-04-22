@@ -1,10 +1,12 @@
 import React, {PureComponent} from 'react'
 import {
     CartComponent,
-    ProductComponent,
     CheckoutButtonComponent,
     cartLocalization
   } from 'react-shopping-cart';
+
+import "animate.css/animate.min.css";
+import "font-awesome/css/font-awesome.min.css";
 
 const { getDefaultLocalization } = cartLocalization;
 
@@ -48,7 +50,7 @@ class MyCart extends PureComponent {
       },
       propertiesToShowInCart: ["color"],
       prices: { GBP: 70, EUR: 80, USD: 90 },
-      currency: "GBP",
+      currency: "USD",
       imageSrc: "1-483x321.jpeg"
     },
     getProductLocalization: getDefaultLocalization("product", "en", {
@@ -110,27 +112,13 @@ class MyCart extends PureComponent {
       <CheckoutButtonComponent
         grandTotal={500}
         hidden={false}
-        checkoutURL="/to/my/checkout"
-        currency="GBP"
+        checkoutURL="/checkout"
+        currency="USD"
         getLocalization={getCheckoutButtonLocalization}
       />
     );
     return (
       <div className="container">
-        <ProductComponent
-          {...product}
-          checkoutButton={checkoutButtonElement}
-          onAddProduct={
-            addProduct
-            // Help product to get into the cart
-          }
-          generateProductKey={
-            generateProductKey
-            // create product key as you wish
-          }
-          getLocalization={getProductLocalization}
-        />
-
         <CartComponent
           products={
             products
@@ -141,7 +129,7 @@ class MyCart extends PureComponent {
             // Update something
           }
           getLocalization={getCartLocalization}
-          currency="GBP"
+          currency="USD"
           onRemoveProduct={
             removeProduct
             // Remove something
