@@ -82,9 +82,7 @@ function App() {
             ) : (
               <>
                 <Route exact path="/signup" component={SignUp} />
-                <Route>
-                  <Login loginAuth={loginAuth} />
-                </Route>
+                <Route path="*" render={(props) => <Login {...props} loginAuth={loginAuth} />} />
               </>
             )}
             </Switch>

@@ -1,12 +1,15 @@
 import { Route } from 'react-router-dom';
+import Login from '../pages/Login';
 
 const WithAuth = () => {
     return (
        <>
-            <Route></Route>
+            <Route>
+                <Login />
+            </Route>
        </>
 
    )
 }
 
-module.exports = WithAuth;
+export default WithAuth;
