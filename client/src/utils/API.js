@@ -20,7 +20,7 @@ export default {
 
     deleteFromCart: function (id) {
         console.log('Item has been removed from cart');
-        return axios.delete('/deleteFromCart'+ id);
+        return axios.delete('/deleteFromCart' + id);
     },
 
     updateCartQty: function (qty) {
@@ -33,10 +33,11 @@ export default {
         return axios.post('/createCheckout', total);
     },
 
-    getAllTransactions: ()=>{
+    getAllTransactions: () => {
         return axios.get('/api/transactions')
     },
 
-    login: function(userInfo) {
+    login: function (userInfo) {
         return axios.post('/api/users/login', userInfo);
+    }
 }
