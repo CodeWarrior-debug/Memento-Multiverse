@@ -9,7 +9,7 @@ import SignUp from './pages/SignUp';
 import MyCart from './pages/MyCart';
 import Consumer from './pages/Consumer-Dashboard';
 import Admin from './pages/Admin-Dashboard';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, useHistory, Switch } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faUser, faWarehouse, faChartLine, faChartPie, faDollarSign, faMoneyCheck } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -27,15 +27,15 @@ library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt
 
 
 function App() {
-  const adminUser = {
-    username: 'admin',
-    password: 'admin123'
-  }
-  const [user, setUser] = useState({ username: '', password: '' })
-  const [error, setError] = useState('');
+  // const adminUser = {
+  //   username: 'admin',
+  //   password: 'admin123'
+  // }
+  // const [user, setUser] = useState({ username: '', password: '' })
+  // const [error, setError] = useState('');
 
-  const loginAuth = data => {
-    console.log(data);
+  // const loginAuth = data => {
+  //   console.log(data);
 
     // if (data.username === adminUser.username && data.password === adminUser.password) {
     //   console.log('logged in');
@@ -43,11 +43,11 @@ function App() {
     //   console.log('details do not match');
     //   setError('details do not match');
     // }
-  }
+  // }
 
-  const logout = data => {
-    setUser({ username: '', password: '' });
-  }
+  // const logout = data => {
+  //   setUser({ username: '', password: '' });
+  // }
 
   return (
     <>

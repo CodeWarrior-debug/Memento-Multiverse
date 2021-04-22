@@ -33,8 +33,10 @@ export default {
         return axios.post('/createCheckout', total);
     },
 
+    getAllTransactions: ()=>{
+        return axios.get('/api/transactions')
+    },
+
     login: function(userInfo) {
         return axios.post('/api/users/login', userInfo);
-    }
 }
-
