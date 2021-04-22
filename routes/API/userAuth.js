@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../../models');
-const passport = require('../../passport');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 
 router.get('/test', function (req, res) {
     res.json(req.user);
@@ -23,14 +24,16 @@ router.post('/signup', function (req, res) {
 });
 
 // Route for Login
-router.post('/login', 
-passport.authenticate('local', { successRedirect: '/',
-failureRedirect: '/login',
-failureFlash: true })),
- function (req, res) {
-    console.log('login');
-    res.json(req.user);
-};
+router.post('/login',
+    passport.authenticate('local-login', {
+        successRedirect: '/',
+        failureRedirect: '/login',
+        failureFlash: true
+    })),
+    function (req, res) {
+        console.log('login');
+        res.json(req.user);
+    };
 
 // Route for Logout
 router.get('/logout', function (req, res) {

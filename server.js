@@ -13,7 +13,6 @@ app.use(express.json());
 app.use(require('express-session')({
   secret: 'keyboard mouse'
 }));
-
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -23,14 +22,27 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-
 // Send every request to the React app
 // Define any API routes before this runs
 app.use(routes);
-app.get("*", function(req, res) {
+
+const User = require('./models/User');
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-sequelize.sync({ force: false }).then(() => {
-app.listen(PORT, () => console.log(`🌎 ==> API server now on port ${PORT}!`));
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: {}
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
