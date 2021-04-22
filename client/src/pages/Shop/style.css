@@ -11,10 +11,10 @@
     width: 20% !important;
     margin-left: 2% !important;
 }
-/* .container{
+.container{
     display: flex;
     flex-direction: row;
-} */
+}
 .switch {
     display: flex;
     flex-direction: row;
