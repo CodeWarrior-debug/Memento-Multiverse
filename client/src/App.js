@@ -27,11 +27,11 @@ library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt
 
 function App() {
 
-  const handleLogIn = data => {
-    console.log('something');
-    console.log(data);
+  // const handleLogIn = data => {
+  //   console.log('something');
+  //   console.log(data);
 
-  }
+  // }
   // const [token, setToken] = useState();
 
   // if (!token) {
