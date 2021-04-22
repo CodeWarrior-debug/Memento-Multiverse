@@ -9,7 +9,7 @@ import SignUp from './pages/SignUp';
 import MyCart from './pages/MyCart';
 import Consumer from './pages/Consumer-Dashboard';
 import Admin from './pages/Admin-Dashboard';
-import { BrowserRouter as Router, Route, useHistory } from 'react-router-dom';
+import { BrowserRouter as Router, Route, useHistory, Switch } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faUser, faWarehouse, faChartLine, faChartPie, faDollarSign, faMoneyCheck } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -19,6 +19,7 @@ import Inventory from "./pages/Inventory/";
 import NetRevenue from "./pages/NetRevenue/";
 import SalesByFranchise from "./pages/SalesByFranchise/";
 import ProductPage from './pages/ProductPage';
+import WithAuth from './components/WithAuth';
 
 
 library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faGithub, faUser, faWarehouse, faChartLine, faChartPie, faDollarSign, faMoneyCheck);
@@ -26,44 +27,26 @@ library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt
 
 
 function App() {
+  // const adminUser = {
+  //   username: 'admin',
+  //   password: 'admin123'
+  // }
+  // const [user, setUser] = useState({ username: '', password: '' })
+  // const [error, setError] = useState('');
 
-  // const handleLogIn = data => {
-  //   console.log('something');
+  // const loginAuth = data => {
   //   console.log(data);
 
+    // if (data.username === adminUser.username && data.password === adminUser.password) {
+    //   console.log('logged in');
+    // } else {
+    //   console.log('details do not match');
+    //   setError('details do not match');
+    // }
   // }
-  // const [token, setToken] = useState();
 
-  // if (!token) {
-  //   return (
-  //     <>
-  //       <Box
-  //         sx={{
-  //           display: 'flex',
-  //           flexDirection: 'column',
-  //           minHeight: '100vh'
-  //         }}>
-  //         <Box
-  //           sx={{
-  //             p: 3
-  //           }}>
-  //           <Header />
-  //         </Box>
-  //         <Box
-  //           sx={{
-  //             flex: '1 1 auto',
-  //             p: 3
-  //           }}></Box>
-  //         <Login setToken={setToken} />
-  //       </Box>
-  //       <Box
-  //         sx={{
-  //           p: 3
-  //         }}>
-  //         <Footer />
-  //       </Box>
-  //     </>
-  //   )
+  // const logout = data => {
+  //   setUser({ username: '', password: '' });
   // }
 
   return (
@@ -85,16 +68,17 @@ function App() {
             flex: '1 1 auto',
             p: 3
           }}>
-
           <Router>
-            <Route exact path="/" component={Shop} />
-            <Route exact path="/shop" component={Shop} />
-            <Route path="/product" component={ProductPage} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={SignUp} />
-            <Route path="/dashboard" component={Consumer} />
-            <Route path="/dashboard" component={Admin} />
-            <Route path="/cart" component={MyCart} />
+            <Switch>
+              <Route exact path="/" component={Shop} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={SignUp} />
+              <WithAuth exact path="/shop" component={Shop} />
+              <WithAuth exact path="/product" component={ProductPage} />
+              <WithAuth exact path="/dashboard" component={Consumer} />
+              <WithAuth exact path="/admin" component={Admin} />
+              <WithAuth exact path="/cart" component={MyCart} />
+            </Switch>
           </Router>
         </Box>
         <Box
