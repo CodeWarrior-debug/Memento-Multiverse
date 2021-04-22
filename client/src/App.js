@@ -1,4 +1,4 @@
-//import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Box } from 'rebass';
 // import Nav from './components/Nav';
 import Shop from './pages/Shop';
@@ -33,11 +33,11 @@ function App() {
     console.log(data);
 
   }
-  // const [token, setToken] = useState();
+  const [token, setToken] = useState();
 
-  // if (!token){
-  //   return <Login setToken = {setToken}/>
-  // }
+  if (!token){
+    return <Login setToken = {setToken}/>
+  }
 
   return (
     <>
@@ -63,10 +63,10 @@ function App() {
           }}>
 
           <Router>
+            <Route exact path="/" component={Shop} />
             <Route exact path="/shop" component={Shop} />
             <Route path="/product" component={ProductPage} />
             <Route path="/login" component={Login} />
-            <Route path="/logout" component={Logout} />
             <Route path="/signup" component={SignUp} />
             <Route path="/dashboard" component={Consumer} />
             <Route path="/dashboard" component={Admin} />
