@@ -57,6 +57,7 @@ function Login({ handleLogIn }) {
                             <Input
                                 id='password'
                                 name='password'
+                                type='password'
                                 placeholder='password'
                                 onChange={e => setForm({ ...form, password: e.target.value })}
                                 value={form.password}

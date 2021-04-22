@@ -26,6 +26,16 @@ library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt
 
 
 function App() {
+  const [user, setUser] = useState({ name: '', email: '' })
+
+  const login = details => {
+    console.log(details);
+  }
+
+  const Logout = details => {
+    console.log(details);
+  }
+
 
   // const handleLogIn = data => {
   //   console.log('something');
@@ -55,6 +65,9 @@ function App() {
   //             p: 3
   //           }}></Box>
   //         <Login setToken={setToken} />
+  //         <Router>
+  //           <Route exact path="/signup" component={SignUp} />
+  //         </Router>
   //       </Box>
   //       <Box
   //         sx={{
@@ -65,6 +78,7 @@ function App() {
   //     </>
   //   )
   // }
+
 
   return (
     <>
