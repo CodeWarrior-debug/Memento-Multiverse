@@ -28,12 +28,12 @@ function Header() {
                     {' '}
                     Dashboard
                 </Link>
-                <Link className="navLink" variant='nav' href='/login'>
+                <Link className="navLink" variant='nav' href='/cart'>
                     <FontAwesomeIcon className="icons" icon="shopping-cart" />
                     {' '}
                     Cart
                 </Link>
-                <Link className="navLink" variant='nav' href='/logoutc'>
+                <Link className="navLink" variant='nav' href='/logout'>
                     <FontAwesomeIcon icon="sign-out-alt" />
                     {' '}
                     Logout
