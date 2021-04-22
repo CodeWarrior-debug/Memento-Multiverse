@@ -34,6 +34,9 @@ export default {
     },
     getAllTransactions: ()=>{
         return axios.get('/api/transactions')
+    },
+    getFranchises: ()=>{
+        return axios.get('/api/franchise')
     }
 }
 
