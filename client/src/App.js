@@ -14,13 +14,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faUser, faWarehouse, faChartLine, faChartPie, faDollarSign, faMoneyCheck} from '@fortawesome/free-solid-svg-icons';
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
-<<<<<<< HEAD
-import AllSales from "./pages/AllSales";
-import Expenses from "./pages/Expenses";
-import Inventory from "./pages/Inventory";
-import NetRevenue from "./pages/NetRevenue";
-import SalesByFranchise from "./pages/SalesByFranchise";
-=======
 import AllSales from "./pages/AllSales/";
 import Expenses from "./pages/Expenses/";
 import Inventory from "./pages/Inventory/";
@@ -28,7 +21,6 @@ import NetRevenue from "./pages/NetRevenue/";
 import SalesByFranchise from "./pages/SalesByFranchise/";
 import ProductPage from './pages/ProductPage';
 
->>>>>>> b4ef216f7dcdc62fa28efae9eef904dbe606c0e4
 
 library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faGithub, faUser, faWarehouse, faChartLine, faChartPie, faDollarSign, faMoneyCheck);
 

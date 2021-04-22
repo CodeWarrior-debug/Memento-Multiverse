@@ -2,7 +2,8 @@ import {
     Box,
 } from 'rebass';
 
-import { Label, Radio } from '@rebass/forms'
+import { Label, Radio } from '@rebass/forms';
+import './style.css';
 
 const Toggle = (props) => {
     return ( 
