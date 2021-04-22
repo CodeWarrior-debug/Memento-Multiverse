@@ -19,6 +19,7 @@ import Inventory from "./pages/Inventory/";
 import NetRevenue from "./pages/NetRevenue/";
 import SalesByFranchise from "./pages/SalesByFranchise/";
 import ProductPage from './pages/ProductPage';
+import WithAuth from './components/WithAuth';
 
 
 library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faGithub, faUser, faWarehouse, faChartLine, faChartPie, faDollarSign, faMoneyCheck);
@@ -36,12 +37,12 @@ function App() {
   const loginAuth = data => {
     console.log(data);
 
-    if (data.username === adminUser.username && data.password === adminUser.password) {
-      console.log('logged in');
-    } else {
-      console.log('details do not match');
-      setError('details do not match');
-    }
+    // if (data.username === adminUser.username && data.password === adminUser.password) {
+    //   console.log('logged in');
+    // } else {
+    //   console.log('details do not match');
+    //   setError('details do not match');
+    // }
   }
 
   const logout = data => {
@@ -69,22 +70,14 @@ function App() {
           }}>
           <Router>
             <Switch>
-            {(user.username !== '') ? (
-              <>
-                <Route exact path="/" component={Shop} />
-                <Route exact path="/shop" component={Shop} />
-                <Route path="/product" component={ProductPage} />
-                <Route path="/login" component={Login} />
-                <Route path="/dashboard" component={Consumer} />
-                <Route path="/dashboard" component={Admin} />
-                <Route path="/cart" component={MyCart} />
-              </>
-            ) : (
-              <>
-                <Route exact path="/signup" component={SignUp} />
-                <Route path="*" render={(props) => <Login {...props} loginAuth={loginAuth} />} />
-              </>
-            )}
+              <Route exact path="/" component={Shop} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={SignUp} />
+              <WithAuth exact path="/shop" component={Shop} />
+              <WithAuth exact path="/product" component={ProductPage} />
+              <WithAuth exact path="/dashboard" component={Consumer} />
+              <WithAuth exact path="/admin" component={Admin} />
+              <WithAuth exact path="/cart" component={MyCart} />
             </Switch>
           </Router>
         </Box>

@@ -1,15 +1,15 @@
-import { Route } from 'react-router-dom';
-import Login from '../pages/Login';
+import { Redirect, Route } from 'react-router-dom';
 
-const WithAuth = () => {
+const WithAuth = ({ user, component: Component, ...rest }) => {
+    if (!user || !user.username) {
+        return <Redirect to="/login" />
+    }
     return (
-       <>
-            <Route>
-                <Login />
-            </Route>
-       </>
-
-   )
+        <Route
+            {...rest}
+            render={(props) => <Component {...props} user={user} />}
+        />
+    )
 }
 
 export default WithAuth;

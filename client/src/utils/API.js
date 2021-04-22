@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-    getAll: ()=>{
+    getAll: () => {
         return axios.get('/api/products/')
     },
     getOneItem: function (itemId) {
@@ -31,6 +31,10 @@ export default {
     createCheckout: function (total) {
         console.log('Creating your order', total);
         return axios.post('/createCheckout', total);
+    },
+
+    login: function(userInfo) {
+        return axios.post('/api/users/login', userInfo);
     }
 }
 
