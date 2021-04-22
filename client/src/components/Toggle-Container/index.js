@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import axios from 'axios';
 import {
     Box,
     Flex,
@@ -9,13 +10,13 @@ import Toggle from '../Toggle';
 class ToggleContainer extends Component {
     state = { franchiseData: [{id: 1, name: "Seinfeld", logo: "text"}, {id: 2, name: "Rick and Morty", logo: "morty"}] }
 
-    // componentDidMount() {
-    //     axios.get(`https://randomuser.me/api/?results=20&nat=us`)
-    //       .then(res => {
-    //         this.setState({ employeeList: res.data.results });
-    //         console.log(res.data.results);
-    //       });
-    //   }
+    componentDidMount() {
+        axios.get('')
+          .then(res => {
+            console.log(res.data);
+            this.setState({ franchiseData: res.data });
+          });
+      }
 
 
     render() { 
