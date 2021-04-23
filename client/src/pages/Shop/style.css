@@ -16,16 +16,6 @@
 .container{
     display: flex;
     flex-direction: row;
-<<<<<<< HEAD
-}
-.switch {
-    display: flex;
-    flex-direction: row;
-    margin-top: 20% !important;
-    width: 120% !important;
-    margin-left: 30% !important;
-=======
->>>>>>> main
 }
 
 .tog {
