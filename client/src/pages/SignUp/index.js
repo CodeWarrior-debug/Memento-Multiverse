@@ -17,7 +17,6 @@ function SignUp({ SignUp }) {
     SignUp(details);
   }
 
-
   return (
     <div className="container">
       {/* Form with username, email, password, confirm password, checkbox for auth and signup button */}
