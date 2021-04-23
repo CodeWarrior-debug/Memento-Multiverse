@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box } from 'rebass';
 // import Nav from './components/Nav';
 import Shop from './pages/Shop';
@@ -13,25 +13,37 @@ import { BrowserRouter as Router, Route, useHistory, Switch } from 'react-router
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faUser, faWarehouse, faChartLine, faChartPie, faDollarSign, faMoneyCheck } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import AllSales from "./pages/AllSales/";
-import Expenses from "./pages/Expenses/";
-import Inventory from "./pages/Inventory/";
-import NetRevenue from "./pages/NetRevenue/";
-import SalesByFranchise from "./pages/SalesByFranchise/";
+// import AllSales from "./pages/AllSales/";
+// import Expenses from "./pages/Expenses/";
+// import Inventory from "./pages/Inventory/";
+// import NetRevenue from "./pages/NetRevenue/";
+// import SalesByFranchise from "./pages/SalesByFranchise/";
 import ProductPage from './pages/ProductPage';
 import WithAuth from './components/WithAuth';
+import API from './utils/API';
 
 
 library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faGithub, faUser, faWarehouse, faChartLine, faChartPie, faDollarSign, faMoneyCheck);
 
 
-
 function App() {
   const [user, setUser] = useState({ username: '', password: '' })
   const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    API.logIn()
+      .then(results => {
+        setUser(results.data)
+        setLoaded(true);
+      })
+      .catch(err => {
+        console.log(err)
+        setLoaded(true)
+      })
+  }, [])
 
-  const loginAuth = data => {
-    console.log(data);
+  const handleLogout = () => {
+    setUser({});
+    API.logOut();
   }
 
   return (
@@ -54,16 +66,19 @@ function App() {
             p: 3
           }}>
           <Router>
-            <Switch>
-              <WithAuth exact path="/" component={Shop} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={SignUp} />
-              <WithAuth exact path="/shop" component={Shop} />
-              <WithAuth exact path="/product" component={ProductPage} />
-              <WithAuth exact path="/dashboard" component={Consumer} />
-              <WithAuth exact path="/admin" component={Admin} />
-              <WithAuth exact path="/cart" component={MyCart} />
-            </Switch>
+            {loaded ? (
+              <Switch>
+                <WithAuth exact path="/" loggedIn={user} component={Shop} />
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/signup" component={SignUp} />
+                <WithAuth exact path="/shop" component={Shop} />
+                <WithAuth exact path="/product" component={ProductPage} />
+                <WithAuth exact path="/dashboard" component={Consumer} />
+                <WithAuth exact path="/admin" component={Admin} />
+                <WithAuth exact path="/cart" component={MyCart} />
+              </Switch>) :
+              (<h1> Loading... </h1>)
+            }
           </Router>
         </Box>
         <Box

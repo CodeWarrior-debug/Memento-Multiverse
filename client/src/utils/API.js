@@ -46,7 +46,7 @@ export default {
 
     logOut: () => {
         return axios.post('/api/uesrs/logout')
-    }
+    },
 
     signUp: (userInfo) => {
         return axios.post('/api/users/signup', userInfo);

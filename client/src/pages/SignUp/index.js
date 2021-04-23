@@ -16,7 +16,7 @@ function SignUp() {
     e.preventDefault();
     console.log(details);
 
-    const signedUpUser = await API.signup(details);
+    const signedUpUser = await API.signUp(details);
   }
 
   return (
