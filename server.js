@@ -17,7 +17,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-app.set('view engine', 'html')
+// app.set('view engine', 'html')
 
 
 // Serve up static assets (usually on heroku)
