@@ -40,11 +40,15 @@ export default {
         return axios.get('/api/franchise')
     },
     
-    login: (userInfo) => {
+    logIn: (userInfo) => {
         return axios.post('/api/users/login', userInfo);
     },
 
-    signup: (userInfo) => {
+    logOut: () => {
+        return axios.post('/api/uesrs/logout')
+    }
+
+    signUp: (userInfo) => {
         return axios.post('/api/users/signup', userInfo);
     }
 }
