@@ -11,17 +11,28 @@ import {
     Text
 } from 'rebass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import API from '../../utils/API';
+import { Redirect } from 'react-router';
 
-function Login() {
+function Login({ setUser }) {
     const [form, setForm] = useState({ username: '', password: '' });
-
-    const submitHandler = e => {
+    const [redirect, setRedirect] = useState(false);
+    const submitHandler = async e => {
         e.preventDefault();
-        console.log(form);
+        try {
+            const loggedInUser = await API.logIn(form);
+            setUser(loggedInUser.data);
+            setRedirect(true);
+            console.log("redirecting")
+        } catch(err) {
+            console.log(err);
+        }
+
     }
 
     return (
         <div className="container">
+            {redirect && <Redirect to="/" />}
             <Box
                 className="formCard"
                 as='form'

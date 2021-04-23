@@ -1,7 +1,8 @@
 import { Redirect, Route } from 'react-router-dom';
 
 const WithAuth = ({ user, component: Component, ...rest }) => {
-    if (!user || !user.username) {
+    
+    if (!user || !user.user_name) {
         return <Redirect to="/login" />
     }
     return (
