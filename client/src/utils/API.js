@@ -52,7 +52,7 @@ export default {
         return axios.post('/api/users/signup', userInfo);
     },
 
-    loggedIn: () => [
+    loggedIn: () => {
         return axios.get('/api/users/user')
-    ]
+    }
 }
