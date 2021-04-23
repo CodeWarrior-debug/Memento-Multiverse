@@ -30,7 +30,7 @@ function App() {
   const [user, setUser] = useState({ username: '', password: '' })
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
-    API.logIn()
+    API.loggedIn()
       .then(results => {
         setUser(results.data)
         setLoaded(true);
@@ -68,8 +68,8 @@ function App() {
           <Router>
             {loaded ? (
               <Switch>
-                <Route exact path="/" loggedIn={user} component={Shop} />
-                <Route exact path="/login" component={Login} />
+                <WithAuth exact path="/" loggedIn={user} component={Shop} />
+                <Route exact path="/login" render={(props) => <Login {...props} setUser={setUser}/>} />
                 <Route exact path="/signup" component={SignUp} />
                 <WithAuth exact path="/shop" component={Shop} />
                 <Route exact path="/product" component={ProductPage} />

@@ -32,16 +32,10 @@ router.post('/signup', async (req, res) => {
 });
 
 // Route for Login
-router.post('/login',
-    passport.authenticate('local-login', {
-        successRedirect: '/',
-        failureRedirect: '/login',
-        failureFlash: true
-    })),
-    function (req, res) {
-        console.log('login');
-        res.json(req.user);
-    };
+router.post('/login', passport.authenticate('local'), function (req, res) {
+    console.log('LOGIN', req.user);
+    res.json(req.user);
+});
 
 // Route for Logout
 router.get('/logout', function (req, res) {
@@ -53,11 +47,13 @@ router.get('/logout', function (req, res) {
 router.get('/user', async (req, res) => {
     console.log('made it to this route')
     try {
-        if (req.session.logged_in) {
-            const userData = await User.findByPk(req.session.user_id);
-            delete userData.dataValues.password;
+        if (req.user) {
+            const userData = {...req.user};
+            delete userData.password;
+            res.status(200).json(userData);
+        } else {
+            res.sendStatus(403);
         }
-        res.status(200).json(userData);
     } catch (err) {
         res.status(500).json(err);
     }
