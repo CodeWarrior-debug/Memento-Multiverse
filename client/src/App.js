@@ -74,10 +74,10 @@ function App() {
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={SignUp} />
               <WithAuth exact path="/shop" component={Shop} />
-              <WithAuth exact path="/product" component={ProductPage} />
+              <Route exact path="/product" component={ProductPage} />
               <WithAuth exact path="/dashboard" component={Consumer} />
               <WithAuth exact path="/admin" component={Admin} />
-              <WithAuth exact path="/cart" component={MyCart} />
+              <Route exact path="/cart" component={MyCart} />
             </Switch>
           </Router>
         </Box>
