@@ -27,27 +27,27 @@ library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt
 
 
 function App() {
-  // const adminUser = {
-  //   username: 'admin',
-  //   password: 'admin123'
-  // }
-  // const [user, setUser] = useState({ username: '', password: '' })
-  // const [error, setError] = useState('');
+  const adminUser = {
+    username: 'admin',
+    password: 'admin123'
+  }
+  const [user, setUser] = useState({ username: '', password: '' })
+  const [error, setError] = useState('');
 
-  // const loginAuth = data => {
-  //   console.log(data);
+  const loginAuth = data => {
+    console.log(data);
 
-    // if (data.username === adminUser.username && data.password === adminUser.password) {
-    //   console.log('logged in');
-    // } else {
-    //   console.log('details do not match');
-    //   setError('details do not match');
-    // }
-  // }
+    if (data.username === adminUser.username && data.password === adminUser.password) {
+      console.log('logged in');
+    } else {
+      console.log('details do not match');
+      setError('details do not match');
+    }
+  }
 
-  // const logout = data => {
-  //   setUser({ username: '', password: '' });
-  // }
+  const logout = data => {
+    setUser({ username: '', password: '' });
+  }
 
   return (
     <>
@@ -70,7 +70,7 @@ function App() {
           }}>
           <Router>
             <Switch>
-              <Route exact path="/" component={Shop} />
+              <WithAuth exact path="/" component={Shop} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={SignUp} />
               <WithAuth exact path="/shop" component={Shop} />
