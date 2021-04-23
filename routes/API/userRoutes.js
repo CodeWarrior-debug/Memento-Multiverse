@@ -1,6 +1,8 @@
 const router = require('express').Router();
+const { delete } = require('.');
 const User = require('../../models/User');
 
+// Get one user
 router.get('/:id', async (req, res) => {
     try{
         const userData = await User.findByPk(req.params.id);
@@ -14,6 +16,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+// Create a new User
 router.post('/', async (req, res) => {
     try {
         const userData = await User.create({
@@ -27,6 +30,7 @@ router.post('/', async (req, res) => {
     }
 });
 
+// Update a user
 router.put('/:id', async (req, res) => {
     try {
       const userData = await User.update(req.body, {
@@ -44,3 +48,15 @@ router.put('/:id', async (req, res) => {
     }
   });
   
+// Delete password on callback if the user is signed in
+  router.get('/user', async (req, res) => {
+      try{
+          if(req.session.logged_in) {
+              const userData = await User.findByPk(req.session.user_id);
+              delete userData.dataValues.password;
+          } 
+          res.status(200).json(userData);
+      } catch (err) {
+          res.status(500).json(err);
+      }
+  });
