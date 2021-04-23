@@ -1,158 +1,69 @@
-import React, {PureComponent} from 'react'
-import {
-    CartComponent,
-    ProductComponent,
-    CheckoutButtonComponent,
-    cartLocalization
-  } from 'react-shopping-cart';
+import React, { useState, useEffect } from "react";
 
-const { getDefaultLocalization } = cartLocalization;
-
-// You may take localization object from wherever you want, that's just an example
-// For more information, see localization section
-const iPadCaseLocalization = {
-  color: "Color",
-  iPadCase: "iPad case",
-  red: "Red",
-  green: "Green",
-  yellow: "Yellow",
-  GBP: "£",
-  EUR: "€",
-  USD: "$"
-};
-
-const iPadPropertiesWithAdditionalCostLocalization = {
-  yellow: "Yellow (+{cost, number, CUR})"
-};
-
-class MyCart extends PureComponent {
-  state = {
-    products: {},
-    product: {
-      name: "iPadCase",
-      id: "ipad-case",
-      path: "/shop/ipad-case/",
-      properties: {
-        color: [
-          "red",
-          "green",
-          {
-            additionalCost: {
-              GBP: 1,
-              EUR: 2,
-              USD: 3.5
-            },
-            value: "yellow"
-          }
-        ]
-      },
-      propertiesToShowInCart: ["color"],
-      prices: { GBP: 70, EUR: 80, USD: 90 },
-      currency: "GBP",
-      imageSrc: "1-483x321.jpeg"
+const MyCart = () => {
+  const [cart, setCart] = useState([]);
+  const [cartTotal, setCartTotal] = useState(0);
+  const items = [
+    {
+      id: 1,
+      name: "item1",
+      price: 20,
     },
-    getProductLocalization: getDefaultLocalization("product", "en", {
-      ...iPadCaseLocalization,
-      ...iPadPropertiesWithAdditionalCostLocalization
-    }),
-    getCheckoutButtonLocalization: getDefaultLocalization(
-      "checkoutButton",
-      "en",
-      iPadCaseLocalization
-    ),
-    getCartLocalization: getDefaultLocalization(
-      "cart",
-      "en",
-      iPadCaseLocalization
-    )
+    {
+      id: 2,
+      name: "item2",
+      price: 32,
+    },
+    {
+      id: 3,
+      name: "item3",
+      price: 51,
+    },
+  ];
+
+  useEffect(() => {
+    total();
+  }, [cart]);
+
+  const total = () => {
+    let totalVal = 0;
+    for (let i = 0; i < cart.length; i++) {
+      totalVal += cart[i].price;
+    }
+    setCartTotal(totalVal);
   };
 
-  addProduct = (key, product, currency) =>
-    void this.setState(
-      ({
-        products: { [key]: cartProduct = { quantity: 0 }, ...restOfProducts }
-      }) => ({
-        products: {
-          ...restOfProducts,
-          [key]: {
-            ...product,
-            quantity: product.quantity + cartProduct.quantity
-          }
-        }
-      })
-    );
+  const addToCart = (el) => {
+      setCart([...cart, el]);
+  };
 
-  generateProductKey = (id, properties) =>
-    `${id}/${Object.entries(properties).join("_")}`;
+  const removeFromCart = (el) => {
+    let hardCopy = [...cart];
+    hardCopy = hardCopy.filter((cartItem) => cartItem.id !== el.id);
+    setCart(hardCopy);
+  };
 
-  updateProduct = (key, updatedProduct) => void console.log(":)");
+  const listItems = items.map((el) => (
+    <div key={el.id}>
+      {`${el.name}: $${el.price}`}
+      <input type="submit" value="add" onClick={() => addToCart(el)} />
+    </div>
+  ));
 
-  removeProduct = key => void console.log(":C");
+  const cartItems = cart.map((el) => (
+    <div key={el.id}>
+      {`${el.name}: $${el.price}`}
+      <input type="submit" value="remove" onClick={() => removeFromCart(el)} />
+    </div>
+  ));
 
-  render() {
-    const {
-      addProduct,
-      generateProductKey,
-      updateProduct,
-      removeProduct,
-      state
-    } = this;
-
-    const {
-      getProductLocalization,
-      getCheckoutButtonLocalization,
-      getCartLocalization,
-      products,
-      product
-    } = state;
-
-    const checkoutButtonElement = (
-      <CheckoutButtonComponent
-        grandTotal={500}
-        hidden={false}
-        checkoutURL="/to/my/checkout"
-        currency="GBP"
-        getLocalization={getCheckoutButtonLocalization}
-      />
-    );
-    return (
-      <div className="container">
-        <ProductComponent
-          {...product}
-          checkoutButton={checkoutButtonElement}
-          onAddProduct={
-            addProduct
-            // Help product to get into the cart
-          }
-          generateProductKey={
-            generateProductKey
-            // create product key as you wish
-          }
-          getLocalization={getProductLocalization}
-        />
-
-        <CartComponent
-          products={
-            products
-            // Provide your own product's Object(Look at Products)
-          }
-          onUpdateProduct={
-            updateProduct
-            // Update something
-          }
-          getLocalization={getCartLocalization}
-          currency="GBP"
-          onRemoveProduct={
-            removeProduct
-            // Remove something
-          }
-          checkoutButton={checkoutButtonElement}
-          isCartEmpty={false}
-          getLocalization={getCartLocalization}
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <h1>My Cart</h1>
+      <div>{cartItems}</div>
+      <h3>Total: ${cartTotal}</h3>
+    </div>
+  );
+};
 
 export default MyCart
