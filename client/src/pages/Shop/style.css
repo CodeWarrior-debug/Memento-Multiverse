@@ -5,9 +5,11 @@
     justify-content: space-evenly;
 }
 .toggle {
+    background-color: hsl(0, 0%, 7%, 60%);
     height: 95vh;
+    color: #eee;
     border-radius: 20px;
-    border: #121212 solid;
+    border: #eee solid;
     width: 30% !important;
     margin-left: 2% !important;
     display: grid;
@@ -15,7 +17,7 @@
 }
 .container{
     display: flex;
-    flex-direction: row;
+    flex-direction: row !important;
 }
 
 .tog {
