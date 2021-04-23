@@ -3,7 +3,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/User');
 // const Port = process.env.Port || 3001
 
-passport.use(new LocalStrategy(
+passport.use('local-login', new LocalStrategy(
     {
     usernameField: 'email',
     passwordField: 'password'
