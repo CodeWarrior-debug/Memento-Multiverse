@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import './style.css'
+import {Button} from 'rebass'
 
 const MyCart = () => {
   const [cart, setCart] = useState([]);
@@ -33,35 +35,36 @@ const MyCart = () => {
     setCartTotal(totalVal);
   };
 
-  const addToCart = (el) => {
-      setCart([...cart, el]);
+  const addToCart = (product) => {
+      setCart([...cart, product]);
   };
 
-  const removeFromCart = (el) => {
+  const removeFromCart = (product) => {
     let hardCopy = [...cart];
-    hardCopy = hardCopy.filter((cartItem) => cartItem.id !== el.id);
+    hardCopy = hardCopy.filter((cartItem) => cartItem.id !== product.id);
     setCart(hardCopy);
   };
 
-  const listItems = items.map((el) => (
-    <div key={el.id}>
-      {`${el.name}: $${el.price}`}
-      <input type="submit" value="add" onClick={() => addToCart(el)} />
+  const listItems = items.map((product) => (
+    <div key={product.id}>
+      {`${product.name}: $${product.price}`}
+      <input type="submit" value="add" onClick={() => addToCart(product)} />
     </div>
   ));
 
-  const cartItems = cart.map((el) => (
-    <div key={el.id}>
-      {`${el.name}: $${el.price}`}
-      <input type="submit" value="remove" onClick={() => removeFromCart(el)} />
+  const cartItems = cart.map((product) => (
+    <div key={product.id}>
+      {`${product.name}: $${product.price}`}
+      <input type="submit" value="remove" onClick={() => removeFromCart(product)} />
     </div>
   ));
 
   return (
-    <div>
+    <div className="cart">
       <h1>My Cart</h1>
       <div>{cartItems}</div>
       <h3>Total: ${cartTotal}</h3>
+      <Button className="btn">Checkout</Button>
     </div>
   );
 };
