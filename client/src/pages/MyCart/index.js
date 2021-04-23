@@ -51,7 +51,6 @@ const MyCart = () => {
       <input type="submit" value="add" onClick={() => addToCart(product)} />
     </div>
   ));
-
   const cartItems = cart.map((product) => (
     <div key={product.id}>
       {`${product.name}: $${product.price}`}

@@ -1,6 +1,7 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/User');
+// const Port = process.env.Port || 3001
 
 passport.use(new LocalStrategy(
     {
@@ -20,3 +21,5 @@ passport.use(new LocalStrategy(
         });
     }
 ));
+
+module.exports = LocalStrategy;
