@@ -12,7 +12,7 @@ import {
 } from 'rebass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function Login({ loginAuth, error }) {
+function Login({ loginAuth }) {
     const [form, setForm] = useState({ username: '', password: '' });
 
     const submitHandler = e => {

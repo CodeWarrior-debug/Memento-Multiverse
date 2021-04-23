@@ -8,20 +8,16 @@ import {
 import { Label, Input, Checkbox } from '@rebass/forms'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function SignUp({ SignUp }) {
-  const [details, setDetails] = useState({username: "", email: "", password: ""});
+function SignUp() {
+  const [details, setDetails] = useState({ username: "", email: "", password: "" });
 
   const handleSignUp = e => {
     e.preventDefault();
-
-    SignUp(details);
+    console.log(details);
   }
 
   return (
     <div className="container">
-      {/* Form with username, email, password, confirm password, checkbox for auth and signup button */}
-
-      {/* username */}
       <Box
         className="formCard"
         as='form'
@@ -77,6 +73,7 @@ function SignUp({ SignUp }) {
               id='password'
               name='password'
               placeholder='password'
+              type='password'
               onChange={e => setDetails({ ...details, password: e.target.value })}
               value={details.password}
             />
@@ -93,6 +90,7 @@ function SignUp({ SignUp }) {
               id='confirmPassword'
               name='confirmPassword'
               placeholder='password'
+              type='password'
             />
 
             {/* checkbox auth */}
@@ -102,8 +100,8 @@ function SignUp({ SignUp }) {
                 id='auth'
                 name='auth'
               />
-    I am not a Robot
-  </Label>
+              I am not a Robot
+            </Label>
 
           </Box>
         </Flex>
