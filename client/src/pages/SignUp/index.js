@@ -7,13 +7,16 @@ import {
 
 import { Label, Input, Checkbox } from '@rebass/forms'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import API from '../../utils/API';
 
 function SignUp() {
   const [details, setDetails] = useState({ username: "", email: "", password: "" });
 
-  const handleSignUp = e => {
+  const handleSignUp = async e => {
     e.preventDefault();
     console.log(details);
+
+    const signedUpUser = await API.signup(details);
   }
 
   return (

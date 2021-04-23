@@ -15,5 +15,4 @@ router.use('/cart', cartRoutes); //TODO will this be local storage or DB table?
 router.use('/franchise', franchiseRoutes);
 
 
-
 module.exports = router;

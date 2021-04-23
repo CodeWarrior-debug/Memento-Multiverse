@@ -27,26 +27,11 @@ library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt
 
 
 function App() {
-  const adminUser = {
-    username: 'admin',
-    password: 'admin123'
-  }
   const [user, setUser] = useState({ username: '', password: '' })
-  const [error, setError] = useState('');
+  const [loaded, setLoaded] = useState(false);
 
   const loginAuth = data => {
     console.log(data);
-
-    if (data.username === adminUser.username && data.password === adminUser.password) {
-      console.log('logged in');
-    } else {
-      console.log('details do not match');
-      setError('details do not match');
-    }
-  }
-
-  const logout = data => {
-    setUser({ username: '', password: '' });
   }
 
   return (
