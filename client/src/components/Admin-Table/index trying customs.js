@@ -1,3 +1,6 @@
+
+// TODO: import Data from Data.js <-- find out how to get the data to put inside the tables
+// TODO: makedata is undefined on line 576 because we have to add our own data and name it 
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import {
@@ -11,8 +14,7 @@ import {
 } from 'react-table'
 import {matchSorter} from 'match-sorter';
 import API from '../../utils/API';
-
-import makeData from './makeData'
+import makeData from './makeData';
 
 const Styles = styled.div`
   padding: 1rem;
@@ -531,43 +533,43 @@ const IndeterminateCheckbox = React.forwardRef(
 )
 
 function AdminTable() {
-//************************Testing
-  const [dbdata, setDBData] = useState();
+
+  const [data, setData] = useState();
   
   useEffect(()=>{
     API.getAllTransactions()
-    .then(dbdata=>console.log(dbdata))})
+    .then(data=>console.log(data))})
     // .then(data=>setData(data))
 
-    // const [originalData] = useState(data);
+    const [originalData] = useState(data);
 
-//********************************Testing End
   const columns = React.useMemo(
     () => [
       {
-        Header: 'Name',
+        Header: 'Franchise',
         columns: [
           {
-            Header: 'First Name',
-            accessor: 'firstName',
+            Header: 'Franchise # Sales',
+            accessor: 'franchise',
             // Use a two-stage aggregator here to first
             // count the total rows being aggregated,
             // then sum any of those counts if they are
             // aggregated further
             aggregate: 'count',
             Aggregated: ({ value }) => `${value} Names`,
-          },
+          }
+          ,
           {
-            Header: 'Last Name',
-            accessor: 'lastName',
+            Header: 'Franchise # Sales2',
+            accessor: 'franchise',
             // Use our custom `fuzzyText` filter on this column
-            filter: 'fuzzyText',
+            // filter: 'fuzzyText',
             // Use another two-stage aggregator here to
             // first count the UNIQUE values from the rows
             // being aggregated, then sum those counts if
             // they are aggregated further
-            aggregate: 'uniqueCount',
-            Aggregated: ({ value }) => `${value} Unique Names`,
+            aggregate: 'count',
+            Aggregated: ({ value }) => `${value} Names`,
           },
         ],
       },
@@ -575,46 +577,46 @@ function AdminTable() {
         Header: 'Info',
         columns: [
           {
-            Header: 'Age',
-            accessor: 'age',
+            Header: 'Quantity',
+            accessor: 'quantity',
             Filter: SliderColumnFilter,
             filter: 'equals',
-            // Aggregate the average age of visitors
-            aggregate: 'average',
-            Aggregated: ({ value }) => `${value} (avg)`,
-          },
+            // Aggregate the sum of all quantities
+            aggregate: 'sum',
+            Aggregated: ({ value }) => `${value} (total)`,
+          }
+          ,
           {
-            Header: 'Visits',
-            accessor: 'visits',
-            Filter: NumberRangeColumnFilter,
-            filter: 'between',
-            // Aggregate the sum of all visits
+            Header: 'Quantity2',
+            accessor: 'quantity',
+            Filter: SliderColumnFilter,
+            filter: 'equals',
+            // Aggregate the sum of all quantities
             aggregate: 'sum',
             Aggregated: ({ value }) => `${value} (total)`,
           },
-          {
-            Header: 'Status',
-            accessor: 'status',
-            Filter: SelectColumnFilter,
-            filter: 'includes',
-          },
-          {
-            Header: 'Profile Progress',
-            accessor: 'progress',
-            Filter: SliderColumnFilter,
-            filter: filterGreaterThan,
-            // Use our custom roundedMedian aggregator
-            aggregate: roundedMedian,
-            Aggregated: ({ value }) => `${value} (med)`,
-          },
+          // {
+          //   Header: 'Status',
+          //   accessor: 'status',
+          //   Filter: SelectColumnFilter,
+          //   filter: 'includes',
+          // },
+          // {
+          //   Header: 'Profile Progress',
+          //   accessor: 'progress',
+          //   Filter: SliderColumnFilter,
+          //   filter: filterGreaterThan,
+          //   // Use our custom roundedMedian aggregator
+          //   aggregate: roundedMedian,
+          //   Aggregated: ({ value }) => `${value} (med)`,
+          // },
         ],
       },
     ],
     []
   )
 
-  const [data, setData] = React.useState(() => makeData(10000))
-  const [originalData] = React.useState(data)
+
 
   // We need to keep the table from resetting the pageIndex when we
   // Update data. So we can keep track of that flag with a ref.
@@ -667,4 +669,4 @@ function AdminTable() {
   )
 }
 
-export default AdminTable
+export default AdminTable;
