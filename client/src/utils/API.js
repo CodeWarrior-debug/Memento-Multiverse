@@ -50,5 +50,9 @@ export default {
 
     signUp: (userInfo) => {
         return axios.post('/api/users/signup', userInfo);
-    }
+    },
+
+    loggedIn: () => [
+        return axios.get('/api/users/user')
+    ]
 }
