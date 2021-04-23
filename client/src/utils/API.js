@@ -38,8 +38,8 @@ export default {
     },
     getFranchises: ()=>{
         return axios.get('/api/franchise')
-    }
-}
+    },
+    
     login: function (userInfo) {
         return axios.post('/api/users/login', userInfo);
     }
