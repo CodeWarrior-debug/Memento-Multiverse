@@ -62,7 +62,7 @@ const MyCart = () => {
   return (
     <div className="cart">
       <h1>My Cart</h1>
-      <div>{cartItems}</div>
+      <p>{cartItems}</p>
       <h3>Total: ${cartTotal}</h3>
       <Button className="btn">Checkout</Button>
     </div>
