@@ -5,10 +5,12 @@ import {
     Flex,
     Text
 } from 'rebass';
+import useSound from 'use-sound'
 import '../styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Header() {
+        const [play] = useSound('../../audio/dumb_name.mp3');
     return (
         <div>
             <Flex
@@ -16,7 +18,7 @@ function Header() {
                 color='white'
                 bg='black'
                 alignItems='center'>
-                <Text p={4} fontWeight='bold' fontSize="30px" color="#eee">Memento Multiverse</Text>
+                <Text p={4} fontWeight='bold' fontSize="30px" color="#eee" onMouseEnter={play} >Memento Multiverse</Text>
                 <Box mx='auto' />
                 <Link className="navLink" variant='nav' href='/shop'>
                     <FontAwesomeIcon icon="home" />

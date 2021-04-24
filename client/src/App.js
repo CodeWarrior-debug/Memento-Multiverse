@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Box } from 'rebass';
-// import Nav from './components/Nav';
 import Shop from './pages/Shop';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -21,6 +20,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import ProductPage from './pages/ProductPage';
 import WithAuth from './components/WithAuth';
 import API from './utils/API';
+import './index.css'
 
 
 library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faGithub, faUser, faWarehouse, faChartLine, faChartPie, faDollarSign, faMoneyCheck);
@@ -49,7 +49,7 @@ function App() {
 
   return (
     <>
-      <Box
+      <Box className="bg"
         sx={{
           display: 'flex',
           flexDirection: 'column',
@@ -76,7 +76,7 @@ function App() {
                 />
                 } />
                 <Route exact path="/signup" component={SignUp} />
-                <WithAuth exact path="/shop" component={Shop} />
+                <Route exact path="/shop" component={Shop} />
                 <Route exact path="/product" component={ProductPage} />
                 <WithAuth exact path="/dashboard" component={Consumer} />
                 <WithAuth exact path="/admin" component={Admin} />
