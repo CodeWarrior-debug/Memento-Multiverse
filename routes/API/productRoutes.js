@@ -4,7 +4,7 @@ const cartController = require('../../controllers/cartController');
 
 // Routing to the homepage and a get to get all items in the database using the controllers
 
-router.route('/').get(itemsController.findFranchiseProducts);
+router.route('/fran/:franchiseId').get(itemsController.findFranchiseProducts);
 
 router.route('/:ItemId').get(itemsController.findOne);
 

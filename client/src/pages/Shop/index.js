@@ -16,7 +16,7 @@ function Shop() {
 
     const [itemList, setItemList] = useState([]);
     useEffect(() => {
-        API.getAll()
+        API.getOneFranchise() // TODO: change routing/Not working
         .then((list)=>{
             console.log(list.data)
             setItemList(list.data)
@@ -24,7 +24,7 @@ function Shop() {
 
     }, [])
     return (
-        <div className="container">
+        <div className="containers">
                         <ToggleContainer className="tog"/>
             <Box>
                 <div className="shop">

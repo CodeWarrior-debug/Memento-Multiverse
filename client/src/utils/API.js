@@ -2,8 +2,8 @@ import axios from 'axios';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-    getAll: () => {
-        return axios.get('/api/products/')
+    getOneFranchise: (franchiseId) => {
+        return axios.get('/api/products/fran/' + franchiseId)
     },
     getOneItem: (itemId) => {
         return axios.get('/api/products/' + itemId);
