@@ -6,7 +6,7 @@
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "start:dev": "concurrently -n client,server \"npm run client\" \"nodemon server.js\"",
     "client": "cd client && npm run start",
     "seed": "node seeds/seed.js",
     "install": "cd client && npm install",
@@ -43,6 +43,7 @@
     "react-table": "^7.6.3",
     "rebass": "^4.0.7",
     "sequelize": "^6.6.2",
-    "styled-components": "^5.2.3"
+    "styled-components": "^5.2.3",
+    "use-sound": "^2.0.2"
   }
 }

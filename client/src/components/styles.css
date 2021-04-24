@@ -58,7 +58,8 @@ Button {
     color: black !important
 }
 .dashcards {
-    border: #121212;
+    background-color: hsl(0, 0%, 7%, 60%);
+    border: #eee;
     border-width: 3px;
     border-style: solid;
     border-radius: 20px;
@@ -70,7 +71,8 @@ Button {
     margin-bottom: 3% !important;
 }
 .dashcards2 {
-    border: #121212;
+    background-color: hsl(0, 0%, 7%, 60%);
+    border: #eee;
     border-width: 3px;
     border-style: solid;
     border-radius: 20px;
@@ -87,7 +89,8 @@ Button {
     width: auto;
 }
 .biggerboot {
-    border: #121212;
+    background-color: hsl(0, 0%, 7%, 60%);
+    border: #eee;
     border-width: 3px;
     border-style: solid;
     border-radius: 20px;
@@ -122,7 +125,7 @@ Button {
 img {
     width: 150px;
     border-radius: 10px;
-    border: #121212 solid;
+    border: #eee solid;
 }
 .title {
     margin-left: 3% !important;

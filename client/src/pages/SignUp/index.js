@@ -7,22 +7,20 @@ import {
 
 import { Label, Input, Checkbox } from '@rebass/forms'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import API from '../../utils/API';
 
-function SignUp({ SignUp }) {
-  const [details, setDetails] = useState({username: "", email: "", password: ""});
+function SignUp() {
+  const [details, setDetails] = useState({ user_name: "", email: "", password: "" });
 
-  const handleSignUp = e => {
+  const handleSignUp = async e => {
     e.preventDefault();
+    console.log(details);
 
-    SignUp(details);
+    const signedUpUser = await API.signUp(details);
   }
-
 
   return (
     <div className="container">
-      {/* Form with username, email, password, confirm password, checkbox for auth and signup button */}
-
-      {/* username */}
       <Box
         className="formCard"
         as='form'
@@ -42,8 +40,8 @@ function SignUp({ SignUp }) {
               id='username'
               name='username'
               placeholder='Username'
-              onChange={e => setDetails({ ...details, username: e.target.value })}
-              value={details.username}
+              onChange={e => setDetails({ ...details, user_name: e.target.value })}
+              value={details.user_name}
             />
 
             {/* email */}
@@ -78,6 +76,7 @@ function SignUp({ SignUp }) {
               id='password'
               name='password'
               placeholder='password'
+              type='password'
               onChange={e => setDetails({ ...details, password: e.target.value })}
               value={details.password}
             />
@@ -94,6 +93,7 @@ function SignUp({ SignUp }) {
               id='confirmPassword'
               name='confirmPassword'
               placeholder='password'
+              type='password'
             />
 
             {/* checkbox auth */}
@@ -103,8 +103,8 @@ function SignUp({ SignUp }) {
                 id='auth'
                 name='auth'
               />
-    I am not a Robot
-  </Label>
+              I am not a Robot
+            </Label>
 
           </Box>
         </Flex>

@@ -1,36 +1,48 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../../models');
-const passport = require('../../passport');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 
 router.get('/test', function (req, res) {
     res.json(req.user);
 });
 
 // Route for Signup
-router.post('/signup', function (req, res) {
-    db.User.findOne({ email: req.body.email }, (err, user) => {
-        if (err) {
-            console.log(err);
-        } else if (user) {
+router.post('/signup', async (req, res) => {
+    console.log('signup route hit!! YAY', req.body);
+    try {
+        if (!req.body.user_role) req.body.user_role = 'user';
+        const user = await db.User.findOne({ where: { email: req.body.email } })
+        console.log(user)
+        if (user) {
             res.json({ msg: 'There is already an account with this email' });
         } else {
-            db.User.create(req.body).then(function () {
-                res.redirect('/login')
-            });
+            console.log('made it in to the else')
+            const newUser = await db.User.create(req.body);
+            delete newUser.password;
+            res.json(newUser)
+
         }
-    });
+
+    } catch (err) {
+        console.log(err);
+        res.sendStatus(500);
+    }
+
 });
 
 // Route for Login
-router.post('/login', 
-passport.authenticate('local', { successRedirect: '/',
-failureRedirect: '/login',
-failureFlash: true })),
- function (req, res) {
-    console.log('login');
-    res.json(req.user);
-};
+router.post('/login', passport.authenticate('local'), function (req, res) {
+    console.log('LOGIN', req.user);
+    const userInfo = {
+        user_role: req.user.dataValues.user_role,
+        user_name: req.user.dataValues.user_name,
+        email: req.user.dataValues.email
+    };
+
+    res.json(userInfo);
+});
 
 // Route for Logout
 router.get('/logout', function (req, res) {
@@ -38,3 +50,27 @@ router.get('/logout', function (req, res) {
     req.logout();
     res.sendStatus(200);
 })
+
+router.get('/user', async (req, res) => {
+    console.log('made it to this route', req.session, req.user)
+    try {
+        if (req.user) {
+            const userData = await db.User.findByPk(req.user)
+            console.log('LOGIN', req.user);
+            const userInfo = {
+                user_role: userData.dataValues.user_role,
+                user_name: userData.dataValues.user_name,
+                email: userData.dataValues.email
+            };
+
+            res.json(userInfo);
+        }
+        else {
+            res.sendStatus(403);
+        }
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+module.exports = router;
