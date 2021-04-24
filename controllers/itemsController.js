@@ -4,7 +4,7 @@ module.exports = {
     findFranchiseProducts: function(req, res) {
         db.Product.findAll({
             where: {
-              franchiseId: (req.params.franchiseId) //TODO: find variable
+              franchiseId: (req.params.franchiseId)
             }
           })
         //   .findAll()

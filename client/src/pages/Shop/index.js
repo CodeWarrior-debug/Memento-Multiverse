@@ -16,7 +16,7 @@ function Shop() {
 
     const [itemList, setItemList] = useState([]);
     useEffect(() => {
-        API.findFranchiseProducts()
+        API.getAll()
         .then((list)=>{
             console.log(list.data)
             setItemList(list.data)
