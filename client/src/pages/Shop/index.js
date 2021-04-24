@@ -16,7 +16,7 @@ function Shop() {
 
     const [itemList, setItemList] = useState([]);
     useEffect(() => {
-        API.getAll()
+        API.getAll() // TODO: change routing
         .then((list)=>{
             console.log(list.data)
             setItemList(list.data)
