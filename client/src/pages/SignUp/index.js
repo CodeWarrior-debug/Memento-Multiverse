@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import API from '../../utils/API';
 
 function SignUp() {
-  const [details, setDetails] = useState({ username: "", email: "", password: "" });
+  const [details, setDetails] = useState({ user_name: "", email: "", password: "" });
 
   const handleSignUp = async e => {
     e.preventDefault();
@@ -40,8 +40,8 @@ function SignUp() {
               id='username'
               name='username'
               placeholder='Username'
-              onChange={e => setDetails({ ...details, username: e.target.value })}
-              value={details.username}
+              onChange={e => setDetails({ ...details, user_name: e.target.value })}
+              value={details.user_name}
             />
 
             {/* email */}

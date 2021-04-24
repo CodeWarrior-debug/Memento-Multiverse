@@ -18,6 +18,7 @@ function Shop() {
     useEffect(() => {
         API.getAll()
         .then((list)=>{
+            console.log(list.data)
             setItemList(list.data)
         })
 

@@ -10,8 +10,9 @@ router.get('/test', function (req, res) {
 
 // Route for Signup
 router.post('/signup', async (req, res) => {
-    console.log('signup route hit!! YAY');
+    console.log('signup route hit!! YAY', req.body);
     try {
+        if (!req.body.user_role) req.body.user_role = 'user';
         const user = await db.User.findOne({ where: { email: req.body.email } })
         console.log(user)
         if (user) {
@@ -34,7 +35,13 @@ router.post('/signup', async (req, res) => {
 // Route for Login
 router.post('/login', passport.authenticate('local'), function (req, res) {
     console.log('LOGIN', req.user);
-    res.json(req.user);
+    const userInfo = {
+        user_role: req.user.dataValues.user_role,
+        user_name: req.user.dataValues.user_name,
+        email: req.user.dataValues.email
+    };
+
+    res.json(userInfo);
 });
 
 // Route for Logout
@@ -45,13 +52,20 @@ router.get('/logout', function (req, res) {
 })
 
 router.get('/user', async (req, res) => {
-    console.log('made it to this route')
+    console.log('made it to this route', req.session, req.user)
     try {
         if (req.user) {
-            const userData = {...req.user};
-            delete userData.password;
-            res.status(200).json(userData);
-        } else {
+            const userData = await db.User.findByPk(req.user)
+            console.log('LOGIN', req.user);
+            const userInfo = {
+                user_role: userData.dataValues.user_role,
+                user_name: userData.dataValues.user_name,
+                email: userData.dataValues.email
+            };
+
+            res.json(userInfo);
+        }
+        else {
             res.sendStatus(403);
         }
     } catch (err) {

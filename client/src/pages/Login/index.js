@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Label,
     Input,
@@ -14,21 +14,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import API from '../../utils/API';
 import { Redirect } from 'react-router';
 
-function Login({ setUser }) {
+function Login({ setUser, user }) {
     const [form, setForm] = useState({ username: '', password: '' });
     const [redirect, setRedirect] = useState(false);
+    useEffect(() => {
+        if(user.user_name) setRedirect(true)
+
+    }, [user])
     const submitHandler = async e => {
         e.preventDefault();
         try {
             const loggedInUser = await API.logIn(form);
             setUser(loggedInUser.data);
-            setRedirect(true);
-            console.log("redirecting")
         } catch(err) {
             console.log(err);
         }
-
     }
+
 
     return (
         <div className="container">
@@ -40,7 +42,7 @@ function Login({ setUser }) {
                 py={3}>
                 <Flex mx={-2} mb={3}>
                     <Box width={1 / 2} px={3}>
-                        <h1>Sign In</h1>
+                        <h1>Log In</h1>
                         <Label>
                             <div className="form">
                                 <FontAwesomeIcon icon="user" />
