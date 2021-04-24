@@ -19,17 +19,13 @@ function Login({ setUser, user }) {
     const [redirect, setRedirect] = useState(false);
     useEffect(() => {
         if(user.user_name) setRedirect(true)
-        return () => {
-            cleanup
-        }
-    }, [input])
+
+    }, [user])
     const submitHandler = async e => {
         e.preventDefault();
         try {
             const loggedInUser = await API.logIn(form);
             setUser(loggedInUser.data);
-            setRedirect(true);
-            console.log("redirecting")
         } catch(err) {
             console.log(err);
         }

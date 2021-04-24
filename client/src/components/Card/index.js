@@ -22,7 +22,8 @@ const Card = ({ image_link, product_name, fake_price, fake_quantity, fake_sold, 
                         </Box>
                         <Box className="smallerboot">
                             <Box className="imgs">
-                                <img src={image_link} style={{ maxHeight: 160 }} alt="item"></img>
+                                <img src={image_link !== "-" ? image_link : "https://via.placeholder.com/160" } 
+                                style={{ maxHeight: 160 }} alt="item"></img>
                             </Box>
                             <Box className="toes">
                                 <h3><div>
