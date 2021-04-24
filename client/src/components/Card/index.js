@@ -9,11 +9,11 @@ import {
 
 const Card = ({ image_link, product_name, fake_price, fake_quantity, fake_sold, id, description }) => {
     const history = useHistory()
-    const redirect =()=>{
+    const redirect = () => {
         history.push(`/product/${id}`)
     }
-    return(
-    <Box className="biggerboot" onClick={redirect}>
+    return (
+        <Box className="biggerboot" onClick={redirect}>
             <Flex>
                 <div>
                     <Box className="boot">
@@ -22,7 +22,8 @@ const Card = ({ image_link, product_name, fake_price, fake_quantity, fake_sold, 
                         </Box>
                         <Box className="smallerboot">
                             <Box className="imgs">
-                                <img src={image_link} style={{ maxHeight: 160 }} alt="item"></img>
+                                <img src={image_link !== "-" ? image_link : "https://via.placeholder.com/160" } 
+                                style={{ maxHeight: 160 }} alt="item"></img>
                             </Box>
                             <Box className="toes">
                                 <h3><div>
@@ -41,8 +42,9 @@ const Card = ({ image_link, product_name, fake_price, fake_quantity, fake_sold, 
                 </div>
 
             </Flex>
-    </Box>
-)};
+        </Box>
+    )
+};
 
 export default Card;
 

@@ -27,11 +27,12 @@ library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt
 
 
 function App() {
-  const [user, setUser] = useState({ username: '', password: '' })
+  const [user, setUser] = useState({})
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     API.loggedIn()
       .then(results => {
+        console.log(results.data)
         setUser(results.data)
         setLoaded(true);
       })
@@ -68,14 +69,19 @@ function App() {
           <Router>
             {loaded ? (
               <Switch>
-                <WithAuth exact path="/" loggedIn={user} component={Shop} />
-                <Route exact path="/login" render={(props) => <Login {...props} setUser={setUser}/>} />
+                <WithAuth exact path="/" user={user} component={Shop} />
+                <Route exact path="/login" render={(props) => <Login {...props}
+                  setUser={setUser}
+                  user={user}
+                />
+                } />
                 <Route exact path="/signup" component={SignUp} />
-                <Route exact path="/shop" component={Shop} />
-                <Route exact path="/product" component={ProductPage} />
-                <WithAuth exact path="/dashboard" component={Consumer} />
-                <WithAuth exact path="/admin" component={Admin} />
-                <Route exact path="/cart" component={MyCart} />
+                <Route exact path="/logout" component={Login} />
+                <Route exact path="/shop" user={user} component={Shop} />
+                <Route exact path="/product" user={user} component={ProductPage} />
+                <WithAuth exact path="/dashboard" user={user} component={Consumer} />
+                <WithAuth exact path="/admin" user={user} component={Admin} />
+                <Route exact path="/cart" user={user} component={MyCart} />
               </Switch>) :
               (<h1> Loading... </h1>)
             }
