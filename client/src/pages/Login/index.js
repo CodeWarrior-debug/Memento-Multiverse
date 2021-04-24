@@ -29,7 +29,6 @@ function Login({ setUser, user }) {
         } catch(err) {
             console.log(err);
         }
-
     }
 
 
@@ -43,7 +42,7 @@ function Login({ setUser, user }) {
                 py={3}>
                 <Flex mx={-2} mb={3}>
                     <Box width={1 / 2} px={3}>
-                        <h1>Sign In</h1>
+                        <h1>Log In</h1>
                         <Label>
                             <div className="form">
                                 <FontAwesomeIcon icon="user" />
