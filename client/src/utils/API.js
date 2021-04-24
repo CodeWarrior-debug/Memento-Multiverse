@@ -2,12 +2,15 @@ import axios from 'axios';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-    getOneFranchise: (franchiseId) => {
-        return axios.get('/api/products/fran/' + franchiseId)
+    getAll: () => {
+        return axios.get('/api/products/')
     },
     getOneItem: (itemId) => {
         return axios.get('/api/products/' + itemId);
     },
+    // getOneItemPage: (itemId) => {
+    //     return axios.get('/api/product/' + itemId);
+    // },
 
     addToCart: (item) => {
         console.log('add to cart');
@@ -45,7 +48,7 @@ export default {
     },
 
     logOut: () => {
-        return axios.post('/api/users/logout')
+        return axios.post('/api/uesrs/logout')
     },
 
     signUp: (userInfo) => {
