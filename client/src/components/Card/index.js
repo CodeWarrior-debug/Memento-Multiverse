@@ -9,11 +9,11 @@ import {
 
 const Card = ({ image_link, product_name, fake_price, fake_quantity, fake_sold, id, description }) => {
     const history = useHistory()
-    const redirect =()=>{
+    const redirect = () => {
         history.push(`/product/${id}`)
     }
-    return(
-    <Box className="biggerboot" onClick={redirect}>
+    return (
+        <Box className="biggerboot" onClick={redirect}>
             <Flex>
                 <div>
                     <Box className="boot">
@@ -41,8 +41,9 @@ const Card = ({ image_link, product_name, fake_price, fake_quantity, fake_sold, 
                 </div>
 
             </Flex>
-    </Box>
-)};
+        </Box>
+    )
+};
 
 export default Card;
 

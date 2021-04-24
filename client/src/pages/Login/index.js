@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Label,
     Input,
@@ -14,9 +14,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import API from '../../utils/API';
 import { Redirect } from 'react-router';
 
-function Login({ setUser }) {
+function Login({ setUser, user }) {
     const [form, setForm] = useState({ username: '', password: '' });
     const [redirect, setRedirect] = useState(false);
+    useEffect(() => {
+        if(user.user_name) setRedirect(true)
+        return () => {
+            cleanup
+        }
+    }, [input])
     const submitHandler = async e => {
         e.preventDefault();
         try {
@@ -29,6 +35,7 @@ function Login({ setUser }) {
         }
 
     }
+
 
     return (
         <div className="container">

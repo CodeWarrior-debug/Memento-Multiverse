@@ -27,11 +27,12 @@ library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt
 
 
 function App() {
-  const [user, setUser] = useState({ username: '', password: '' })
+  const [user, setUser] = useState({})
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     API.loggedIn()
       .then(results => {
+        console.log(results.data)
         setUser(results.data)
         setLoaded(true);
       })
@@ -68,8 +69,12 @@ function App() {
           <Router>
             {loaded ? (
               <Switch>
-                <WithAuth exact path="/" loggedIn={user} component={Shop} />
-                <Route exact path="/login" render={(props) => <Login {...props} setUser={setUser}/>} />
+                <WithAuth exact path="/" user={user} component={Shop} />
+                <Route exact path="/login" render={(props) => <Login {...props}
+                  setUser={setUser}
+                  user={user}
+                />
+                } />
                 <Route exact path="/signup" component={SignUp} />
                 <WithAuth exact path="/shop" component={Shop} />
                 <Route exact path="/product" component={ProductPage} />
