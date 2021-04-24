@@ -24,7 +24,7 @@ function Shop() {
 
     }, [])
     return (
-        <div className="container">
+        <div className="containers">
                         <ToggleContainer className="tog"/>
             <Box>
                 <div className="shop">
