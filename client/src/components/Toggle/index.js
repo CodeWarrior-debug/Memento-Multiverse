@@ -13,6 +13,7 @@ const Toggle = (props) => {
                 name={props.name}
                 id={props.id}
                 // vlae={props.vlae}
+                // TODO: find a way to hit a route with id argument passed in to bring back shows products when radio button clicked
                 >
             </Radio>
         </Box>  
