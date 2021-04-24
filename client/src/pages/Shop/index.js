@@ -16,7 +16,7 @@ function Shop() {
 
     const [itemList, setItemList] = useState([]);
     useEffect(() => {
-        API.getOneFranchise() // TODO: change routing/Not working
+        API.getOneFranchise(1) // TODO: change routing/Not working
         .then((list)=>{
             console.log(list.data)
             setItemList(list.data)
