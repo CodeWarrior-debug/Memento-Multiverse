@@ -76,11 +76,12 @@ function App() {
                 />
                 } />
                 <Route exact path="/signup" component={SignUp} />
-                <Route exact path="/shop" component={Shop} />
-                <Route exact path="/product" component={ProductPage} />
-                <WithAuth exact path="/dashboard" component={Consumer} />
-                <WithAuth exact path="/admin" component={Admin} />
-                <Route exact path="/cart" component={MyCart} />
+                <Route exact path="/logout" component={Login} />
+                <Route exact path="/shop" user={user} component={Shop} />
+                <Route exact path="/product" user={user} component={ProductPage} />
+                <WithAuth exact path="/dashboard" user={user} component={Consumer} />
+                <WithAuth exact path="/admin" user={user} component={Admin} />
+                <Route exact path="/cart" user={user} component={MyCart} />
               </Switch>) :
               (<h1> Loading... </h1>)
             }
