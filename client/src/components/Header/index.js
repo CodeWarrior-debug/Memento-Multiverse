@@ -8,9 +8,13 @@ import {
 import useSound from 'use-sound'
 import '../styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { useHistory } from 'react-router-dom';
 
 function Header() {
         const [play] = useSound('../../audio/dumb_name.mp3');
+        // let history = useHistory();
+
+
     return (
         <div>
             <Flex

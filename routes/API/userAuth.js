@@ -45,6 +45,7 @@ router.post('/login', passport.authenticate('local'), function (req, res) {
 });
 
 // Route for Logout
+
 // router.post('/logout', (req, res) => {
 //     if (req.session.loggedIn) {
 //         req.session.destroy(() => {
