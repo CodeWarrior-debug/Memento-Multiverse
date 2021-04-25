@@ -17,21 +17,21 @@ import API from "../../utils/API";
 const AdminTable = () => {
 
   //***setting up data */
-    const [data, setData] = useState([]);
+    // const [data, setData] = useState([]);
 
-    const getdata = () => {
-      API.getAllTransactions().then((e) => {
-        console.log(e, "API Transaction");
-        setData(JSON.parse(e));
-      });
-    };
+    // const getdata = () => {
+    //   API.getAllTransactions().then((e) => {
+    //     console.log(e, "API Transaction");
+    //     setData(JSON.parse(e));
+    //   });
+    // };
 
-    getdata();
+    // getdata();
 
   //***setting up data end */
 
   const columns = useMemo(() => COLUMNS, []);
-  // const data = useMemo(() => MOCK_DATA, []);
+  const data = useMemo(() => MOCK_DATA, []);
 
   const defaultColumn = useMemo(
     () => ({
