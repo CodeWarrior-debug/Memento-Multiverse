@@ -76,7 +76,7 @@ function App() {
                 />
                 } />
                 <Route exact path="/signup" component={SignUp} />
-                <WithAuth exact path="/logout" handleLogout={handleLogout} component={Shop} />
+                {/* <WithAuth exact path="/logout" handleLogout={handleLogout} component={Shop} /> */}
                 <Route exact path="/shop" user={user} component={Shop} />
                 <Route exact path="/products/:ItemId" user={user} component={ProductPage} />
                 <Route exact path="/dashboard" user={user} component={Consumer} /> {/* TODO: Change back to withAuth */}
