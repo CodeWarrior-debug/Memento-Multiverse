@@ -1,26 +1,26 @@
 [
     {
-        "idFranchise": "1",
+        "franchise_id": 1,
         "name": "Seinfeld",
         "logo": "ADD LATER DONT FORGET OR JAMES WILL KILL YOU pss jk"
     },
     {
-        "idFranchise": "2",
+        "franchise_id": 2,
         "name": "Rick and Morty",
         "logo": "ADD LATER DONT FORGET OR JAMES WILL KILL YOU pss jk"
     },
     {
-        "idFranchise": "3",
+        "franchise_id": 3,
         "name": "Tool Time",
         "logo": "ADD LATER DONT FORGET OR JAMES WILL KILL YOU pss jk"
     },
     {
-        "idFranchise": "4",
+        "franchise_id": 4,
         "name": "Family Guy",
         "logo": "ADD LATER DONT FORGET OR JAMES WILL KILL YOU pss jk"
     },
     {
-        "idFranchise": "5",
+        "franchise_id": 5,
         "name": "The Office",
         "logo": "ADD LATER DONT FORGET OR JAMES WILL KILL YOU pss jk"
     }

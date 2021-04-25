@@ -47,10 +47,13 @@ export default {
         return axios.post('/api/users/login', userInfo);
     },
 
+    //logOut: () => {  
+     //   return axios.get('/')
     logOut: () => {
         return axios.post('/api/users/logout')
     },
 
+    //TODO 
     signUp: (userInfo) => {
         return axios.post('/api/users/signup', userInfo);
     },
