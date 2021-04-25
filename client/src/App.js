@@ -4,7 +4,6 @@ import Shop from './pages/Shop';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Login from './pages/Login';
-import Logout from './pages/Logout';
 import SignUp from './pages/SignUp';
 import MyCart from './pages/MyCart';
 import Consumer from './pages/Consumer-Dashboard';
@@ -77,7 +76,7 @@ function App() {
                 />
                 } />
                 <Route exact path="/signup" component={SignUp} />
-                <WithAuth exact path="/logout" handleLogout={handleLogout} component={Logout} />
+                {/* <WithAuth exact path="/logout" handleLogout={handleLogout} component={Logout} /> */}
                 <Route exact path="/shop" user={user} component={Shop} />
                 <Route exact path="/products/:ItemId" user={user} component={ProductPage} />
                 <WithAuth exact path="/dashboard" user={user} component={Consumer} />
