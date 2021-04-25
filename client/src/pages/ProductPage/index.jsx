@@ -29,7 +29,6 @@ const ProductPage = () => {
         <div className="row">
         <div className="btns">
         <Button>Add to Cart</Button>
-        <Button>Buy Now</Button>
         </div>
         </div>
         </div>
