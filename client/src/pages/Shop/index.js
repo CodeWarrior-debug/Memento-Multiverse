@@ -15,14 +15,15 @@ function Shop() {
 
     const [franchise, setFranchise] = useState([]);
     const [itemList, setItemList] = useState([]);
-    useEffect(() => {
-    (!franchise) ? setFranchise(1) : setFranchise(franchise);
-    API.getOneFranchise(franchise) // TODO: change routing/Not working
+
+    useEffect(() => {  //TODO is async await needed here, so line 20 finishes before line 21 runs?
+        (!franchise) ? setFranchise([1]) : setFranchise(franchise);
+        API.getOneFranchise(2) // TODO: should not be hard coded, should be able to put franchise in here
     .then((list)=>{
         // console.log(list.data)
         setItemList(list.data)
     })
-    }, [])
+    },[])
     return (
         <div className="containers">
                         <ToggleContainer className="tog"/>

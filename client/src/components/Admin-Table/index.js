@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { useTable, useSortBy, usePagination, useFilters } from 'react-table'; //useGlobalFilter
+import { useTable, useSortBy, usePagination, useFilters, useGroupBy, useExpanded} from 'react-table'; //useGlobalFilter, 
 import MOCK_DATA from './MOCK_DATA.json';
 import { COLUMNS } from './columns';
 import './table.css';
@@ -31,10 +31,12 @@ const AdminTable = () => {
     canPreviousPage,
     canNextPage,
     pageOptions,
-    state,
+    state: { groupBy, expanded},
     // setGlobalFilter,
     gotoPage,
     pageCount,
+    pageIndex,
+    pageSize,
     setPageSize,
     // rows,
     prepareRow
@@ -43,34 +45,32 @@ const AdminTable = () => {
       columns,
       data,
       defaultColumn,
-      initialState: { pageIndex: 0 }
+      initialState: { pageIndex: 0 , pageSize:25 }
     },
     useFilters,
     // useGlobalFilter,
+    useGroupBy,
     useSortBy,
+    useExpanded, // useGroupBy would be pretty useless without useExpanded ;) -- comment
     usePagination  //this order matters for some reason, filters, then sortby, then pagination
   )
 
-  const { pageIndex, pageSize} = state //, globalFilter 
-
   return (
     <>
+  <pre>
+        <code>{JSON.stringify({ groupBy, expanded }, null, 2)}</code>
+      </pre>
      {/* <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} /> */}
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
-                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                <th {...column.getHeaderProps(column.getSortByToggleProps())}>  {/*  */}
                   {column.render('Header')}
-                  <div>{column.canFilter ? column.render('Filter') : null}</div>
-                  <span>
-                    {column.isSorted
-                      ? column.isSortedDesc
-                        ? ' 🔽'
-                        : ' 🔼'
-                      : ''}
-                  </span>
+                  <div>{column.canFilter ? column.render('Filter') : null}</div> {/* Filter Options */}
+                  <span> {column.isSorted ? column.isSortedDesc ? ' 🔽' : ' 🔼' : ''} </span> {/* Sort Options */}
+                  {column.canGroupBy ? (<span {...column.getGroupByToggleProps()}> {column.isGrouped ? '🛑 ' : '👊 '} </span>) : null} {/* Group By Options */}
                 </th>
               ))}
             </tr>
