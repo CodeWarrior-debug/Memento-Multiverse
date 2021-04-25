@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import API from "../../utils/API";
 import {Button} from 'rebass'
@@ -6,16 +6,18 @@ import './style.css'
 
 const ProductPage = () => {
     
-    const {id} = useParams()
-    console.log(id)
+    const [item, setItem] = useState([]);
+    const productNum = window.location.pathname;
+    const id = parseInt(productNum.replace("/products/",""));
+    
     useEffect(()=>{
         API.getOneItem(id)
-        .then(product=>console.log(product))
-    },[id])
+        .then(thing=>
+            setItem(thing.data))})
     return (
         <>
         <div className="container">
-        <div className="title">Product Name</div>
+        <div className="title">{item.product_name}</div>
         <div className="grid">
         <img src="" className="image" alt="Product Image"></img>
         <div className="row">
@@ -36,7 +38,6 @@ const ProductPage = () => {
         </div>
 
 
-        </>
-    )
+        </>)
 }
 export default ProductPage;
