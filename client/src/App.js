@@ -8,7 +8,7 @@ import SignUp from './pages/SignUp';
 import MyCart from './pages/MyCart';
 import Consumer from './pages/Consumer-Dashboard';
 import Admin from './pages/Admin-Dashboard';
-import { BrowserRouter as Router, Route, useHistory, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, useHistory, Switch } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faUser, faWarehouse, faChartLine, faChartPie, faDollarSign, faMoneyCheck } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -45,7 +45,6 @@ function App() {
 
   const handleLogout = () => {
     setUser({});
-    <Redirect to="/" />
     API.logOut();
   }
 
