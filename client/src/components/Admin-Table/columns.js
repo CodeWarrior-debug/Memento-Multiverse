@@ -21,7 +21,7 @@ export const COLUMNS =
 },
 {
     Header: 'Created At',
-    accessor: 'createdAt',
+    accessor: 'created_at',
     Cell: ({ value }) => {
         return format(new Date(value), 'dd/MM/yyyy')
 }

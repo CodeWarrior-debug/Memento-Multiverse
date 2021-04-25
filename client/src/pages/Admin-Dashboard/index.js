@@ -13,38 +13,39 @@ function Admin() {
     return (
         <div>
             <Flex>
-            <AdminTable></AdminTable>
-             {/* px={2}
+            
+             px={2}
              color='white'
              bg='black'
-             alignItems='center'>
+            alignItems='center'
              <Box />
              <Link variant='nav' href='#!'>
-             <FontAwesomeIcon icon="warehouse" /> */}
+             <FontAwesomeIcon icon="warehouse" />
                  {' '}
-                 {/* Inventory
+                 Inventory
              </Link>
              <Link variant='nav' href='#!'>
-             <FontAwesomeIcon icon="chart-pie" /> */}
+             <FontAwesomeIcon icon="chart-pie" />
                  {' '}
-                 {/* Sales by Franchise
+                 Sales by Franchise
              </Link>
              <Link variant='nav' href='#!'>
-             <FontAwesomeIcon icon="dollar-sign" /> */}
+             <FontAwesomeIcon icon="dollar-sign" />
                  {' '}
-                 {/* All Sales
+                 All Sales
              </Link>
              <Link variant='nav' href='#!'>
-             <FontAwesomeIcon icon="money-check" /> */}
+             <FontAwesomeIcon icon="money-check" />
                  {' '}
-                 {/* Expenses
+                 Expenses
              </Link>
              <Link variant='nav' href='#!'>
-             <FontAwesomeIcon icon="chart-line" /> */}
+             <FontAwesomeIcon icon="chart-line" />
                  {' '}
-                 {/* Net Revenu
-             </Link>*/}
+                 Net Revenue
+             </Link>
             </Flex> 
+            <AdminTable></AdminTable>
         </div>
     )
 }
