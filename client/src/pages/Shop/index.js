@@ -13,12 +13,11 @@ import ToggleContainer from '../../components/Toggle-Container';
 
 function Shop() {
 
-    const [franchise, setFranchise] = useState([]);
-    const [itemList, setItemList] = useState([]);
-
-    useEffect(() => {  //TODO is async await needed here, so line 20 finishes before line 21 runs?
-        (!franchise) ? setFranchise([1]) : setFranchise(franchise);
-        API.getOneFranchise(2) // TODO: should not be hard coded, should be able to put franchise in here
+    const [franchise, setFranchise] = useState(1);
+        const [itemList, setItemList] = useState([]);
+    
+    useEffect(() => {  //TODO is async await needed here, so line 20 finishes before line 21 runs? 
+        API.getOneFranchise(franchise) // TODO: should not be hard coded, should be able to put franchise in here
     .then((list)=>{
         // console.log(list.data)
         setItemList(list.data)
