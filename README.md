@@ -12,3 +12,12 @@ Do you love collecting TV merch? Then you need a fun and funny web store for mer
 ---
 Clone or Fork repository into your code editor. Run npm i in the correct file to install dependencies. Run npm start to start the application.
 
+## Tests
+--- 
+NONE.
+
+## Usage
+---
+Use Memento Multiverse as a consumer that wants to have a fun time shopping around for their favorite tv merchandise. 
+
+## Contributing
