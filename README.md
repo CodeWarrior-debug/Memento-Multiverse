@@ -2,7 +2,7 @@
 
 ## Table of Contents
 ---
-* [Description](#description) | [Installation](#installation) | [Tests](#tests) | [Usage](#usage) | [Contributing](#contributing) | [Credits](#credits) | [Repository](#repository) | [License](#license)
+* [Description](#description) | [Installation](#installation) | [Tests](#tests) | [Usage](#usage) | [Contributing](#contributing) | [Credits](#credits) | [Repository](#repository) | [FutureDevelopments](#futuredevelopments) | [License](#license)
 
 ## Description
 ---
@@ -10,7 +10,11 @@ Do you love collecting TV merch? Then you need a fun and funny web store for mer
 
 ## Installation
 ---
-Clone or Fork repository into your code editor. Run npm i in the correct file to install dependencies. Run npm start to start the application.
+Visit on Heroku 
+
+OR
+
+Go to Github and Clone or Fork repository into your code editor. Run npm i in the correct file to install dependencies. Run npm start to start the application.
 
 ## Tests
 --- 
@@ -28,9 +32,18 @@ Susan Ashmore, Yigit Eren Ozgur, James Jordan, Joshua Wallace, Nicholas Marrone
 ---
 Trilogy Education Services, including instructor Anthony Cooper and T.A. Max Allee.
 
+Following tutorials on react tables used:
+* https://www.youtube.com/playlist?list=PLC3y8-rFHvwgWTSrDiwmUsl4ZvipOw9Cz
+* https://github.com/gopinav/React-Table-Tutorials
+* https://react-table.tanstack.com/docs/examples/kitchen-sink
+
 ## Repository
 ---
  https://github.com/erenozgur98/Memento-Multiverse
+
+ ## FutureDevelopments
+ ---
+ 
 
 ## License
   ---
