@@ -1,13 +1,24 @@
 import React, { useMemo } from 'react';
-import { useTable, useSortBy, usePagination } from 'react-table';
+import { useTable, useSortBy, usePagination, useFilters, useGlobalFilter } from 'react-table';
 import MOCK_DATA from './MOCK_DATA.json';
 import { COLUMNS } from './columns';
 import './table.css';
+import { GlobalFilter } from './GlobalFilter'
+import { ColumnFilter } from './ColumnFilter'
 
 const AdminTable = () => {
+
+  //identifying features and setting ids with Memo
   const columns = useMemo(() => COLUMNS, [])
   const data = useMemo(() => MOCK_DATA, [])
+  const defaultColumn = React.useMemo(
+    () => ({
+      Filter: ColumnFilter
+    }),
+    []
+  )
 
+  // 
   const {
     getTableProps,
     getTableBodyProps,
@@ -20,6 +31,7 @@ const AdminTable = () => {
     canNextPage,
     pageOptions,
     state,
+    // setGlobalFilter,
     gotoPage,
     pageCount,
     setPageSize,
@@ -29,16 +41,20 @@ const AdminTable = () => {
     {
       columns,
       data,
+      defaultColumn,
       initialState: { pageIndex: 2 }
     },
+    useFilters,
+    // useGlobalFilter,
     useSortBy,
-    usePagination  //this order matters for some reason
+    usePagination  //this order matters for some reason, filters, then sortby, then pagination
   )
 
-  const { pageIndex, pageSize } = state
+  const { pageIndex, pageSize} = state //, globalFilter 
 
   return (
     <>
+     {/* <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} /> */}
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
@@ -46,6 +62,7 @@ const AdminTable = () => {
               {headerGroup.headers.map(column => (
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                   {column.render('Header')}
+                  <div>{column.canFilter ? column.render('Filter') : null}</div>
                   <span>
                     {column.isSorted
                       ? column.isSortedDesc
