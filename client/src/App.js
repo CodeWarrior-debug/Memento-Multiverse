@@ -8,7 +8,7 @@ import SignUp from './pages/SignUp';
 import MyCart from './pages/MyCart';
 import Consumer from './pages/Consumer-Dashboard';
 import Admin from './pages/Admin-Dashboard';
-import { BrowserRouter as Router, Route, useHistory, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, useHistory, Switch, Redirect } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faUser, faWarehouse, faChartLine, faChartPie, faDollarSign, faMoneyCheck } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -29,6 +29,7 @@ library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt
 function App() {
   const [user, setUser] = useState({})
   const [loaded, setLoaded] = useState(false);
+  // const [, setRedirect] = useState(false);
   useEffect(() => {
     API.loggedIn()
       .then(results => {
@@ -44,6 +45,7 @@ function App() {
 
   const handleLogout = () => {
     setUser({});
+    <Redirect to="/" />
     API.logOut();
   }
 
@@ -76,7 +78,7 @@ function App() {
                 />
                 } />
                 <Route exact path="/signup" component={SignUp} />
-                {/* <WithAuth exact path="/logout" handleLogout={handleLogout} component={Shop} /> */}
+                <Route exact path="/logout" handleLogout={handleLogout} />
                 <Route exact path="/shop" user={user} component={Shop} />
                 <Route exact path="/products/:ItemId" user={user} component={ProductPage} />
                 <Route exact path="/dashboard" user={user} component={Consumer} /> {/* TODO: Change back to withAuth */}
