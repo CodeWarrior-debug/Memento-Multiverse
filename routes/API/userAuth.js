@@ -45,20 +45,20 @@ router.post('/login', passport.authenticate('local'), function (req, res) {
 });
 
 // Route for Logout
-router.post('/logout', (req, res) => {
-    if (req.session.loggedIn) {
-        req.session.destroy(() => {
-            res.status(204).end();
-        });
-    } else {
-        res.status(404).end();
-    }
-})
-// router.get('/logout', function (req, res) {
-//     console.log('You are logged out!');
-//     req.logout();
-//     res.sendStatus(200);
+// router.post('/logout', (req, res) => {
+//     if (req.session.loggedIn) {
+//         req.session.destroy(() => {
+//             res.status(204).end();
+//         });
+//     } else {
+//         res.status(404).end();
+//     }
 // })
+router.get('/logout', function (req, res) {
+    console.log('You are logged out!');
+    req.logout();
+    res.sendStatus(200);
+})
 
 router.get('/user', async (req, res) => {
     console.log('made it to this route', req.session, req.user)
