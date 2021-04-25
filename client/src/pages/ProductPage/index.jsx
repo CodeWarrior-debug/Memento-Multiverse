@@ -7,8 +7,8 @@ import './style.css'
 const ProductPage = () => {
     
     const {id} = useParams()
+    console.log(id)
     useEffect(()=>{
-        console.log(id)
         API.getOneItem(id)
         .then(product=>console.log(product))
     },[id])

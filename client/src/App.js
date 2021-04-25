@@ -78,7 +78,7 @@ function App() {
                 <Route exact path="/signup" component={SignUp} />
                 <Route exact path="/logout" component={Login} />
                 <Route exact path="/shop" user={user} component={Shop} />
-                <Route exact path="/product/:ItemId" user={user} component={ProductPage} />
+                <Route exact path="/products/:ItemId" user={user} component={ProductPage} />
                 <Route exact path="/dashboard" user={user} component={Consumer} /> {/* TODO: Change back to withAuth */}
                 <Route exact path="/admin" user={user} component={Admin} /> {/* TODO: Change back to withAuth */}
                 <Route exact path="/cart" user={user} component={MyCart} />
