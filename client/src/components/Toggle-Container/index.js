@@ -24,8 +24,6 @@ const ToggleContainer = () => {
                         <Toggle key={franchise.id}
                         name={franchise.name}
                         id={franchise.id}
-
-                        //Need to populate the toggle
                         /> 
                         
                         )}

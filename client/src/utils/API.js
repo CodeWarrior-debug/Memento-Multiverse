@@ -47,12 +47,10 @@ export default {
         return axios.post('/api/users/login', userInfo);
     },
 
-    // logOut: () => {  //original
-    //     return axios.post('/api/users/logout')
-    // },
-
-    logOut: () => {  
-        return axios.get('/')
+    //logOut: () => {  
+     //   return axios.get('/')
+    logOut: () => {
+        return axios.post('/api/users/logout')
     },
 
     //TODO 
