@@ -13,15 +13,15 @@ import ToggleContainer from '../../components/Toggle-Container';
 
 function Shop() {
 
-
+    const [franchise, setFranchise] = useState([]);
     const [itemList, setItemList] = useState([]);
     useEffect(() => {
-        API.getOneFranchise(1) // TODO: change routing/Not working
-        .then((list)=>{
-            console.log(list.data)
-            setItemList(list.data)
-        })
-
+    (!franchise) ? setFranchise(1) : setFranchise(franchise);
+    API.getOneFranchise(franchise) // TODO: change routing/Not working
+    .then((list)=>{
+        // console.log(list.data)
+        setItemList(list.data)
+    })
     }, [])
     return (
         <div className="containers">

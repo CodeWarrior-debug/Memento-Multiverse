@@ -1,10 +1,11 @@
 import React, { useMemo } from 'react';
-import { useTable, useSortBy, usePagination, useFilters, useGlobalFilter } from 'react-table';
+import { useTable, useSortBy, usePagination, useFilters } from 'react-table'; //useGlobalFilter
 import MOCK_DATA from './MOCK_DATA.json';
 import { COLUMNS } from './columns';
 import './table.css';
-import { GlobalFilter } from './GlobalFilter'
 import { ColumnFilter } from './ColumnFilter'
+// import { GlobalFilter } from './GlobalFilter'
+
 
 const AdminTable = () => {
 
@@ -42,7 +43,7 @@ const AdminTable = () => {
       columns,
       data,
       defaultColumn,
-      initialState: { pageIndex: 2 }
+      initialState: { pageIndex: 0 }
     },
     useFilters,
     // useGlobalFilter,
@@ -97,6 +98,9 @@ const AdminTable = () => {
           ))}
         </tfoot>
       </table>
+
+{/* PAGINATION OPTIONS HERE */}
+
       <div>
         <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
           {'<<'}
@@ -131,13 +135,15 @@ const AdminTable = () => {
         <select
           value={pageSize}
           onChange={e => setPageSize(Number(e.target.value))}>
-          {[10, 25, 50].map(pageSize => (
+          {[25, 50].map(pageSize => (
             <option key={pageSize} value={pageSize}>
               Show {pageSize}
             </option>
           ))}
         </select>
       </div>
+
+
     </>
   )
 }
