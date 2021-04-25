@@ -147,7 +147,7 @@ img {
     }
 }
 
-@media (max-width:767px) {
+/* @media (max-width:767px) {
     img {
         max-width: 100%;
         max-height: 100%;
@@ -172,5 +172,29 @@ img {
     img {
         max-width: 380px;
         max-height: 380px;
+    }
+} */
+
+@media (max-width:1100px) {
+    .css-vurnku {
+        flex: 25%;
+    }
+}
+
+@media (max-width:1100px) {
+    img {
+        width: 80%;
+    }
+}
+
+@media (max-width:750px) {
+    .css-vurnku {
+        flex: 38%;
+    }
+}
+
+@media (max-width:500px) {
+    .css-vurnku {
+        flex: 50%;
     }
 }
