@@ -1,22 +1,24 @@
 import {
     Box,
 } from 'rebass';
-
+import React, { useState } from 'react';
 import { Label, Radio } from '@rebass/forms';
 import './style.css';
 
+
 const Toggle = (props) => {
-    return ( 
+
+    return (
+         
         <Box className="switch">
             <Label>
             <Radio className="radio"
                 name={props.name}
                 id={props.id}
-                onChange={ (event) => console.log("onchange is triggered") }
-                // vlae={props.vlae}
-                // TODO: find a way to hit a route with id argument passed in to bring back shows products when radio button clicked
+                // onChange={ () => console.log("onchange is triggered at " + (props.id))}
+                // TODO: find a way to hit a route with id argument passed in to bring back shows products when radio button clicked,
+                // TODO review https://stackoverflow.com/questions/54032379/call-two-functions-within-onchange-event-in-react
                 />
-            {props.name}
             </Label>
         </Box>  
      );
