@@ -8,13 +8,16 @@ import './style.css';
 const Toggle = (props) => {
     return ( 
         <Box className="switch">
-            <Label>{props.name}</Label>
+            <Label>
             <Radio className="radio"
                 name={props.name}
                 id={props.id}
+                onChange={ (event) => console.log("onchange is triggered") }
                 // vlae={props.vlae}
-                >
-            </Radio>
+                // TODO: find a way to hit a route with id argument passed in to bring back shows products when radio button clicked
+                />
+            {props.name}
+            </Label>
         </Box>  
      );
 }
