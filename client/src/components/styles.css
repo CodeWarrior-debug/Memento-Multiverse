@@ -181,6 +181,12 @@ img {
     }
 }
 
+@media (max-width:1100px) {
+    img {
+        width: 80%;
+    }
+}
+
 @media (max-width:750px) {
     .css-vurnku {
         flex: 38%;
