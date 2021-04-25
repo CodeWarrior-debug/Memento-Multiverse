@@ -1,10 +1,11 @@
 import React, { useMemo } from 'react';
-import { useTable, useSortBy, usePagination, useFilters, useGlobalFilter } from 'react-table';
+import { useTable, useSortBy, usePagination, useFilters, useGroupBy, useExpanded} from 'react-table'; //useGlobalFilter, 
 import MOCK_DATA from './MOCK_DATA.json';
 import { COLUMNS } from './columns';
 import './table.css';
-import { GlobalFilter } from './GlobalFilter'
 import { ColumnFilter } from './ColumnFilter'
+// import { GlobalFilter } from './GlobalFilter'
+
 
 const AdminTable = () => {
 
@@ -30,10 +31,12 @@ const AdminTable = () => {
     canPreviousPage,
     canNextPage,
     pageOptions,
-    state,
+    state: { groupBy, expanded},
     // setGlobalFilter,
     gotoPage,
     pageCount,
+    pageIndex,
+    pageSize,
     setPageSize,
     // rows,
     prepareRow
@@ -42,34 +45,32 @@ const AdminTable = () => {
       columns,
       data,
       defaultColumn,
-      initialState: { pageIndex: 2 }
+      initialState: { pageIndex: 0 , pageSize:25 }
     },
     useFilters,
     // useGlobalFilter,
+    useGroupBy,
     useSortBy,
+    useExpanded, // useGroupBy would be pretty useless without useExpanded ;) -- comment
     usePagination  //this order matters for some reason, filters, then sortby, then pagination
   )
 
-  const { pageIndex, pageSize} = state //, globalFilter 
-
   return (
     <>
+  <pre>
+        <code>{JSON.stringify({ groupBy, expanded }, null, 2)}</code>
+      </pre>
      {/* <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} /> */}
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
-                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                <th {...column.getHeaderProps(column.getSortByToggleProps())}>  {/*  */}
                   {column.render('Header')}
-                  <div>{column.canFilter ? column.render('Filter') : null}</div>
-                  <span>
-                    {column.isSorted
-                      ? column.isSortedDesc
-                        ? ' 🔽'
-                        : ' 🔼'
-                      : ''}
-                  </span>
+                  <div>{column.canFilter ? column.render('Filter') : null}</div> {/* Filter Options */}
+                  <span> {column.isSorted ? column.isSortedDesc ? ' 🔽' : ' 🔼' : ''} </span> {/* Sort Options */}
+                  {column.canGroupBy ? (<span {...column.getGroupByToggleProps()}> {column.isGrouped ? '🛑 ' : '👊 '} </span>) : null} {/* Group By Options */}
                 </th>
               ))}
             </tr>
@@ -97,6 +98,9 @@ const AdminTable = () => {
           ))}
         </tfoot>
       </table>
+
+{/* PAGINATION OPTIONS HERE */}
+
       <div>
         <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
           {'<<'}
@@ -131,13 +135,15 @@ const AdminTable = () => {
         <select
           value={pageSize}
           onChange={e => setPageSize(Number(e.target.value))}>
-          {[10, 25, 50].map(pageSize => (
+          {[25, 50].map(pageSize => (
             <option key={pageSize} value={pageSize}>
               Show {pageSize}
             </option>
           ))}
         </select>
       </div>
+
+
     </>
   )
 }
