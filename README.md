@@ -1,62 +1,72 @@
-# Create React Express App
+# Memento Multiverse
 
-## About This Boilerplate
+## Table of Contents
+---
+* [Description](#description) | [Installation](#installation) | [Tests](#tests) | [Usage](#usage) | [Contributing](#contributing) | [Credits](#credits) | [Repository](#repository) | [FutureDevelopments](#futuredevelopments) | [License](#license)
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+## Description
+---
+Do you love collecting TV merch? Then you need a fun and funny web store for merch that appreciates your favorite shows, their inside jokes, and transports you into their worlds. A store where you can view your purchases by TV franchise, see how much you’ve invested into each collection, and have a fun animated time while doing it. Memento Multiverse will be the most fun and funny place to collect memorabilia on the web.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+## Installation
+---
+Visit on Heroku 
 
-## Starting the app locally
+OR
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
+Go to Github and Clone or Fork repository into your code editor. Run npm i in the correct file to install dependencies. Run npm start to start the application.
 
-```
-npm install
-```
+## Tests
+--- 
+NONE.
 
-This should install node modules within the server and the client folder.
+## Usage
+---
+Use Memento Multiverse as a consumer that wants to have a fun time shopping around for their favorite tv merchandise. 
 
-After both installations complete, run the following command in your terminal:
+## Contributing
+---
+Susan Ashmore, Yigit Eren Ozgur, James Jordan, Joshua Wallace, Nicholas Marrone
 
-```
-npm start
-```
+## Credits
+---
+Trilogy Education Services, including instructor Anthony Cooper and T.A. Max Allee.
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+Following tutorials on react tables used:
+* https://www.youtube.com/playlist?list=PLC3y8-rFHvwgWTSrDiwmUsl4ZvipOw9Cz
+* https://github.com/gopinav/React-Table-Tutorials
+* https://react-table.tanstack.com/docs/examples/kitchen-sink
 
-## Deployment (Heroku)
+## Repository
+---
+ https://github.com/erenozgur98/Memento-Multiverse
 
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
-# Final Project
-## Application Requirements
-* Must use ReactJS in some way
-* Must use a Node and Express Web Server
-* Must be backed by a MySQL or MongoDB database with a Sequelize or Mongoose ORM
-* Must have both GET and POST routes for retrieving and adding new data
-* Must deploy this application using Heroku with data. Follow our guide on [deploying MERN applications to Heroku](../04-Important/MERNHerokuDeploy.md) to do so.
-* Must utilize at least 2 libraries, packages, or technologies that we haven't discussed
-* Must allow for or involve the authentication of users in some way
-* Must have a polished front end/UI
-* Must have a folder structure that meets the MVC paradigm
-* Must meet good quality coding standards (indentation, scoping, naming)
-* Must protect API keys in Node with environment variables
-## Presentation Requirements
-Use this [project presentation template](https://docs.google.com/presentation/d/1_u8TKy5zW5UlrVQVnyDEZ0unGI2tjQPDEpA0FNuBKAw/edit?usp=sharing) to address the following: 
-* Elevator pitch: a one minute description of your application
-* Concept: What is your user story? What was your motivation for development?
-* Process: What were the technologies used? How were tasks and roles broken down and assigned? What challenges did you encounter? What were your successes?
-* Demo: Show your stuff!
-* Directions for Future Development
-* Links to to the deployed application and the GitHub repository
-## Grading Metrics 
-| Metric        | Weight | 
-| ---           | ---    |
-| Concept       | 10%    |
-| Design        | 20%    |
-| Functionality | 30%    |
-| Collaboration | 30%    |
-| Presentation  | 10%    |
-## Submission on BCS
-You are required to submit the following:
-* The URL of the deployed application
-* The URL of the GitHub repository
+ ## FutureDevelopments
+ ---
+ 
+
+## License
+  ---
+  ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)(https://opensource.org/licenses/MIT)
+
+  MIT License
+
+Copyright (c) [2021]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
