@@ -146,3 +146,17 @@ img {
         font-size: 1rem !important;
     }
 }
+
+@media screen and ( max-width: 1024px ) {
+    img { width: 200px; }
+    }
+    @media screen and ( min-width: 1025px) {
+    img { width: 200px;}
+    }
+    @media screen and ( min-width: 700px) {
+    img { width: 150px;}
+    }
+    @media screen and ( min-width: 700px) {
+    img { width: 150px;}
+    }
+    img { height: auto; }
