@@ -47,10 +47,15 @@ export default {
         return axios.post('/api/users/login', userInfo);
     },
 
-    logOut: () => {
-        return axios.post('/api/users/logout')
+    // logOut: () => {  //original
+    //     return axios.post('/api/users/logout')
+    // },
+
+    logOut: () => {  
+        return axios.get('/')
     },
 
+    //TODO 
     signUp: (userInfo) => {
         return axios.post('/api/users/signup', userInfo);
     },

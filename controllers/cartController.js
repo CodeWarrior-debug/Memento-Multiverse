@@ -1,16 +1,18 @@
 const db = require("../models");
 
 // Creating the cart for the user
+
+
+//DON'T USE THIS CODE
+
 const cart = {
+
     create: function (req, res) {
         if (req.user) {
             console.log('Adding Item(s) to Cart');
-            db.Cart.findOneAndUpdate(
-            {
-                user: req.user.id,
-                item: req.body.itemId
-    
-            },
+            db.Cart.find(
+                {user: req.user.id},
+                {include: {product_name:req.body.product_name, image_link:req.body.image_link }}
             )
                 .then((cartItem) => {
                     console.log('This is your cart: ', cartItem);

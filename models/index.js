@@ -2,20 +2,12 @@ const Product = require('./Product');
 const Transaction = require('./Transaction');
 const User = require('./User');
 const Franchise = require('./Franchise');
+// const Cart = require('./Cart');
 
 Franchise.hasMany(Product);
-Product.belongsTo(Franchise,{
-    foreignKey: 'franchise_id'
-});
+Product.belongsTo(Franchise);
 
 User.hasMany(Transaction);
-Transaction.belongsTo(User,{
-    foreignKey: 'user_id',
-  });
+Transaction.belongsTo(User);
 
-  
-Transaction.hasOne(Product, {
-    foreignKey: 'product_id'
-});
-
-module.exports = { User, Transaction, Product, Franchise };
+module.exports = { User, Transaction, Product, Franchise }; //Cart
