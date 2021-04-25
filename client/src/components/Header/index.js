@@ -35,7 +35,7 @@ function Header() {
                     {' '}
                     Cart
                 </Link>
-                <Link className="navLink" variant='nav' href='/'>
+                <Link className="navLink" variant='nav' href='/login'>
                     <FontAwesomeIcon icon="sign-out-alt" />
                     {' '}
                     Logout
