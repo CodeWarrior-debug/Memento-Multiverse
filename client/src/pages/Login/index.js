@@ -34,7 +34,7 @@ function Login({ setUser, user }) {
 
 
     return (
-        <div className="container">
+        <Flex className="container" alignItems='center'>
             {redirect && <Redirect to="/" />}
             <Box
                 className="formCard"
@@ -83,16 +83,18 @@ function Login({ setUser, user }) {
                         />
                              I am not a Robot
                          </Label>
-                </Flex>
-                <div className="btns">
-                    <Button type="submit">Login</Button>
+            <Flex alignItems='center'>
+                <Box>
+                    <Button variant="badge" className="btns" type="submit">Login</Button>
                     <Label className="lable">
-                    Don't have an account? {' '} <a className="redirect" href="/signup">Sign up here!</a>
+                     Don't have an account? {' '} <a className="redirect" href="/signup">Sign up here!</a>
                     </Label>
-                </div>
+                </Box>
+                </Flex>
+                </Flex>
             </Box>
 
-        </div>
+        </Flex>
     )
 }
 
