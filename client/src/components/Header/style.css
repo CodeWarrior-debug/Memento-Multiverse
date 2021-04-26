@@ -7,35 +7,22 @@ a:-webkit-any-link {
 .redirect {
     color: black !important
 }
-label, #hamburger {display: none;}
-
-#hamitems { 
-    display: flex;
+.menu {
+    background-color: hsl(0, 0%, 7%);
+}
+.ham {
+    display: none;
+}
+.reg {
+    width: 60%;
 }
 
-#navh {
-    position: sticky;
+@media only screen and (max-width: 768px) {
+    .reg {
+        display: none;
+    }
+    .ham {
+        display: block;
+    }
+    
 }
-
-@media screen and (max-width: 768px){
-    /* Show Hamburger Icon */
-    #navh, label { 
-      display: inline-block; 
-      color: #eee;
-      font-style: normal;
-      font-size: 1.2em;
-      padding: 10px;
-    }
-  
-    /* Break down menu items into vertical */
-    #hamitems, Link {
-      box-sizing: border-box;
-      display: block;
-      width: 100%;
-      border-top: 1px solid #333;
-    }
-  
-    /* Toggle Show/Hide Menu */
-    #hamitems { display: none }
-    #navh input:checked ~ #hamitems { display: block !important; }
-  }
