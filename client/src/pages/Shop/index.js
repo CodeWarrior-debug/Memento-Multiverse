@@ -11,17 +11,17 @@ function Shop() {
   const [franchise, setFranchise] = useState(0);
   const [itemList, setItemList] = useState([]);
   const {id} = useParams();
+
   useEffect(() => {
-    //TODO is async await needed here, so line 20 finishes before line 21 runs?
     if(id){
-        API.getOneFranchise(id) // TODO: should not be hard coded, should be able to put franchise in here
+        API.getOneFranchise(id) 
           .then((list) => {
              console.log(list.data)
             setItemList(list.data);
             setFranchise(parseInt(id))
           });
     } else {
-        API.getAll() // TODO: should not be hard coded, should be able to put franchise in here
+        API.getAll() 
           .then((list) => {
              console.log(list.data)
             setItemList(list.data);

@@ -5,23 +5,23 @@ import {Button} from 'rebass'
 const MyCart = () => {
   const [cart, setCart] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
-  const items = [
-    {
-      id: 1,
-      name: "item1",
-      price: 20,
-    },
-    {
-      id: 2,
-      name: "item2",
-      price: 32,
-    },
-    {
-      id: 3,
-      name: "item3",
-      price: 51,
-    },
-  ];
+const items = [
+  {
+    id: 1,
+    name: "item1",
+    price: 20,
+  },
+  {
+    id: 2,
+    name: "item2",
+    price: 32,
+  },
+  {
+    id: 3,
+    name: "item3",
+    price: 51,
+  },
+];
 
   useEffect(() => {
     total();
@@ -51,6 +51,7 @@ const MyCart = () => {
       <input type="submit" value="add" onClick={() => addToCart(product)} />
     </div>
   ));
+
   const cartItems = cart.map((product) => (
     <div key={product.id}>
       {`${product.name}: $${product.price}`}
