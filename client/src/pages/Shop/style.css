@@ -10,7 +10,7 @@
     color: #eee;
     border-radius: 20px;
     border: #eee solid;
-    width: 30% !important;
+    width: 100% !important;
     margin-left: 2% !important;
     display: grid;
     grid-template-columns: 1;
@@ -23,5 +23,10 @@
 .tog {
     display: grid;
     grid-template-rows: 1;
+}
 
+@media (max-width:600px) {
+    .toggle {
+        width: 80% !important;
+    }
 }
