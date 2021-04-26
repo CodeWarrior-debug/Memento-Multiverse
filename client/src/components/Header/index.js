@@ -31,7 +31,7 @@ function Header({ user, handleLogout }) {
                 {' '}
                 Cart
             </Link>
-            <Link className="navLink" variant='nav' href='/shop'>
+            <Link className="navLink" variant='nav' href='/' onClick={handleLogout}>
                 <FontAwesomeIcon icon="sign-out-alt" />
                 {' '}
                 Logout
@@ -68,12 +68,22 @@ function Header({ user, handleLogout }) {
                 bg='black'
                 alignItems='center'
             >
-                <Box className="ham">
-                    <FontAwesomeIcon
-                        icon="bars"
-                        onClick={() => setShowMenu(!showMenu)} />
-                    {user.user_name ? menu : menu2}
-                </Box>
+                {user.user_name ? (
+                    <Box className="ham">
+                        <FontAwesomeIcon
+                            icon="bars"
+                            onClick={() => setShowMenu(!showMenu)}
+                        />
+                        {menu}
+                    </Box>) : (
+                    <Box className="ham">
+                        <FontAwesomeIcon
+                            icon="bars"
+                            onClick={() => setShowMenu2(!showMenu2)}
+                        />
+                        {menu2}
+                    </Box>
+                )}
                 <Text p={4} fontWeight='bold' fontSize="30px" color="#eee">Memento Multiverse</Text>
                 {user.user_name ? (
                     <Box mx='auto' className="reg">
@@ -98,7 +108,7 @@ function Header({ user, handleLogout }) {
                         Logout
                     </Link>
                     </Box>) : (
-                    <Box>
+                    <Box mx='auto' className="reg">
                         <Link className="navLink" variant='nav' to='/shop'>
                             <FontAwesomeIcon icon="home" />
                             {' '}

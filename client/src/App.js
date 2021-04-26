@@ -97,7 +97,7 @@ function App() {
                   />
                   <WithAuth exact path="/dashboard" user={user} component={Consumer} />
                   <WithAuth exact path="/admin" user={user} component={Admin} />
-                  <Route exact path="/cart" user={user} component={MyCart} />
+                  <Route exact path="/cart" render={(props) => <MyCart {...props} user={user} />} />
                 </Switch>) :
                 (<h1> Loading... </h1>) // future dev. will be adding loader effects here -Eren
               }
