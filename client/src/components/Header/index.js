@@ -8,7 +8,7 @@ import useSound from 'use-sound'
 import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { useHistory } from 'react-router-dom';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 function Header() {
     // let history = useHistory();
 
@@ -25,25 +25,25 @@ function Header() {
                 <Box mx='auto' id="nav" />
                 <label for="hamburger">&#9776;</label>
                 <input type="checkbox" id="hamburger" />
-                <Link className="navLink" variant='nav' to='/shop'>
                 <div id="hamitems">
-                    <FontAwesomeIcon icon="home" />
-                    {' '}
+                    <Link className="navLink" variant='nav' to='/shop'>
+                        <FontAwesomeIcon icon="home" />
+                        {' '}
                     Shop
                 </Link>
-                <Link className="navLink" variant='nav' to='/dashboard'>
-                    <FontAwesomeIcon icon="chalkboard-teacher" />
-                    {' '}
+                    <Link className="navLink" variant='nav' to='/dashboard'>
+                        <FontAwesomeIcon icon="chalkboard-teacher" />
+                        {' '}
                     Dashboard
                 </Link>
-                <Link className="navLink" variant='nav' to='/cart'>
-                    <FontAwesomeIcon className="icons" icon="shopping-cart" />
-                    {' '}
+                    <Link className="navLink" variant='nav' to='/cart'>
+                        <FontAwesomeIcon className="icons" icon="shopping-cart" />
+                        {' '}
                     Cart
                 </Link>
-                <Link className="navLink" variant='nav' to='/logout'>
-                    <FontAwesomeIcon icon="sign-out-alt" />
-                    {' '}
+                    <Link className="navLink" variant='nav' to='/logout'>
+                        <FontAwesomeIcon icon="sign-out-alt" />
+                        {' '}
                     Logout
                 </Link>
                 </div>
