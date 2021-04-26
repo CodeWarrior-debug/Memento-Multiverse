@@ -13,7 +13,7 @@ const ProductPage = () => {
     useEffect(()=>{
         API.getOneItem(id)
         .then(thing=>
-            setItem(thing.data))})
+            setItem(thing.data))},[])
     return (
         <>
         <div className="container">

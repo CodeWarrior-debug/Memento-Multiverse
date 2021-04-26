@@ -7,7 +7,6 @@ import {
   useGroupBy,
   useExpanded,
 } from "react-table"; //useGlobalFilter,
-import MOCK_DATA from "./MOCK_DATA.json";
 import { COLUMNS } from "./columns";
 import "./table.css";
 import { ColumnFilter } from "./ColumnFilter";
@@ -18,19 +17,21 @@ const AdminTable = () => {
 
   //***setting up data */
 
-    const [mydata, setMydata] = useState([]);
 
-    const getdata = () => {
-      API.getAllTransactions().then((e) => {
+    const [mydata, setMydata] = useState([]);
+  useEffect(()=>{
+    
+      API.getAllTransactions().then(transactions => {
         
         // console.log(e.data);
         // setMydata(JSON.parse(e));
-        setMydata(e.data);
+        setMydata(JSON.parse(transactions.data));
         return;
       });
-    };
+    
 
-    getdata();
+  },[])
+
 
   //***setting up data end */
 
@@ -85,9 +86,10 @@ const AdminTable = () => {
 
   return (
     <>
-      <pre>
+    {mydata &&<>
+      {/* <pre>
         <code>{JSON.stringify({ groupBy, expanded }, null, 2)}</code>
-      </pre>
+      </pre> */}
       {/* <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} /> */}
       <table {...getTableProps()}>
         <thead>
@@ -194,6 +196,7 @@ const AdminTable = () => {
           ))}
         </select>
       </div>
+     </>}
     </>
   );
 };

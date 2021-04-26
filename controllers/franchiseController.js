@@ -6,7 +6,7 @@ module.exports = {
             const franchises = await db.Franchise.findAll();
             res.json(franchises);
         } catch (error) {
-           console.log(error);
+           //console.log(error);
            res.status(404);
         }
     }
