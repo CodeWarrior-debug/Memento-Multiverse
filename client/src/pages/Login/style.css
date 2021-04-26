@@ -9,8 +9,12 @@ Button {
 
 @media only screen and (max-width: 1100px) {
     .formCard {
-      width: 60%;
-      display: inline;
+      width: 400px;
     }
   }
 
+  @media only screen and (max-width: 600px) {
+    .formCard {
+      width: 300px;
+    }
+  }
