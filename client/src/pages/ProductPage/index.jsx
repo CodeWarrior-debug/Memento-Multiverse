@@ -1,17 +1,24 @@
-import { useState, useEffect } from "react";
-import { useHistory, useParams } from "react-router";
+import { useState, useEffect, useContext } from "react";
+import { useHistory, useParams } from "react-router-dom";
 import API from "../../utils/API";
 import { Button } from 'rebass'
 import './style.css'
+import CartContext from "../../utils/CartContext";
 
 const ProductPage = ({ user }) => {
+    const cart = useContext(CartContext);
 
-    const [item, setItem] = useState([]);
+    const [item, setItem] = useState({});
     const productNum = window.location.pathname;
     // const productId = parseInt(productNum.replace("/products/", ""));
-
     const history = useHistory();
     const { ItemId } = useParams();
+
+    useEffect(() => {
+        API.getOneItem(ItemId)
+            .then(thing =>
+                setItem(thing.data))
+    }, [ItemId])
 
     const handleCart = e => {
         e.preventDefault();
@@ -36,13 +43,6 @@ const ProductPage = ({ user }) => {
 
     }
 
-    useEffect(() => {
-        API.getOneItem(ItemId)
-            .then(thing =>
-                setItem(thing.data))
-    }, [ItemId])
-
-
     return (
         <>
             <div className="container">
@@ -59,7 +59,7 @@ const ProductPage = ({ user }) => {
                     <div className="description">{item.fun_description}</div>
                     <div className="row">
                         <div className="btns">
-                            <Button onClick={handleCart}>Add to Cart</Button>
+                            <Button onClick={() => cart.addItem(item)}>Add to Cart</Button>
                         </div>
                     </div>
                 </div>

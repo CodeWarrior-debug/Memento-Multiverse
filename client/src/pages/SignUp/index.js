@@ -7,7 +7,7 @@ import {
 import './style.css'
 import { Label, Input, Checkbox } from '@rebass/forms'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Redirect } from 'react-router';
+import { Redirect } from 'react-router-dom';
 import API from '../../utils/API';
 
 function SignUp() {
