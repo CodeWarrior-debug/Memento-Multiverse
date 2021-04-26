@@ -42,3 +42,23 @@ code {
   from {transform: translateX(  0%);}
     to {transform: translateX(100%);}
 }
+.office {
+  background-image: url('./images/office.png');
+  background-size: cover;
+  position: fixed;
+}
+.stage {
+  background-image: url('./images/stage.png');
+  background-size: cover;
+  position: fixed;
+}
+.tool {
+  background-image: url('./images/tool.png');
+  background-size: cover;
+  position: fixed;
+}
+.family {
+  background-image: url('./images/family.png');
+  background-size: cover;
+  position: fixed;
+}
