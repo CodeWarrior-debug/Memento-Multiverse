@@ -46,7 +46,7 @@ function Admin() {
              </Link>
             </Flex> 
             <Box>
-            <AdminTable></AdminTable>
+            <AdminTable/>
             </Box>
         </div>
     )

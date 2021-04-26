@@ -42,7 +42,6 @@ const ProductPage = ({ user }) => {
         }
 
     }
-
     return (
         <>
             <div className="container">

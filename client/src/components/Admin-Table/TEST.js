@@ -6,9 +6,9 @@ import API from "../../utils/API";
 const AdminTable = () => {
   const [data, setData] = useState([]);
   
-  useEffect(() => {
-    setData(API.getAllTransactions());
-  },[])
+  // useEffect(() => {
+  //   setData(API.getAllTransactions());
+  // },[])
 
   console.log(data);
 }

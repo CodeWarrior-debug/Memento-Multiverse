@@ -9,15 +9,15 @@ const cart = {
 
     create: function (req, res) {
         if (req.user) {
-            console.log('Adding Item(s) to Cart');
+            //console.log('Adding Item(s) to Cart');
             db.Cart.find(
                 { user: req.user.id },
                 { include: { product_name: req.body.product_name, image_link: req.body.image_link } }
             )
                 .then((cartItem) => {
-                    console.log('This is your cart: ', cartItem);
+                    //console.log('This is your cart: ', cartItem);
                     if (cartItem === null) {
-                        console.log('Adding new item to Cart');
+                        //console.log('Adding new item to Cart');
                         db.Cart.create({
                             user: user.req.id,
                             item: item.req.itemId,
@@ -28,8 +28,9 @@ const cart = {
                     res.sendStatus(200);
                 })
                 .catch((err) => {
-                    console.log(err);
+                    //console.log(err);
                 });
+
         } else {
             res.sendStatus(403);
             console.log("User is not logged in");
@@ -38,9 +39,9 @@ const cart = {
 
     // Deleting an item out of user cart
     deleteOne: function (req, res) {
-        console.log("Requested item from delete", req);
+        //console.log("Requested item from delete", req);
         if (req.user) {
-            console.log("This is the item to be deleted", req.params.id);
+            //console.log("This is the item to be deleted", req.params.id);
 
             const itemDelete = req.params.id;
             db.Cart.deleteOne(itemDelete)
@@ -53,7 +54,7 @@ const cart = {
                 })
         } else {
             res.sendStatus(403);
-            console.log('User is not logged in')
+            //console.log('User is not logged in')
         }
     },
 
