@@ -6,3 +6,11 @@ Button {
     margin-left: 35% !important;   
     margin-right: 35% !important;
 }
+
+@media only screen and (max-width: 1100px) {
+    .formCard {
+      width: 60%;
+      display: inline;
+    }
+  }
+
