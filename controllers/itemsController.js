@@ -8,7 +8,7 @@ module.exports = {
             }
           })
           .then(ItemDB => {
-              console.log(ItemDB);
+
               res.json(ItemDB);
           })
           .catch((err) => {
@@ -18,7 +18,6 @@ module.exports = {
     findAll: function(req, res) {
       db.Product.findAll()
         .then(ItemDB => {
-            console.log(ItemDB);
             res.json(ItemDB);
         })
         .catch((err) => {

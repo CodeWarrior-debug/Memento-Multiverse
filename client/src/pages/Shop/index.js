@@ -20,11 +20,12 @@ function Shop() {
             setItemList(list.data);
             setFranchise(parseInt(id))
           });
-    }else {
-        API.getAll() //
+    } else {
+        API.getAll() 
           .then((list) => {
              console.log(list.data)
             setItemList(list.data);
+            setFranchise("0")
           });
     }
   }, [id]);
