@@ -26,6 +26,7 @@ function Header() {
                 <Box mx='auto' id="nav" />
                 <label for="hamburger">&#9776;</label>
                 <input type="checkbox" id="hamburger" />
+                <div id="hamitems">
                 <Link className="navLink" variant='nav' href='/shop'>
                     <FontAwesomeIcon icon="home" />
                     {' '}
@@ -46,6 +47,7 @@ function Header() {
                     {' '}
                     Logout
                 </Link>
+                </div>
             </Flex>
 
             {/* <Flex
