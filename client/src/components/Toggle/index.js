@@ -5,45 +5,39 @@ import React, { useState } from 'react';
 import { Label, Radio } from '@rebass/forms';
 import './style.css';
 import API from '../../utils/API';
+import { useHistory } from 'react-router-dom';
 
 
 
 const Toggle = (props) => {
 
+    const history = useHistory();
+  
 
-    // const [franchiseData, setfranchiseData] = useState([]);
-    // const [franchise, setFranchise] = useState();
-    const [itemList, setItemList] = useState([]);
-
-//  twoCalls = e => {
-//     function getData(franchise){API.getOneFranchise(franchise)
-//         .then(franchise => setfranchiseData(franchise.data))};
-//     function resetFranchise(prepsid){ 
-//             setFranchise(prepsid)};
-//   }
+    const changeFranchise =(id)=>{
+        console.log("here", id, props.franchiseSelected)
+        if(id === props.franchiseSelected) history.push('/shop')
+        else history.push('/shop/'+props.id)
+    }
 
 
-    // useEffect(()=>{
-    //     API.getFranchises()
-    //     .then(franchise=>setfranchiseData(franchise.data))
-    // }, [])
+
+   // const [itemList, setItemList] = useState([]);
+
 
     return (
-         
+         <>
         <Box className="switch">
-            <Label>
+            <Label width={[ 1/2, 1/4 ]} p={2} onClick={ () => changeFranchise(props.id)} >
             <Radio className="radio"
                 name={props.name}
                 id={props.id}
-                // onChange={ () => console.log("onclick is triggered at " + (props.id))}  //works
-                onChange={ () => API.getOneFranchise(props.id)
-                    .then(res=> props.setFranchise(res.data))}  //test
-                // onChange={ () => console.log("onchange is triggered at " + (props.id))}
-                // TODO: find a way to hit a route with id argument passed in to bring back shows products when radio button clicked,
-                // TODO review https://stackoverflow.com/questions/54032379/call-two-functions-within-onchange-event-in-react
+                checked= {props.franchiseSelected === props.id}
                 />
+            {props.name}
             </Label>
-        </Box>  
+        </Box> 
+        </> 
      );
 }
  

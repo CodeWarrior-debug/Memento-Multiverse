@@ -16,6 +16,17 @@ module.exports = {
               console.log(err);
           })
     },
+    findAll: function(req, res) {
+      db.Product.findAll()
+      //   .findAll()
+        .then(ItemDB => {
+            console.log(ItemDB);
+            res.json(ItemDB);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+  },
 
     findOne: function(req,res) {
         db.Product
