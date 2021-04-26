@@ -1,10 +1,9 @@
 import React from 'react';
 import './style.css';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import {
     Box,
-    Flex,
-    Button
+    Flex
 } from 'rebass'
 
 const Card = ({ image_link, product_name, fake_price, fake_quantity, fake_sold, id, description }) => {

@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import API from "../../utils/API";
 import { Button } from 'rebass'
 import './style.css'
@@ -9,9 +9,7 @@ const ProductPage = ({ user }) => {
     const cart = useContext(CartContext);
 
     const [item, setItem] = useState({});
-    const productNum = window.location.pathname;
-    // const productId = parseInt(productNum.replace("/products/", ""));
-    const history = useHistory();
+    // const history = useHistory();
     const { ItemId } = useParams();
 
     useEffect(() => {
@@ -20,28 +18,7 @@ const ProductPage = ({ user }) => {
                 setItem(thing.data))
     }, [ItemId])
 
-    const handleCart = e => {
-        e.preventDefault();
-        console.log(user);
-        console.log(ItemId);
-
-        if (!user) {
-            history.push('/login');
-        } else {
-            const chosenProduct = {
-                quantity: 1,
-                product_id: ItemId
-            }
-            API.addToCart(chosenProduct)
-                .then((x) => {
-                    console.log(x.data);
-                })
-                .catch((err) => {
-                    console.log(err);
-                })
-        }
-
-    }
+    
     return (
         <>
             <div className="container">

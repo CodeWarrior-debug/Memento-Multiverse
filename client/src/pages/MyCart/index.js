@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import "./style.css";
 import { Button } from "rebass";
 import CartContext from "../../utils/CartContext";
+import API from "../../utils/API";
 
 const MyCart = () => {
   const cart = useContext(CartContext);
@@ -10,24 +11,37 @@ const MyCart = () => {
   useEffect(() => {
     console.log(cart);
     let totalVal = 0;
+    if (!cart.items.length) return;
     for (let i = 0; i < cart.items.length; i++) {
-      totalVal += cart.items[i].fake_price;
+      totalVal += parseFloat(cart.items[i].fake_price);
     }
     setCartTotal(totalVal);
   }, [cart]);
 
-  const removeFromCart = (product) => {
-    let hardCopy = [...cart];
-    hardCopy = hardCopy.filter((cartItem) => cartItem.id !== product.id);
-    // setCart(hardCopy);
-  };
+  const handleCheckout = async e => {
+    e.preventDefault();
+    try {
+      const purchaseArr = cart.items.map(item => item.id)
+      API.postTransactions(purchaseArr);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  const emptyCart = () => {
+    localStorage.clear();
+    window.location.reload();
+  }
 
   return (
     <div className="cart">
       <h1>My Cart</h1>
-      {/* <p>{cartItems}</p> */}
+        {cart.items.map((item, i) => (
+          <p>{item.product_name} = ${item.fake_price}</p>
+        ))}
       <h3>Total: ${parseFloat(cartTotal)}</h3>
-      <Button className="btn">Checkout</Button>
+      <Button className="btn" onClick={handleCheckout}>Checkout</Button>
+      <Button className="btn" onClick={emptyCart}>Empty Cart</Button>
     </div>
   );
 };

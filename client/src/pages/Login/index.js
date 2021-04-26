@@ -7,8 +7,7 @@ import {
 import {
     Box,
     Button,
-    Flex,
-    Text
+    Flex
 } from 'rebass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import API from '../../utils/API';

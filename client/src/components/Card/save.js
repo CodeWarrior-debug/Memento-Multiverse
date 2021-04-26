@@ -2,10 +2,7 @@ import React from "react";
 
 import {
   Box,
-  Card,
-  Image,
-  Heading,
-  Text
+  Card
 } from 'rebass'
 
 const productCard = ({
