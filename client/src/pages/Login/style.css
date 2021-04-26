@@ -2,7 +2,25 @@
 Button {
     width: 20% !important;
 }
+
 .formCard {
     margin-left: 35% !important;   
     margin-right: 35% !important;
 }
+
+.btns {
+    width: 20%;
+}
+
+@media only screen and (max-width: 1100px) {
+    .formCard {
+      width: 400px;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .formCard {
+      width: 100% !important;
+      margin-left: none !important;
+    }
+  }

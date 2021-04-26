@@ -22,10 +22,11 @@ function Header() {
                 bg='black'
                 alignItems='center'>
                 <Text p={4} fontWeight='bold' fontSize="30px" color="#eee">Memento Multiverse</Text>
-                <Box mx='auto' className="nav" />
+                <Box mx='auto' id="nav" />
                 <label for="hamburger">&#9776;</label>
                 <input type="checkbox" id="hamburger" />
                 <Link className="navLink" variant='nav' to='/shop'>
+                <div id="hamitems">
                     <FontAwesomeIcon icon="home" />
                     {' '}
                     Shop
@@ -45,6 +46,7 @@ function Header() {
                     {' '}
                     Logout
                 </Link>
+                </div>
             </Flex>
 
             {/* <Flex
@@ -55,6 +57,10 @@ function Header() {
                 <Text p={4} fontWeight='bold' fontSize="30px" color="#eee">Memento Multiverse</Text>
                 <Box mx='auto' />
                 <Link className="navLink" variant='nav' to='/home'>
+                <Box mx='auto' id="nav" />
+                <label for="hamburger">&#9776;</label>
+                <input type="checkbox" id="hamburger" />
+
                     <FontAwesomeIcon icon="home" />
                     {' '}
                     Shop
