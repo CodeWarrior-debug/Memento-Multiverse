@@ -5,6 +5,8 @@ import CartContext from "../../utils/CartContext";
 import API from "../../utils/API";
 
 const MyCart = () => {
+
+  //set hooks 
   const cart = useContext(CartContext);
   const [cartTotal, setCartTotal] = useState(0);
 
@@ -17,12 +19,21 @@ const MyCart = () => {
     }
     setCartTotal(totalVal);
   }, [cart]);
+      //set hooks END
 
-  const handleCheckout = async e => {
+  //create functions
+  const handleCheckout = async (e) => {
     e.preventDefault();
+    // const myusername = CartContext.user_name;
+    
     try {
       const purchaseArr = cart.items.map(item => item.id)
-      API.postTransactions(purchaseArr);
+      console.log(purchaseArr,"tested code");
+      //looping through each in purchaseArr.
+      let i;
+       for (i=0; i < purchaseArr.length; i++) {
+        API.create(purchaseArr[i]);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -32,7 +43,9 @@ const MyCart = () => {
     localStorage.clear();
     window.location.reload();
   }
-
+    //create functions END
+  
+  //display
   return (
     <div className="cart">
       <h1>My Cart</h1>
