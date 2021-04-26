@@ -14,10 +14,24 @@ a:-webkit-any-link {
     display: none;
 }
 .reg {
-    width: 60%;
+    width: 50%;
+    padding-left: 30%;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1700px) {
+    .reg {
+        padding-left: 20%;
+    }
+    
+}
+@media only screen and (max-width: 1200px) {
+    .reg {
+        padding-left: 10%;
+    }
+    
+}
+
+@media only screen and (max-width: 950px) {
     .reg {
         display: none;
     }
