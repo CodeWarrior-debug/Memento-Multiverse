@@ -7,7 +7,6 @@ module.exports = {
               franchiseId: (req.params.franchiseId)
             }
           })
-        //   .findAll()
           .then(ItemDB => {
               console.log(ItemDB);
               res.json(ItemDB);
@@ -18,7 +17,6 @@ module.exports = {
     },
     findAll: function(req, res) {
       db.Product.findAll()
-      //   .findAll()
         .then(ItemDB => {
             console.log(ItemDB);
             res.json(ItemDB);
