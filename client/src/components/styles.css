@@ -4,6 +4,9 @@ a:-webkit-any-link {
     margin-right: 2%;
     text-decoration: none;
 }
+.toggle {
+    min-width: 200px;
+}
 .footicons {
     font-size: 30px;
     margin: 5%;

@@ -7,26 +7,28 @@ import React from 'react';
 import Toggle from '../Toggle';
 import API from '../../utils/API';
 
-const ToggleContainer = () => {
+const ToggleContainer = ({franchiseSelected}) => {
     // state = { franchiseData: [{id: 1, name: "Seinfeld", logo: "text"}, {id: 2, name: "Rick and Morty", logo: "morty"}] }
-    const [franchiseData, setfranchiseData] = useState([]);
-
+    const [franchiseData, setFranchiseData] = useState([]);
     useEffect(()=>{
         API.getFranchises()
-        .then(franchise=>setfranchiseData(franchise.data))
+        .then(franchise=>setFranchiseData(franchise.data))
     }, [])
 
         return ( 
             <Box className="toggle">
                 <Flex>
                     <Box>
+                       
                         {franchiseData.map((franchise) =>
                         <Toggle key={franchise.id}
                         name={franchise.name}
                         id={franchise.id}
+                        franchiseSelected={franchiseSelected}
                         /> 
                         
                         )}
+                     
                     </Box>
                 </Flex>
             </Box>
