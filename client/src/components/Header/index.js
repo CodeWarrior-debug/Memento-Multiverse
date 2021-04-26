@@ -14,7 +14,7 @@ function Header() {
     let menu2
     let menu
 
-    if (showMenu2) {
+    if (showMenu) {
         menu = <div ClassName='menu'>
             <Link className="navLink" variant='nav' href='/shop'>
                 <FontAwesomeIcon icon="home" />
