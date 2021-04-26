@@ -20,11 +20,12 @@ function Shop() {
             setItemList(list.data);
             setFranchise(parseInt(id))
           });
-    }else {
+    } else {
         API.getAll() // TODO: should not be hard coded, should be able to put franchise in here
           .then((list) => {
              console.log(list.data)
             setItemList(list.data);
+            setFranchise("0")
           });
     }
   }, [id]);

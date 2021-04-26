@@ -9,7 +9,7 @@ module.exports = {
           })
         //   .findAll()
           .then(ItemDB => {
-              console.log(ItemDB);
+
               res.json(ItemDB);
           })
           .catch((err) => {
@@ -20,7 +20,6 @@ module.exports = {
       db.Product.findAll()
       //   .findAll()
         .then(ItemDB => {
-            console.log(ItemDB);
             res.json(ItemDB);
         })
         .catch((err) => {
