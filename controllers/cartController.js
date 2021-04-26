@@ -51,8 +51,7 @@ const cart = {
                 .catch(err => {
                     console.log(err);
                 })
-        }
-        else {
+        } else {
             res.sendStatus(403);
             console.log('User is not logged in')
         }
