@@ -22,20 +22,6 @@ const MyCart = () => {
     // setCart(hardCopy);
   };
 
-  // const listItems = items.map((product) => (
-  //   <div key={product.id}>
-  //     {`${product.name}: $${product.price}`}
-  //     {/* <input type="submit" value="add" onClick={() => addToCart(product)} /> */}
-  //   </div>
-  // ));
-
-  // const cartItems = cart.items.map((product) => (
-  //   <div key={product.id}>
-  //     {`${product.name}: $${product.price}`}
-  //     <input type="submit" value="remove" onClick={() => removeFromCart(product)} />
-  //   </div>
-  // ));
-
   return (
     <div className="cart">
       <h1>My Cart</h1>

@@ -9,15 +9,10 @@ import SignUp from './pages/SignUp';
 import MyCart from './pages/MyCart';
 import Consumer from './pages/Consumer-Dashboard';
 import Admin from './pages/Admin-Dashboard';
-import { BrowserRouter as Router, Route, useHistory, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faUser, faWarehouse, faChartLine, faChartPie, faDollarSign, faMoneyCheck } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-// import AllSales from "./pages/AllSales/";
-// import Expenses from "./pages/Expenses/";
-// import Inventory from "./pages/Inventory/";
-// import NetRevenue from "./pages/NetRevenue/";
-// import SalesByFranchise from "./pages/SalesByFranchise/";
 import ProductPage from './pages/ProductPage';
 import WithAuth from './components/WithAuth';
 import API from './utils/API';
@@ -36,7 +31,6 @@ function App() {
     addItem: (item) => setCart((curr) => ({ ...curr, items: [...curr.items, item] })),
     removeItem: (item) => setCart((curr) => ({ ...curr, items: [...curr.items.splice(...curr.items.indexOf(item), 1)] }))
   });
-  // const [, setRedirect] = useState(false);
   useEffect(() => {
     API.loggedIn()
       .then(results => {
@@ -50,7 +44,7 @@ function App() {
       })
   }, [])
 
-  const handleLogout = () => {  //not needed
+  const handleLogout = () => {
     setUser({});
     API.logOut();
   }
@@ -92,8 +86,8 @@ function App() {
                   <Route exact path="/products/:ItemId"
                     render={(props) => <ProductPage {...props} user={user} />}
                   />
-                  <Route exact path="/dashboard" user={user} component={Consumer} /> {/* TODO: Change back to withAuth */}
-                  <Route exact path="/admin" user={user} component={Admin} /> {/* TODO: Change back to withAuth */}
+                  <Route exact path="/dashboard" user={user} component={Consumer} />
+                  <Route exact path="/admin" user={user} component={Admin} />
                   <Route exact path="/cart" user={user} component={MyCart} />
                 </Switch>) :
                 (<h1> Loading... </h1>)
