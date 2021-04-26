@@ -26,7 +26,8 @@ const Card = ({ image_link, product_name, fake_price, fake_quantity, fake_sold, 
                             </Box>
                             <Box className="toes">
                                 <h3><div>
-                                    Price:{" "}{fake_price}
+                                    Price:{" "}${fake_price}
+                                    {/* console.log(new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(number)); */}
                                 </div>
                                     <div>
                                         Stock:{" "}{fake_quantity}
