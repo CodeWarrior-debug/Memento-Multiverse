@@ -41,7 +41,9 @@ Following tutorials on react tables used:
 
 ## Repository
 ---
- https://github.com/erenozgur98/Memento-Multiverse
+ Repo: https://github.com/erenozgur98/Memento-Multiverse
+
+ Heroku: https://memento-multiverse.herokuapp.com/
 
  ## FutureDevelopments
  ---

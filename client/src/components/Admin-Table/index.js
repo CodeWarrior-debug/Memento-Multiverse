@@ -32,6 +32,7 @@ const AdminTable = () => {
 
   },[])
 
+    // getdata();
 
   //***setting up data end */
 

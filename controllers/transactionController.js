@@ -5,7 +5,6 @@ module.exports = {
     findAllTransactions: function(req, res) {
         db.Transaction.findAll()
           .then(transactionDB => {
-              //console.log(transactionDB);
               res.json(transactionDB);
           })
           .catch((err) => {
@@ -17,7 +16,6 @@ module.exports = {
         db.Product
           .findByPk(req.params.ItemId)
           .then(getOneItem => {
-            //console.log('Your requested item: ', getOneItem);
             res.json(getOneItem);
           })
           .catch(err => {
