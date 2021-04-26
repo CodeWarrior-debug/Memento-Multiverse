@@ -102,6 +102,7 @@ Button {
     width: 20% !important;
     margin: 5px !important;
     margin-bottom: 3% !important;
+    cursor: pointer;
 }
 .boot {
     display: flex;
