@@ -28,7 +28,11 @@ function App() {
   const [loaded, setLoaded] = useState(false);
   const [cart, setCart] = useState({
     items: [],
-    addItem: (item) => setCart((curr) => ({ ...curr, items: [...curr.items, item] })),
+    addItem: (item) => setCart((curr) => {
+      const newCartList = [...curr.items, item];
+      localStorage.setItem("currentCart", JSON.stringify(newCartList));
+      return { ...curr, items: newCartList }
+    }),
     removeItem: (item) => setCart((curr) => ({ ...curr, items: [...curr.items.splice(...curr.items.indexOf(item), 1)] }))
   });
   useEffect(() => {
@@ -42,6 +46,8 @@ function App() {
         console.log(err)
         setLoaded(true)
       })
+    const currentCart = JSON.parse(localStorage.getItem("currentCart")) || [];
+    setCart((curr) => ({ ...curr, items: currentCart }));
   }, [])
 
   const handleLogout = () => {

@@ -11,21 +11,22 @@ const MyCart = () => {
   useEffect(() => {
     console.log(cart);
     let totalVal = 0;
+    if (!cart.items.length) return;
     for (let i = 0; i < cart.items.length; i++) {
-      totalVal += cart.items[i].fake_price;
+      totalVal += parseFloat(cart.items[i].fake_price);
     }
     setCartTotal(totalVal);
   }, [cart]);
 
-  const handleCheckout = e => {
-    e.preventDefault();
+  // const handleCheckout = async e => {
+  //   e.preventDefault();
+  //   try {
+  //     const 
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
 
-    API.postTransactions
-      .then(() => {})
-      .catch((err) => {
-        console.log(err);
-      })
-  }
+  // }
 
   const removeFromCart = (product) => {
     let hardCopy = [...cart];
@@ -38,7 +39,7 @@ const MyCart = () => {
       <h1>My Cart</h1>
       {/* <p>{cartItems}</p> */}
       <h3>Total: ${parseFloat(cartTotal)}</h3>
-      <Button className="btn" onClick={handleCheckout}>Checkout</Button>
+      <Button className="btn">Checkout</Button>
     </div>
   );
 };
