@@ -36,6 +36,7 @@ function Shop() {
           {itemList.map((item, i) => (
             <Card className="item" key={i} {...item} />
           ))}
+
         </div>
       </Box>
     </div>

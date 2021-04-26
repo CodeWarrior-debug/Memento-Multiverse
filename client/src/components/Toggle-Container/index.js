@@ -7,7 +7,10 @@ import React from 'react';
 import Toggle from '../Toggle';
 import API from '../../utils/API';
 
+
 const ToggleContainer = ({franchiseSelected}) => {
+
+// function ToggleContainer(props) {
     // state = { franchiseData: [{id: 1, name: "Seinfeld", logo: "text"}, {id: 2, name: "Rick and Morty", logo: "morty"}] }
     const [franchiseData, setFranchiseData] = useState([]);
     useEffect(()=>{
@@ -21,7 +24,7 @@ const ToggleContainer = ({franchiseSelected}) => {
                     <Box>
                        
                         {franchiseData.map((franchise) =>
-                        <Toggle key={franchise.id}
+                        <Toggle setFranchise={props.setFranchise} key={franchise.id}
                         name={franchise.name}
                         id={franchise.id}
                         franchiseSelected={franchiseSelected}
