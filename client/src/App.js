@@ -51,7 +51,7 @@ function App() {
 
   return (
     <>
-      <Box className=""
+      <Box className="bg"
         sx={{
           display: 'flex',
           flexDirection: 'column',
