@@ -1,19 +1,25 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import API from "../../utils/API";
 import { Button } from 'rebass'
 import './style.css'
 
-const ProductPage = () => {
+const ProductPage = (props) => {
 
     const [item, setItem] = useState([]);
     const productNum = window.location.pathname;
     const id = parseInt(productNum.replace("/products/", ""));
 
+    const history = useHistory();
+    const { user } = props;
+
     const handleCart = e => {
         e.preventDefault();
 
-        
+        if (!user) {
+            history.push('/login');
+        }
+
     }
 
     useEffect(() => {
