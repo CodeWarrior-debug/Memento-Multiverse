@@ -23,7 +23,7 @@ Button {
     margin-bottom: 3% !important;
 }
 .dashcards2 {
-    background-image: url('../../images/shop.png') !important;
+    background-image: url('../../images/order.png') !important;
     background-size: 150vh, 100vw;
     background-repeat: no-repeat;
     background-position: center;
