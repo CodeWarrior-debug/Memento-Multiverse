@@ -28,7 +28,7 @@ function SignUp() {
   }
 
   return (
-    <div className="container">
+    <Flex className="container" alignItems='center'>
       {redirect && <Redirect to="/shop" />}
       <Box
         className="formCard"
@@ -120,7 +120,7 @@ function SignUp() {
         {/* Signup button */}
         <Button type="submit" mr={2} onSubmit={handleSignUp}>Sign Up</Button>
       </Box>
-    </div>
+    </Flex>
   )
 }
 

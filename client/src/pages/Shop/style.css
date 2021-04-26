@@ -4,17 +4,7 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-.toggle {
-    background-color: hsl(0, 0%, 7%, 60%);
-    height: 95vh;
-    color: #eee;
-    border-radius: 20px;
-    border: #eee solid;
-    width: 30% !important;
-    margin-left: 2% !important;
-    display: grid;
-    grid-template-columns: 1;
-}
+
 .containers{
     display: flex;
     flex-direction: row !important;
@@ -23,5 +13,14 @@
 .tog {
     display: grid;
     grid-template-rows: 1;
+}
 
+@media (max-width:600px) {
+    .toggle {
+        width: 80% !important;
+    }
+}
+
+.css-1fo9xbs {
+    width: 140px;
 }
