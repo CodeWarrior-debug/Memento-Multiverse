@@ -7,7 +7,6 @@ import {
   useGroupBy,
   useExpanded,
 } from "react-table"; //useGlobalFilter,
-import MOCK_DATA from "./MOCK_DATA.json";
 import { COLUMNS } from "./columns";
 import "./table.css";
 import { ColumnFilter } from "./ColumnFilter";
@@ -17,21 +16,31 @@ import API from "../../utils/API";
 const AdminTable = () => {
 
   //***setting up data */
-    // const [data, setData] = useState([]);
 
-    // const getdata = () => {
-    //   API.getAllTransactions().then((e) => {
-    //     console.log(e, "API Transaction");
-    //     setData(JSON.parse(e));
-    //   });
-    // };
+
+    const [mydata, setMydata] = useState([]);
+  useEffect(()=>{
+    
+      API.getAllTransactions().then(transactions => {
+        
+        // console.log(e.data);
+        // setMydata(JSON.parse(e));
+        setMydata(JSON.parse(transactions.data));
+        return;
+      });
+    
+
+  },[])
 
     // getdata();
 
   //***setting up data end */
 
   const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => MOCK_DATA, []);
+  // const data = useMemo(() => MOCK_DATA, []);
+  const data = useMemo(() => mydata, []);
+  // const data = useMemo(() => mydata, []);
+  
 
   const defaultColumn = useMemo(
     () => ({
@@ -78,9 +87,10 @@ const AdminTable = () => {
 
   return (
     <>
-      <pre>
+    {mydata &&<>
+      {/* <pre>
         <code>{JSON.stringify({ groupBy, expanded }, null, 2)}</code>
-      </pre>
+      </pre> */}
       {/* <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} /> */}
       <table {...getTableProps()}>
         <thead>
@@ -187,6 +197,7 @@ const AdminTable = () => {
           ))}
         </select>
       </div>
+     </>}
     </>
   );
 };

@@ -6,8 +6,10 @@ const sequelize = require("sequelize");
 const passport = require("./passport");
 const LocalStrategy = require('passport-local').Strategy;
 const routes = require("./routes");
+const logger = require("morgan");
 
 
+app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(require('express-session')({

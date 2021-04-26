@@ -18,7 +18,7 @@ function Footer() {
         alignItems='center'>
         <Box mx='auto' />
         <div className="centerfoot">
-        <Link className="navLink" variant='nav' href='https://github.com/erenozgur98/Memento-Multiverse'>
+        <Link className="navLink" variant='nav' href='https://github.com/erenozgur98/Memento-Multiverse' target="_blank">
             <FontAwesomeIcon className="footicons" icon={["fab", "github"]} size="lg" />
         </Link>
         </div>

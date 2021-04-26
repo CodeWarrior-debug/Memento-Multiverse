@@ -8,7 +8,7 @@ module.exports = {
               res.json(transactionDB);
           })
           .catch((err) => {
-              console.log(err);
+              //console.log(err);
           })
     },
 //TODO get this one set up
@@ -16,11 +16,10 @@ module.exports = {
         db.Product
           .findByPk(req.params.ItemId)
           .then(getOneItem => {
-            
             res.json(getOneItem);
           })
           .catch(err => {
-              console.log(err);
+              //console.log(err);
           })
     }
 }
