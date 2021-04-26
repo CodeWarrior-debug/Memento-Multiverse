@@ -24,7 +24,7 @@ const ToggleContainer = ({franchiseSelected}) => {
                     <Box>
                        
                         {franchiseData.map((franchise) =>
-                        <Toggle setFranchise={props.setFranchise} key={franchise.id}
+                        <Toggle key={franchise.id}
                         name={franchise.name}
                         id={franchise.id}
                         franchiseSelected={franchiseSelected}
