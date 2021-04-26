@@ -3,6 +3,7 @@ import "./style.css";
 import { Button, Card } from "rebass";
 import CartContext from "../../utils/CartContext";
 import API from "../../utils/API";
+import { Redirect } from "react-router";
 
 const MyCart = () => {
   const cart = useContext(CartContext);
@@ -29,6 +30,11 @@ const MyCart = () => {
 
   }
 
+  const emptyCart = () => {
+    localStorage.clear();
+    window.location.reload();
+  }
+
   const removeFromCart = (product) => {
     let hardCopy = [...cart];
     hardCopy = hardCopy.filter((cartItem) => cartItem.id !== product.id);
@@ -43,6 +49,7 @@ const MyCart = () => {
         ))}
       <h3>Total: ${parseFloat(cartTotal)}</h3>
       <Button className="btn" onClick={handleCheckout}>Checkout</Button>
+      <Button className="btn" onClick={emptyCart}>Empty Cart</Button>
     </div>
   );
 };
