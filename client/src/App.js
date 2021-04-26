@@ -51,12 +51,13 @@ function App() {
 
   return (
     <>
-      <Box className="bg"
+      <Box 
         sx={{
           display: 'flex',
           flexDirection: 'column',
           minHeight: '100vh'
         }}>
+          <div className="bg"></div>
         <Box
           sx={{
             p: 3

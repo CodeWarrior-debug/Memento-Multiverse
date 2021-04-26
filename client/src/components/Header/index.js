@@ -11,18 +11,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { useHistory } from 'react-router-dom';
 
 function Header() {
-        // let history = useHistory();
+    // let history = useHistory();
 
 
     return (
         <div>
+
             <Flex
                 px={5}
                 color='white'
                 bg='black'
                 alignItems='center'>
                 <Text p={4} fontWeight='bold' fontSize="30px" color="#eee">Memento Multiverse</Text>
-                <Box mx='auto' />
+                <Box mx='auto' className="nav" />
+                <label for="hamburger">&#9776;</label>
+                <input type="checkbox" id="hamburger" />
                 <Link className="navLink" variant='nav' href='/shop'>
                     <FontAwesomeIcon icon="home" />
                     {' '}
