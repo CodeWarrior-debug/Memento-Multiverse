@@ -18,15 +18,16 @@ const MyCart = () => {
     setCartTotal(totalVal);
   }, [cart]);
 
-  // const handleCheckout = async e => {
-  //   e.preventDefault();
-  //   try {
-  //     const 
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
+  const handleCheckout = async e => {
+    e.preventDefault();
+    try {
+      const purchaseArr = cart.items.map(item => item.id)
+      API.postTransactions(purchaseArr);
+    } catch (err) {
+      console.log(err);
+    }
 
-  // }
+  }
 
   const removeFromCart = (product) => {
     let hardCopy = [...cart];
@@ -39,7 +40,7 @@ const MyCart = () => {
       <h1>My Cart</h1>
       {/* <p>{cartItems}</p> */}
       <h3>Total: ${parseFloat(cartTotal)}</h3>
-      <Button className="btn">Checkout</Button>
+      <Button className="btn" onClick={handleCheckout}>Checkout</Button>
     </div>
   );
 };
