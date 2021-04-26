@@ -6,7 +6,7 @@ import {
     Text
 } from 'rebass';
 import useSound from 'use-sound'
-import '../styles.css';
+import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Header() {

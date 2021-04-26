@@ -5,7 +5,7 @@ import {
     Flex,
     Text
 } from 'rebass';
-import '../styles.css';
+import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Footer() {

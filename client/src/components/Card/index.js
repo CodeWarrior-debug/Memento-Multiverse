@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles.css';
+import './style.css';
 import { Link, useHistory } from 'react-router-dom';
 import {
     Box,
@@ -10,7 +10,7 @@ import {
 const Card = ({ image_link, product_name, fake_price, fake_quantity, fake_sold, id, description }) => {
     const history = useHistory()
     const redirect = () => {
-        history.push(`/product/${id}`)
+        history.push(`/products/${id}`)
     }
     return (
         <Box className="biggerboot" onClick={redirect}>
