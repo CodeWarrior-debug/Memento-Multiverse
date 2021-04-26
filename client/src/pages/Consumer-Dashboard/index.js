@@ -13,12 +13,12 @@ function Consumer() {
         <div className="container">
             <Box className="dashcards">
                 <Button>
-                    <h2 className="dash">Shopping Cart</h2>
+                    <h2><a className="dash" href="/cart">Shopping Cart</a></h2>
                 </Button>
             </Box>
             <Box className="dashcards2">
                 <Button>
-                    <h2 className="dash">Your Orders</h2>
+                    <h2><a className="dash" href="/">Your Orders</a></h2>
                 </Button>
             </Box>
         </div>

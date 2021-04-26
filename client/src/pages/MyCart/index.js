@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./style.css";
-import { Button } from "rebass";
+import { Button, Card } from "rebass";
 import CartContext from "../../utils/CartContext";
 import API from "../../utils/API";
 
@@ -38,7 +38,9 @@ const MyCart = () => {
   return (
     <div className="cart">
       <h1>My Cart</h1>
-      {/* <p>{cartItems}</p> */}
+        {cart.items.map((item, i) => (
+          <p>{item.product_name} = ${item.fake_price}</p>
+        ))}
       <h3>Total: ${parseFloat(cartTotal)}</h3>
       <Button className="btn" onClick={handleCheckout}>Checkout</Button>
     </div>

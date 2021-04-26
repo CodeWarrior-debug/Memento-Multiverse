@@ -92,9 +92,9 @@ function App() {
                   <Route exact path="/products/:ItemId"
                     render={(props) => <ProductPage {...props} user={user} />}
                   />
-                  <Route exact path="/dashboard" user={user} component={Consumer} />
-                  <Route exact path="/admin" user={user} component={Admin} />
-                  <Route exact path="/cart" user={user} component={MyCart} />
+                  <WithAuth exact path="/dashboard" user={user} component={Consumer} />
+                  <WithAuth exact path="/admin" user={user} component={Admin} />
+                  <WithAuth exact path="/cart" user={user} component={MyCart} />
                 </Switch>) :
                 (<h1> Loading... </h1>)
               }
