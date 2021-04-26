@@ -6,23 +6,15 @@ import { Label, Radio } from '@rebass/forms';
 import './style.css';
 import { useHistory } from 'react-router-dom';
 
-
-
 const Toggle = (props) => {
 
     const history = useHistory();
 
 
     const changeFranchise = (id) => {
-        console.log("here", id, props.franchiseSelected)
         if (id === props.franchiseSelected) history.push('/shop')
         else history.push('/shop/' + props.id)
     }
-
-
-
-    // const [itemList, setItemList] = useState([]);
-
 
     return (
         <>

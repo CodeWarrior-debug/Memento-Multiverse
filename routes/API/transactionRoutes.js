@@ -6,6 +6,8 @@ const transactionController = require('../../controllers/transactionController')
 
 router.route('/').get(transactionController.findAllTransactions);
 
+router.route('/').post(transactionController.create);
+
 // router.route('/:ItemId').get(itemsController.findOne);
 
 // router.route('/').post(cartController.create);
