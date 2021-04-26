@@ -3,10 +3,12 @@ import "./style.css";
 import { Button } from "rebass";
 import CartContext from "../../utils/CartContext";
 import API from "../../utils/API";
+import { Redirect } from "react-router";
 
-const MyCart = () => {
+const MyCart = ({ user }) => {
   const cart = useContext(CartContext);
   const [cartTotal, setCartTotal] = useState(0);
+  const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
     console.log(cart);
@@ -20,6 +22,8 @@ const MyCart = () => {
 
   const handleCheckout = async e => {
     e.preventDefault();
+    if (!user.user_name) return setRedirect(true)
+
     try {
       const purchaseArr = cart.items.map(item => item.id)
       API.postTransactions(purchaseArr);
@@ -35,6 +39,7 @@ const MyCart = () => {
 
   return (
     <div className="cart">
+      {redirect && <Redirect to="/login" />}
       <h1>My Cart</h1>
         {cart.items.map((item, i) => (
           <p>{item.product_name} = ${item.fake_price}</p>
