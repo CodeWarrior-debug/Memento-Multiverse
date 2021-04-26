@@ -7,12 +7,11 @@ import {
 import {
     Box,
     Button,
-    Flex,
-    Text
+    Flex
 } from 'rebass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import API from '../../utils/API';
-import { Redirect } from 'react-router';
+import { Redirect } from 'react-router-dom';
 import './style.css'
 
 function Login({ setUser, user }) {

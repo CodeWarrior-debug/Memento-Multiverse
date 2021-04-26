@@ -1,10 +1,8 @@
 import React from 'react';
 import {
     Box,
-    Text,
     Link,
     Flex,
-    Button,
 } from 'rebass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import AdminTable from '../../components/Admin-Table'
@@ -46,7 +44,7 @@ function Admin() {
              </Link>
             </Flex> 
             <Box>
-            <AdminTable></AdminTable>
+            <AdminTable/>
             </Box>
         </div>
     )

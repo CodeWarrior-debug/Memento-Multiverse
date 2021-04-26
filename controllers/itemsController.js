@@ -8,11 +8,10 @@ module.exports = {
             }
           })
           .then(ItemDB => {
-
               res.json(ItemDB);
           })
           .catch((err) => {
-              console.log(err);
+              //console.log(err);
           })
     },
     findAll: function(req, res) {
@@ -21,7 +20,7 @@ module.exports = {
             res.json(ItemDB);
         })
         .catch((err) => {
-            console.log(err);
+            //console.log(err);
         })
   },
 
@@ -29,11 +28,11 @@ module.exports = {
         db.Product
           .findByPk(req.params.ItemId)
           .then(getOneItem => {
-            console.log('Your requested item: ', getOneItem);
+            //console.log('Your requested item: ', getOneItem);
             res.json(getOneItem);
           })
           .catch(err => {
-              console.log(err);
+              //console.log(err);
           })
     }
 }

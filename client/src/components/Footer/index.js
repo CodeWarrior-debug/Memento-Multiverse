@@ -2,8 +2,7 @@ import React from 'react';
 import {
     Box,
     Link,
-    Flex,
-    Text
+    Flex
 } from 'rebass';
 import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -18,7 +17,7 @@ function Footer() {
         alignItems='center'>
         <Box mx='auto' />
         <div className="centerfoot">
-        <Link className="navLink" variant='nav' href='https://github.com/erenozgur98/Memento-Multiverse'>
+        <Link className="navLink" variant='nav' href='https://github.com/erenozgur98/Memento-Multiverse' target="_blank">
             <FontAwesomeIcon className="footicons" icon={["fab", "github"]} size="lg" />
         </Link>
         </div>

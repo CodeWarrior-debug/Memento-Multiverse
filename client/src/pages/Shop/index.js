@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../../components/Card';
-import { Box, Flex, Button } from 'rebass';
-import { Label, Radio } from '@rebass/forms';
+import { Box } from 'rebass';
 import './style.css';
 import API from '../../utils/API.js';
 import ToggleContainer from '../../components/Toggle-Container';
@@ -10,23 +9,21 @@ import { useParams } from 'react-router-dom';
 function Shop() {
   const [franchise, setFranchise] = useState(0);
   const [itemList, setItemList] = useState([]);
-  const {id} = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
-    if(id){
-        API.getOneFranchise(id) 
-          .then((list) => {
-             console.log(list.data)
-            setItemList(list.data);
-            setFranchise(parseInt(id))
-          });
+    if (id) {
+      API.getOneFranchise(id)
+        .then((list) => {
+          setItemList(list.data);
+          setFranchise(parseInt(id))
+        });
     } else {
-        API.getAll() 
-          .then((list) => {
-             console.log(list.data)
-            setItemList(list.data);
-            setFranchise("0")
-          });
+      API.getAll()
+        .then((list) => {
+          setItemList(list.data);
+          setFranchise("0")
+        });
     }
   }, [id]);
   return (

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import CartContext from './utils/CartContext';
 import { Box } from 'rebass';
 import Shop from './pages/Shop';
 import Header from './components/Header';
@@ -8,29 +9,32 @@ import SignUp from './pages/SignUp';
 import MyCart from './pages/MyCart';
 import Consumer from './pages/Consumer-Dashboard';
 import Admin from './pages/Admin-Dashboard';
-import { BrowserRouter as Router, Route, useHistory, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faUser, faWarehouse, faChartLine, faChartPie, faDollarSign, faMoneyCheck } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faUser, faWarehouse, faChartLine, faChartPie, faDollarSign, faMoneyCheck, faBars } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-// import AllSales from "./pages/AllSales/";
-// import Expenses from "./pages/Expenses/";
-// import Inventory from "./pages/Inventory/";
-// import NetRevenue from "./pages/NetRevenue/";
-// import SalesByFranchise from "./pages/SalesByFranchise/";
 import ProductPage from './pages/ProductPage';
 import WithAuth from './components/WithAuth';
 import API from './utils/API';
 import './index.css'
 
 
-library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faGithub, faUser, faWarehouse, faChartLine, faChartPie, faDollarSign, faMoneyCheck);
+library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt, faChalkboardTeacher, faGithub, faUser, faWarehouse, faChartLine, faChartPie, faDollarSign, faMoneyCheck, faBars);
 
 
 function App() {
   const [user, setUser] = useState({});
 
   const [loaded, setLoaded] = useState(false);
-  // const [, setRedirect] = useState(false);
+  const [cart, setCart] = useState({
+    items: [],
+    addItem: (item) => setCart((curr) => {
+      const newCartList = [...curr.items, item];
+      localStorage.setItem("currentCart", JSON.stringify(newCartList));
+      return { ...curr, items: newCartList }
+    }),
+    removeItem: (item) => setCart((curr) => ({ ...curr, items: [...curr.items.splice(...curr.items.indexOf(item), 1)] }))
+  });
   useEffect(() => {
     API.loggedIn()
       .then(results => {
@@ -42,62 +46,68 @@ function App() {
         console.log(err)
         setLoaded(true)
       })
+    const currentCart = JSON.parse(localStorage.getItem("currentCart")) || [];
+    setCart((curr) => ({ ...curr, items: currentCart }));
   }, [])
 
-  const handleLogout = () => {  //not needed
+  const handleLogout = () => {
     setUser({});
     API.logOut();
   }
 
   return (
     <>
-      <Box 
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          minHeight: '100vh'
-        }}>
-          <div className="bg"></div>
-        <Box
-          sx={{
-            p: 3
-          }}>
-          <Header />
-        </Box>
-        <Box
-          sx={{
-            flex: '1 1 auto',
-            p: 3
-          }}>
-          <Router>
-            {loaded ? (
-              <Switch>
-                <WithAuth exact path="/" user={user} component={Shop} />
-                <Route exact path="/login" render={(props) => <Login {...props}
-                  setUser={setUser}
-                  user={user}
-                />
-                } />
-                <Route exact path="/signup" component={SignUp} />
-                <Route exact path="/logout" logOut={handleLogout} />
-                <Route exact path="/shop" user={user} component={Shop} />
-                <Route exact path="/shop/:id" user={user} component={Shop} />
-                <Route exact path="/products/:ItemId" user={user} component={ProductPage} />
-                <Route exact path="/dashboard" user={user} component={Consumer} /> {/* TODO: Change back to withAuth */}
-                <Route exact path="/admin" user={user} component={Admin} /> {/* TODO: Change back to withAuth */}
-                <Route exact path="/cart" user={user} component={MyCart} />
-              </Switch>) :
-              (<h1> Loading... </h1>)
-            }
-          </Router>
-        </Box>
-        <Box
-          sx={{
-            p: 3
-          }}>
-          <Footer />
-        </Box>
-      </Box>
+      <CartContext.Provider value={cart}>
+        <Router>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              minHeight: '100vh'
+            }}>
+            <div className="bg"></div>
+            <Box
+              sx={{
+                p: 3
+              }}>
+              <Header />
+            </Box>
+            <Box
+              sx={{
+                flex: '1 1 auto',
+                p: 3
+              }}>
+              {loaded ? (
+                <Switch>
+                  <WithAuth exact path="/" user={user} component={Shop} />
+                  <Route exact path="/login" render={(props) => <Login {...props}
+                    setUser={setUser}
+                    user={user}
+                  />
+                  } />
+                  <Route exact path="/signup" component={SignUp} />
+                  <Route exact path="/logout" logOut={handleLogout} />
+                  <Route exact path="/shop" user={user} component={Shop} />
+                  <Route exact path="/shop/:id" user={user} component={Shop} />
+                  <Route exact path="/products/:ItemId"
+                    render={(props) => <ProductPage {...props} user={user} />}
+                  />
+                  <WithAuth exact path="/dashboard" user={user} component={Consumer} />
+                  <WithAuth exact path="/admin" user={user} component={Admin} />
+                  <WithAuth exact path="/cart" user={user} component={MyCart} />
+                </Switch>) :
+                (<h1> Loading... </h1>)
+              }
+            </Box>
+            <Box
+              sx={{
+                p: 3
+              }}>
+              <Footer />
+            </Box>
+          </Box>
+        </Router>
+      </CartContext.Provider>
     </>
   );
 }
