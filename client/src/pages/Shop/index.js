@@ -15,14 +15,12 @@ function Shop() {
     if (id) {
       API.getOneFranchise(id)
         .then((list) => {
-          console.log(list.data)
           setItemList(list.data);
           setFranchise(parseInt(id))
         });
     } else {
       API.getAll()
         .then((list) => {
-          console.log(list.data)
           setItemList(list.data);
           setFranchise("0")
         });

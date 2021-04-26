@@ -75,13 +75,6 @@ function Login({ setUser, user }) {
                             value={form.password}
                         />
                     </Box>
-                    <Label width={[1 / 2, 1 / 4]} p={2}>
-                        <Checkbox
-                            id='auth'
-                            name='auth'
-                        />
-                             I am not a Robot
-                         </Label>
                 </Flex>
                 <div className="btns">
                     <Button type="submit">Login</Button>

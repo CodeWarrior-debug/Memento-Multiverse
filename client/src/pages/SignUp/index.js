@@ -82,7 +82,6 @@ function SignUp({ setUser, user }) {
         Password
         </div>
             </Label>
-
             <Input
               id='password'
               name='password'
@@ -91,32 +90,6 @@ function SignUp({ setUser, user }) {
               onChange={e => setDetails({ ...details, password: e.target.value })}
               value={details.password}
             />
-
-            {/* confirm password */}
-            <Label htmlFor='confirmPassword'>
-              <div className="form">
-                <FontAwesomeIcon icon="key" />
-                {' '}
-        Confirm Password
-        </div>
-            </Label>
-            <Input
-              id='confirmPassword'
-              name='confirmPassword'
-              placeholder='password'
-              type='password'
-            />
-
-            {/* checkbox auth */}
-
-            <Label>
-              <Checkbox
-                id='auth'
-                name='auth'
-              />
-              I am not a Robot
-            </Label>
-
           </Box>
         </Flex>
         {/* Signup button */}
