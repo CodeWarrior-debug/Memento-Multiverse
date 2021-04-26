@@ -12,6 +12,8 @@ Do you love collecting TV merch? Then you need a fun and funny web store for mer
 ---
 Visit on Heroku 
 
+https://memento-multiverse.herokuapp.com/
+
 OR
 
 Go to Github and Clone or Fork repository into your code editor. Run npm i in the correct file to install dependencies. Run npm start to start the application.
