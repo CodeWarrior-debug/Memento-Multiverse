@@ -11,7 +11,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { useHistory } from 'react-router-dom';
 
 function Header() {
-        const [play] = useSound('../../audio/dumb_name.mp3');
         // let history = useHistory();
 
 
@@ -22,7 +21,7 @@ function Header() {
                 color='white'
                 bg='black'
                 alignItems='center'>
-                <Text p={4} fontWeight='bold' fontSize="30px" color="#eee" onMouseEnter={play} >Memento Multiverse</Text>
+                <Text p={4} fontWeight='bold' fontSize="30px" color="#eee">Memento Multiverse</Text>
                 <Box mx='auto' />
                 <Link className="navLink" variant='nav' href='/shop'>
                     <FontAwesomeIcon icon="home" />
