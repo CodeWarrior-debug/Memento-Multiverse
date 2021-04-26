@@ -8,9 +8,13 @@ import {
 import useSound from 'use-sound'
 import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { useHistory } from 'react-router-dom';
 
 function Header() {
         const [play] = useSound('../../audio/dumb_name.mp3');
+        // let history = useHistory();
+
+
     return (
         <div>
             <Flex
@@ -35,7 +39,7 @@ function Header() {
                     {' '}
                     Cart
                 </Link>
-                <Link className="navLink" variant='nav' href='/'>
+                <Link className="navLink" variant='nav' href='/logout'>
                     <FontAwesomeIcon icon="sign-out-alt" />
                     {' '}
                     Logout

@@ -1,24 +1,43 @@
 import {
     Box,
 } from 'rebass';
-
+import React, { useState } from 'react';
 import { Label, Radio } from '@rebass/forms';
 import './style.css';
+import API from '../../utils/API';
+import { useHistory } from 'react-router-dom';
+
+
 
 const Toggle = (props) => {
-    return ( 
+
+    const history = useHistory();
+  
+
+    const changeFranchise =(id)=>{
+        console.log("here", id, props.franchiseSelected)
+        if(id === props.franchiseSelected) history.push('/shop')
+        else history.push('/shop/'+props.id)
+    }
+
+
+
+   // const [itemList, setItemList] = useState([]);
+
+
+    return (
+         <>
         <Box className="switch">
-            <Label>
+            <Label width={[ 1/2, 1/4 ]} p={2} onClick={ () => changeFranchise(props.id)} >
             <Radio className="radio"
                 name={props.name}
                 id={props.id}
-                onChange={ (event) => console.log("onchange is triggered") }
-                // vlae={props.vlae}
-                // TODO: find a way to hit a route with id argument passed in to bring back shows products when radio button clicked
+                checked= {props.franchiseSelected === props.id}
                 />
             {props.name}
             </Label>
-        </Box>  
+        </Box> 
+        </> 
      );
 }
  

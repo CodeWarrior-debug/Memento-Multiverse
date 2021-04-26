@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 const { Product, Transaction, User, Franchise }  = require('../models');
 
 const productSeedData = require('./productsDataSeed.json');
-const transactionsDataSeed = require('./transactionsDataSeed.json');
+// const transactionsDataSeed = require('./transactionsDataSeed.json');
 const userDataSeed = require('./userDataSeed.json');
 const franchiseSeed = require('./franchiseDataSeed.json');
 
@@ -19,7 +19,7 @@ const seedDatabase = async () => {
   await Franchise.bulkCreate(franchiseSeed);
   await Product.bulkCreate(productSeedData);
   await User.bulkCreate(userDataSeed);
-  await Transaction.bulkCreate(transactionsDataSeed);
+  // await Transaction.bulkCreate(transactionsDataSeed);
   
   process.exit(0);
 };

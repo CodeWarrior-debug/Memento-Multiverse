@@ -6,6 +6,7 @@ const cartController = require('../../controllers/cartController');
 
 router.route('/fran/:franchiseId').get(itemsController.findFranchiseProducts);
 
+router.route('/').get(itemsController.findAll);
 router.route('/:ItemId').get(itemsController.findOne);
 
 router.route('/').post(cartController.create);

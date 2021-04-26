@@ -5,6 +5,9 @@ export default {
     getOneFranchise: (franchiseId) => {
         return axios.get('/api/products/fran/' + franchiseId)
     },
+    getAll: () => {
+        return axios.get('/api/products/')
+    },
     getOneItem: (itemId) => {
         return axios.get('/api/products/' + itemId);
     },
@@ -47,10 +50,13 @@ export default {
         return axios.post('/api/users/login', userInfo);
     },
 
+    //logOut: () => {  
+     //   return axios.get('/')
     logOut: () => {
-        return axios.post('/api/uesrs/logout')
+        return axios.post('/api/users/logout')
     },
 
+    //TODO 
     signUp: (userInfo) => {
         return axios.post('/api/users/signup', userInfo);
     },
