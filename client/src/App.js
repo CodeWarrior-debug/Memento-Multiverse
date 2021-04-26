@@ -85,7 +85,11 @@ function App() {
                     user={user}
                   />
                   } />
-                  <Route exact path="/signup" component={SignUp} />
+                  <Route exact path="/signup" render={(props) => <SignUp {...props}
+                    setUser={setUser}
+                    user={user}
+                  />
+                  } />
                   <Route exact path="/logout" logOut={handleLogout} />
                   <Route exact path="/shop" user={user} component={Shop} />
                   <Route exact path="/shop/:id" user={user} component={Shop} />
@@ -94,9 +98,9 @@ function App() {
                   />
                   <WithAuth exact path="/dashboard" user={user} component={Consumer} />
                   <WithAuth exact path="/admin" user={user} component={Admin} />
-                  <WithAuth exact path="/cart" user={user} component={MyCart} />
+                  <Route exact path="/cart" user={user} component={MyCart} />
                 </Switch>) :
-                (<h1> Loading... </h1>)
+                (<h1> Loading... </h1>) // future dev. will be adding loader effects here -Eren
               }
             </Box>
             <Box

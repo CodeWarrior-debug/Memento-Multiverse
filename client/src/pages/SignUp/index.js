@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Box,
   Flex,
@@ -10,26 +10,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Redirect } from 'react-router-dom';
 import API from '../../utils/API';
 
-function SignUp() {
+function SignUp({ setUser, user }) {
   const [details, setDetails] = useState({ user_name: "", email: "", password: "" });
   const [redirect, setRedirect] = useState(false);
 
 
-  // TODO: signup redirects to /shop page but doesn't signs you in, will fix it tomorrow -Eren
+  // TODO: signup redirects to /shop page but doesn't signs you in, will fix it -Eren
+  useEffect(() => {
+    if (user.user_name) setRedirect(true);
+  }, [user])
   
   const handleSignUp = async e => {
     e.preventDefault();
-    console.log(details);
-
-    setRedirect(true);
 
     const signedUpUser = await API.signUp(details);
-    console.log(signedUpUser);
+    setUser(signedUpUser.data);
+    setRedirect(true);
   }
 
   return (
     <div className="container">
-      {redirect && <Redirect to="/shop" />}
+      {redirect && <Redirect to="/" />}
       <Box
         className="formCard"
         as='form'
