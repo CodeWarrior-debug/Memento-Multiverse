@@ -1,27 +1,28 @@
 import React, { useState, useEffect } from "react";
 import './style.css'
-import {Button} from 'rebass'
+import { Button } from 'rebass'
 
 const MyCart = () => {
   const [cart, setCart] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
-const items = [
-  {
-    id: 1,
-    name: "item1",
-    price: 20,
-  },
-  {
-    id: 2,
-    name: "item2",
-    price: 32,
-  },
-  {
-    id: 3,
-    name: "item3",
-    price: 51,
-  },
-];
+
+  const items = [
+    {
+      id: 1,
+      name: "item1",
+      price: 20,
+    },
+    {
+      id: 2,
+      name: "item2",
+      price: 32,
+    },
+    {
+      id: 3,
+      name: "item3",
+      price: 51,
+    },
+  ];
 
   useEffect(() => {
     total();
@@ -36,7 +37,7 @@ const items = [
   };
 
   const addToCart = (product) => {
-      setCart([...cart, product]);
+    setCart([...cart, product]);
   };
 
   const removeFromCart = (product) => {
