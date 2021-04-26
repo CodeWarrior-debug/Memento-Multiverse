@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Box,
   Flex,
@@ -7,20 +7,25 @@ import {
 
 import { Label, Input, Checkbox } from '@rebass/forms'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Redirect } from 'react-router';
 import API from '../../utils/API';
 
 function SignUp() {
   const [details, setDetails] = useState({ user_name: "", email: "", password: "" });
+  const [redirect, setRedirect] = useState(false);
 
+  
   const handleSignUp = async e => {
     e.preventDefault();
     console.log(details);
+    setRedirect(true);
 
     const signedUpUser = await API.signUp(details);
   }
 
   return (
     <div className="container">
+      {redirect && <Redirect to="/" />}
       <Box
         className="formCard"
         as='form'
