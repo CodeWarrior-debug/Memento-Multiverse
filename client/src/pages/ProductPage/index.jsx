@@ -4,29 +4,43 @@ import API from "../../utils/API";
 import { Button } from 'rebass'
 import './style.css'
 
-const ProductPage = (props) => {
+const ProductPage = ({ user }) => {
 
     const [item, setItem] = useState([]);
     const productNum = window.location.pathname;
-    const id = parseInt(productNum.replace("/products/", ""));
+    // const productId = parseInt(productNum.replace("/products/", ""));
 
     const history = useHistory();
-    const { user } = props;
+    const { ItemId } = useParams();
 
     const handleCart = e => {
         e.preventDefault();
+        console.log(user);
+        console.log(ItemId);
 
         if (!user) {
             history.push('/login');
+        } else {
+            const chosenProduct = {
+                quantity: 1,
+                product_id: ItemId
+            }
+            API.addToCart(chosenProduct)
+                .then((x) => {
+                    console.log(x.data);
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
         }
 
     }
 
     useEffect(() => {
-        API.getOneItem(id)
+        API.getOneItem(ItemId)
             .then(thing =>
                 setItem(thing.data))
-    })
+    }, [ItemId])
 
 
     return (

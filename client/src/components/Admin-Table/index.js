@@ -30,7 +30,7 @@ const AdminTable = () => {
       });
     };
 
-    getdata();
+    // getdata();
 
   //***setting up data end */
 
