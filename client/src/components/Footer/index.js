@@ -2,8 +2,7 @@ import React from 'react';
 import {
     Box,
     Link,
-    Flex,
-    Text
+    Flex
 } from 'rebass';
 import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

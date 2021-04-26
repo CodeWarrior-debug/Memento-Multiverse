@@ -3,8 +3,6 @@ import {
     Box,
     Button,
 } from 'rebass';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Table from '../../components/Table.js'
 import './style.css'
 
 

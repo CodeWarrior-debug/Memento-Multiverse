@@ -1,10 +1,8 @@
 import React from 'react';
 import {
     Box,
-    Text,
     Link,
     Flex,
-    Button,
 } from 'rebass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import AdminTable from '../../components/Admin-Table'

@@ -61,7 +61,7 @@ const AdminTable = () => {
     canPreviousPage,
     canNextPage,
     pageOptions,
-    state: { groupBy, expanded },
+    // state: { groupBy, expanded },
     // setGlobalFilter,
     gotoPage,
     pageCount,

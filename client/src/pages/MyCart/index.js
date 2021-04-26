@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./style.css";
-import { Button, Card } from "rebass";
+import { Button } from "rebass";
 import CartContext from "../../utils/CartContext";
 import API from "../../utils/API";
-import { Redirect } from "react-router";
 
 const MyCart = () => {
   const cart = useContext(CartContext);
@@ -27,19 +26,12 @@ const MyCart = () => {
     } catch (err) {
       console.log(err);
     }
-
   }
 
   const emptyCart = () => {
     localStorage.clear();
     window.location.reload();
   }
-
-  const removeFromCart = (product) => {
-    let hardCopy = [...cart];
-    hardCopy = hardCopy.filter((cartItem) => cartItem.id !== product.id);
-    // setCart(hardCopy);
-  };
 
   return (
     <div className="cart">

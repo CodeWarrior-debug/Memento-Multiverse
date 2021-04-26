@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import {
   Box,
   Flex,
@@ -24,6 +24,7 @@ function SignUp() {
     setRedirect(true);
 
     const signedUpUser = await API.signUp(details);
+    console.log(signedUpUser);
   }
 
   return (
