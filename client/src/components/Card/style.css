@@ -146,3 +146,27 @@ img {
         font-size: 1rem !important;
     }
 }
+
+@media (max-width:1100px) {
+    .css-vurnku {
+        flex: 25%;
+    }
+}
+
+@media (max-width:750px) {
+    .css-vurnku {
+        flex: 38%;
+    }
+}
+
+@media (max-width:500px) {
+    .css-vurnku {
+        flex: 50%;
+    }
+}
+
+@media (max-width:1100px) {
+    img {
+        width: 80%;
+    }
+}
