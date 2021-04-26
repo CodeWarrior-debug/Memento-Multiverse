@@ -10,35 +10,23 @@ import API from '../../utils/API';
 
 const Toggle = (props) => {
 
-    twoCalls = e => {
-        const 
-    }
 
-    // twoCalls = e => {
-    //     this.functionOne(e)
-    //     this.functionTwo()
-    //   }
-    //   .
-    //   .
-    //   .
-    //   <FormControl
-    //       name="searching"
-    //       placeholder="Searching"
-    //       onChange={this.twoCalls}
-    //   />
-    //   Or...
-      
-    //   <FormControl
-    //       name="searching"
-    //       placeholder="Searching"
-    //       onChange={e => { this.functionOne(e); this.functionTwo() }}
-    //   />
-
-
-
-    const [franchise, setFranchise] = useState(1);
+    // const [franchiseData, setfranchiseData] = useState([]);
+    // const [franchise, setFranchise] = useState();
     const [itemList, setItemList] = useState([]);
-    API.getOneFranchise(franchise)
+
+//  twoCalls = e => {
+//     function getData(franchise){API.getOneFranchise(franchise)
+//         .then(franchise => setfranchiseData(franchise.data))};
+//     function resetFranchise(prepsid){ 
+//             setFranchise(prepsid)};
+//   }
+
+
+    // useEffect(()=>{
+    //     API.getFranchises()
+    //     .then(franchise=>setfranchiseData(franchise.data))
+    // }, [])
 
     return (
          
@@ -47,7 +35,9 @@ const Toggle = (props) => {
             <Radio className="radio"
                 name={props.name}
                 id={props.id}
-                onChange={ () => console.log("onclick is triggered at " + (props.id))}  //works
+                // onChange={ () => console.log("onclick is triggered at " + (props.id))}  //works
+                onChange={ () => API.getOneFranchise(props.id)
+                    .then(res=> props.setFranchise(res.data))}  //test
                 // onChange={ () => console.log("onchange is triggered at " + (props.id))}
                 // TODO: find a way to hit a route with id argument passed in to bring back shows products when radio button clicked,
                 // TODO review https://stackoverflow.com/questions/54032379/call-two-functions-within-onchange-event-in-react
