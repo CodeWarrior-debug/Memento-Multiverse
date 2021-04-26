@@ -7,6 +7,28 @@ a:-webkit-any-link {
 .redirect {
     color: black !important
 }
-.nav {
-    width: 100%;
-}
+label, #hamburger {display: none;}
+
+@media screen and (max-width: 768px){
+    /* Show Hamburger Icon */
+    #hamnav, label { 
+      display: inline-block; 
+      color: white;
+      background:hsl(0, 0%, 9%, 80%);
+      font-style: normal;
+      font-size: 1.2em;
+      padding: 10px;
+    }
+  
+    /* Break down menu items into vertical */
+    #hamitems a {
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+      border-top: 1px solid #333;
+    }
+  
+    /* Toggle Show/Hide Menu */
+    #hamitems { display: none; }
+    #hamnav input:checked ~ #hamitems { display: block; }
+  }

@@ -23,7 +23,7 @@ function Header() {
                 bg='black'
                 alignItems='center'>
                 <Text p={4} fontWeight='bold' fontSize="30px" color="#eee">Memento Multiverse</Text>
-                <Box mx='auto' className="nav" />
+                <Box mx='auto' id="nav" />
                 <label for="hamburger">&#9776;</label>
                 <input type="checkbox" id="hamburger" />
                 <Link className="navLink" variant='nav' href='/shop'>
@@ -54,7 +54,9 @@ function Header() {
                 bg='black'
                 alignItems='center'>
                 <Text p={4} fontWeight='bold' fontSize="30px" color="#eee">Memento Multiverse</Text>
-                <Box mx='auto' />
+                <Box mx='auto' id="nav" />
+                <label for="hamburger">&#9776;</label>
+                <input type="checkbox" id="hamburger" />
                 <Link className="navLink" variant='nav' href='/home'>
                     <FontAwesomeIcon icon="home" />
                     {' '}
