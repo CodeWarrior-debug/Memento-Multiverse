@@ -30,7 +30,7 @@ export default {
     },
 
     updateCartQty: (qty) => {
-        console.log('Cart has been updated', qty)
+        console.log('Cart has been updated', qty);
         return axios.put('/updateCartQty', qty);
     },
 
@@ -40,10 +40,15 @@ export default {
     },
 
     getAllTransactions: () => {
-        return axios.get('/api/transactions')
+        return axios.get('/api/transactions');
     },
+
+    postTransactions: (id) => {
+        return axios.post('/api/transactions', id);
+    },
+
     getFranchises: () => {
-        return axios.get('/api/franchise')
+        return axios.get('/api/franchise');
     },
     
     logIn: (userInfo) => {
@@ -53,7 +58,7 @@ export default {
     //logOut: () => {  
      //   return axios.get('/')
     logOut: () => {
-        return axios.post('/api/users/logout')
+        return axios.post('/api/users/logout');
     },
 
     //TODO 

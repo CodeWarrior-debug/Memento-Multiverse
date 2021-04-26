@@ -4,7 +4,6 @@ import {
     Flex,
     Text
 } from 'rebass';
-import useSound from 'use-sound'
 import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { useHistory } from 'react-router-dom';
