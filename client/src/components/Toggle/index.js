@@ -28,7 +28,7 @@ const Toggle = (props) => {
     return (
          <>
         <Box className="switch">
-            <Label width={[ 1/2, 1/4 ]} p={2} onClick={ () => changeFranchise(props.id)} >
+            <Label p={2} onClick={ () => changeFranchise(props.id)} >
             <Radio className="radio"
                 name={props.name}
                 id={props.id}
