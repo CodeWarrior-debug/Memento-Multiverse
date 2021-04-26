@@ -1,7 +1,6 @@
 import React from 'react'
 import {
     Box,
-    Link,
     Flex,
     Text
 } from 'rebass';
@@ -9,7 +8,7 @@ import useSound from 'use-sound'
 import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { useHistory } from 'react-router-dom';
-
+import {Link} from 'react-router-dom'
 function Header() {
     // let history = useHistory();
 
@@ -26,23 +25,23 @@ function Header() {
                 <Box mx='auto' id="nav" />
                 <label for="hamburger">&#9776;</label>
                 <input type="checkbox" id="hamburger" />
+                <Link className="navLink" variant='nav' to='/shop'>
                 <div id="hamitems">
-                <Link className="navLink" variant='nav' href='/shop'>
                     <FontAwesomeIcon icon="home" />
                     {' '}
                     Shop
                 </Link>
-                <Link className="navLink" variant='nav' href='/dashboard'>
+                <Link className="navLink" variant='nav' to='/dashboard'>
                     <FontAwesomeIcon icon="chalkboard-teacher" />
                     {' '}
                     Dashboard
                 </Link>
-                <Link className="navLink" variant='nav' href='/cart'>
+                <Link className="navLink" variant='nav' to='/cart'>
                     <FontAwesomeIcon className="icons" icon="shopping-cart" />
                     {' '}
                     Cart
                 </Link>
-                <Link className="navLink" variant='nav' href='/logout'>
+                <Link className="navLink" variant='nav' to='/logout'>
                     <FontAwesomeIcon icon="sign-out-alt" />
                     {' '}
                     Logout
@@ -56,20 +55,22 @@ function Header() {
                 bg='black'
                 alignItems='center'>
                 <Text p={4} fontWeight='bold' fontSize="30px" color="#eee">Memento Multiverse</Text>
+                <Box mx='auto' />
+                <Link className="navLink" variant='nav' to='/home'>
                 <Box mx='auto' id="nav" />
                 <label for="hamburger">&#9776;</label>
                 <input type="checkbox" id="hamburger" />
-                <Link className="navLink" variant='nav' href='/home'>
+
                     <FontAwesomeIcon icon="home" />
                     {' '}
                     Shop
                 </Link>
-                <Link className="navLink" variant='nav' href='/login'>
+                <Link className="navLink" variant='nav' to='/login'>
                     <FontAwesomeIcon className="icons" icon="shopping-cart" />
                     {' '}
                     Cart
                 </Link>
-                <Link className="navLink" variant='nav' href='/login'>
+                <Link className="navLink" variant='nav' to='/login'>
                     <FontAwesomeIcon icon="sign-in-alt" />
                     {' '}
                     Login
