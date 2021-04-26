@@ -14,10 +14,13 @@ function SignUp() {
   const [details, setDetails] = useState({ user_name: "", email: "", password: "" });
   const [redirect, setRedirect] = useState(false);
 
+
+  // TODO: signup redirects to /shop page but doesn't signs you in, will fix it tomorrow -Eren
   
   const handleSignUp = async e => {
     e.preventDefault();
     console.log(details);
+
     setRedirect(true);
 
     const signedUpUser = await API.signUp(details);
@@ -25,7 +28,7 @@ function SignUp() {
 
   return (
     <div className="container">
-      {redirect && <Redirect to="/" />}
+      {redirect && <Redirect to="/shop" />}
       <Box
         className="formCard"
         as='form'
