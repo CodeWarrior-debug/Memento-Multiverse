@@ -4,7 +4,7 @@ import {
   Flex,
   Button
 } from 'rebass';
-
+import './style.css'
 import { Label, Input, Checkbox } from '@rebass/forms'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Redirect } from 'react-router';

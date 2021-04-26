@@ -86,8 +86,9 @@ function Login({ setUser, user }) {
                 </Flex>
                 <div className="btns">
                     <Button type="submit">Login</Button>
-                    <Label>Don't have an account?</Label>
-                    <a className="redirect" href="/signup">Sign up here!</a>
+                    <Label className="lable">
+                    Don't have an account? {' '} <a className="redirect" href="/signup">Sign up here!</a>
+                    </Label>
                 </div>
             </Box>
 

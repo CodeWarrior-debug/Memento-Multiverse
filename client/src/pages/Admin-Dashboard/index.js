@@ -12,12 +12,12 @@ import AdminTable from '../../components/Admin-Table'
 function Admin() {
     return (
         <div>
-            <Flex>
+            <Flex
             
              px={2}
              color='white'
              bg='black'
-            alignItems='center'
+            alignItems='center' >
              <Box />
              <Link variant='nav' href='#!'>
              <FontAwesomeIcon icon="warehouse" />
@@ -45,7 +45,9 @@ function Admin() {
                  Net Revenue
              </Link>
             </Flex> 
+            <Box>
             <AdminTable></AdminTable>
+            </Box>
         </div>
     )
 }
