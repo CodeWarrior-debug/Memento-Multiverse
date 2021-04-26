@@ -65,7 +65,7 @@ function App() {
               flexDirection: 'column',
               minHeight: '100vh'
             }}>
-            <div className="bg"></div>
+            <div className=""></div>
             <Box
               sx={{
                 p: 3

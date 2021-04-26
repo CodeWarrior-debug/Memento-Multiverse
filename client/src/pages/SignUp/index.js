@@ -15,17 +15,18 @@ function SignUp({ setUser, user }) {
   const [redirect, setRedirect] = useState(false);
 
 
-  // TODO: signup redirects to /shop page but doesn't signs you in, will fix it -Eren
   useEffect(() => {
     if (user.user_name) setRedirect(true);
-  }, [user])
+  }, [user]);
   
   const handleSignUp = async e => {
     e.preventDefault();
-
-    const signedUpUser = await API.signUp(details);
-    setUser(signedUpUser.data);
-    setRedirect(true);
+    try {
+      const signedUpUser = await API.signUp(details);
+      setUser(signedUpUser.data);
+    } catch(err) {
+      console.log(err);
+    }
   }
 
   return (

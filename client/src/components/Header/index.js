@@ -19,23 +19,23 @@ function Header() {
             <Link className="navLink" variant='nav' href='/shop'>
                 <FontAwesomeIcon icon="home" />
                 {' '}
-    Shop
-</Link>
+                Shop
+            </Link>
             <Link className="navLink" variant='nav' href='/dashboard'>
                 <FontAwesomeIcon icon="chalkboard-teacher" />
                 {' '}
-    Dashboard
-</Link>
+                Dashboard
+            </Link>
             <Link className="navLink" variant='nav' href='/cart'>
                 <FontAwesomeIcon className="icons" icon="shopping-cart" />
                 {' '}
-    Cart
-</Link>
+                Cart
+            </Link>
             <Link className="navLink" variant='nav' href='/logout'>
                 <FontAwesomeIcon icon="sign-out-alt" />
                 {' '}
-    Logout
-</Link>
+                Logout
+            </Link>
         </div>
     }
     if (showMenu2) {
@@ -43,18 +43,18 @@ function Header() {
             <Link className="navLink" variant='nav' href='/shop'>
                 <FontAwesomeIcon icon="home" />
                 {' '}
-    Shop
-</Link>
+                Shop
+            </Link>
             <Link className="navLink" variant='nav' href='/cart'>
                 <FontAwesomeIcon className="icons" icon="shopping-cart" />
                 {' '}
-    Cart
-</Link>
+                Cart
+            </Link>
             <Link className="navLink" variant='nav' href='/logout'>
                 <FontAwesomeIcon icon="sign-in-alt" />
                 {' '}
-    Login
-</Link>
+                Login
+            </Link>
         </div>
     }
 
@@ -67,18 +67,18 @@ function Header() {
                 color='white'
                 bg='black'
                 alignItems='center'
-                >
+            >
                 <Box className="ham">
                     <FontAwesomeIcon
-                    icon="bars"
-                    onClick={() => setShowMenu(!showMenu)} />
+                        icon="bars"
+                        onClick={() => setShowMenu(!showMenu)} />
                     {menu}
                 </Box>
                 <Text p={4} fontWeight='bold' fontSize="30px" color="#eee">Memento Multiverse</Text>
                 <Box mx='auto' className="reg">
-                <Link className="navLink" variant='nav' href='/shop'>
-                    <FontAwesomeIcon icon="home" />
-                    {' '}
+                    <Link className="navLink" variant='nav' to='/shop'>
+                        <FontAwesomeIcon icon="home" />
+                        {' '}
                     Shop
                 </Link>
                     <Link className="navLink" variant='nav' to='/dashboard'>

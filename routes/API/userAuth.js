@@ -10,28 +10,32 @@ router.get('/test', function (req, res) {
 
 // Route for Signup
 router.post('/signup', async (req, res) => {
+    console.log('signup route hit!! YAY', req.body);
     try {
         if (!req.body.user_role) req.body.user_role = 'user';
-        const user = await db.User.findOne({ where: { email: req.body.email } })
+        const user = await db.User.findOne({ where: { email: req.body.user_name } })
         console.log(user)
         if (user) {
-            res.json({ msg: 'There is already an account with this email' });
+            res.json({ msg: 'There is already an account with this email/username' });
         } else {
+            console.log('made it in to the else')
             const newUser = await db.User.create(req.body);
             delete newUser.password;
             res.json(newUser)
-
+            res.json({ msg: 'There is already an account with this email/username' });
+            
         }
-
+        
     } catch (err) {
         console.log(err);
         res.sendStatus(500);
+        res.json({ msg: 'There is already an account with this email/username' });
     }
 
 });
 
 // Route for Login
-router.post('/login', passport.authenticate('local'), async function (req, res) {
+router.post('/login', passport.authenticate('local'), function (req, res) {
     console.log('LOGIN', req.user);
     const userInfo = {
         user_role: req.user.dataValues.user_role,
