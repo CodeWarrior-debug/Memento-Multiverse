@@ -9,11 +9,15 @@ a:-webkit-any-link {
 }
 label, #hamburger {display: none;}
 
+#hamitems { 
+    display: flex;
+}
+
 @media screen and (max-width: 768px){
     /* Show Hamburger Icon */
     #hamnav, label { 
       display: inline-block; 
-      color: white;
+      color: #eee;
       background:hsl(0, 0%, 9%, 80%);
       font-style: normal;
       font-size: 1.2em;
@@ -21,7 +25,7 @@ label, #hamburger {display: none;}
     }
   
     /* Break down menu items into vertical */
-    #hamitems a {
+    #hamitems {
       box-sizing: border-box;
       display: block;
       width: 100%;
@@ -30,5 +34,5 @@ label, #hamburger {display: none;}
   
     /* Toggle Show/Hide Menu */
     #hamitems { display: none; }
-    #hamnav input:checked ~ #hamitems { display: block; }
+    #nav input:checked ~ #hamitems { display: block; }
   }
