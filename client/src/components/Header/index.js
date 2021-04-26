@@ -8,11 +8,11 @@ import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom'
-function Header() {
+function Header({ user, handleLogout }) {
     const [showMenu, setShowMenu] = useState(false)
     const [showMenu2, setShowMenu2] = useState(false)
-    let menu2
-    let menu
+    let menu2;
+    let menu;
 
     if (showMenu) {
         menu = <div ClassName='menu'>
@@ -31,7 +31,7 @@ function Header() {
                 {' '}
                 Cart
             </Link>
-            <Link className="navLink" variant='nav' href='/logout'>
+            <Link className="navLink" variant='nav' href='/shop'>
                 <FontAwesomeIcon icon="sign-out-alt" />
                 {' '}
                 Logout
@@ -50,7 +50,7 @@ function Header() {
                 {' '}
                 Cart
             </Link>
-            <Link className="navLink" variant='nav' href='/logout'>
+            <Link className="navLink" variant='nav' href='/login'>
                 <FontAwesomeIcon icon="sign-in-alt" />
                 {' '}
                 Login
@@ -72,31 +72,50 @@ function Header() {
                     <FontAwesomeIcon
                         icon="bars"
                         onClick={() => setShowMenu(!showMenu)} />
-                    {menu}
+                    {user.user_name ? menu : menu2}
                 </Box>
                 <Text p={4} fontWeight='bold' fontSize="30px" color="#eee">Memento Multiverse</Text>
-                <Box mx='auto' className="reg">
-                    <Link className="navLink" variant='nav' to='/shop'>
-                        <FontAwesomeIcon icon="home" />
-                        {' '}
-                    Shop
-                </Link>
-                    <Link className="navLink" variant='nav' to='/dashboard'>
-                        <FontAwesomeIcon icon="chalkboard-teacher" />
-                        {' '}
-                    Dashboard
-                </Link>
-                    <Link className="navLink" variant='nav' to='/cart'>
-                        <FontAwesomeIcon className="icons" icon="shopping-cart" />
-                        {' '}
-                    Cart
-                </Link>
-                    <Link className="navLink" variant='nav' to='/logout'>
-                        <FontAwesomeIcon icon="sign-out-alt" />
-                        {' '}
-                    Logout
-                </Link>
-                </Box>
+                {user.user_name ? (
+                    <Box mx='auto' className="reg">
+                        <Link className="navLink" variant='nav' to='/shop'>
+                            <FontAwesomeIcon icon="home" />
+                            {' '}
+                        Shop
+                    </Link>
+                        <Link className="navLink" variant='nav' to='/dashboard'>
+                            <FontAwesomeIcon icon="chalkboard-teacher" />
+                            {' '}
+                        Dashboard
+                    </Link>
+                        <Link className="navLink" variant='nav' to='/cart'>
+                            <FontAwesomeIcon className="icons" icon="shopping-cart" />
+                            {' '}
+                        Cart
+                    </Link>
+                        <Link className="navLink" variant='nav' to='/' onClick={handleLogout}>
+                            <FontAwesomeIcon icon="sign-out-alt" />
+                            {' '}
+                        Logout
+                    </Link>
+                    </Box>) : (
+                    <Box>
+                        <Link className="navLink" variant='nav' to='/shop'>
+                            <FontAwesomeIcon icon="home" />
+                            {' '}
+                            Shop
+                        </Link>
+                        <Link className="navLink" variant='nav' to='/cart'>
+                            <FontAwesomeIcon className="icons" icon="shopping-cart" />
+                            {' '}
+                            Cart
+                        </Link>
+                        <Link className="navLink" variant='nav' to='/login'>
+                            <FontAwesomeIcon icon="sign-in-alt" />
+                            {' '}
+                            Login
+                        </Link>
+                    </Box>
+                )}
             </Flex>
 
             {/* <Flex

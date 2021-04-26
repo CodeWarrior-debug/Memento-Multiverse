@@ -14,6 +14,7 @@ function SignUp({ setUser, user }) {
   const [details, setDetails] = useState({ user_name: "", email: "", password: "" });
   const [redirect, setRedirect] = useState(false);
 
+  // For some reason after signing up, if you refresh the page it'll kick you out of the server. Don't refresh!
 
   useEffect(() => {
     if (user.user_name) setRedirect(true);

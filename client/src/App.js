@@ -70,7 +70,7 @@ function App() {
               sx={{
                 p: 3
               }}>
-              <Header />
+              <Header user={user} handleLogout={handleLogout} />
             </Box>
             <Box
               sx={{
@@ -90,7 +90,6 @@ function App() {
                     user={user}
                   />
                   } />
-                  <Route exact path="/logout" logOut={handleLogout} />
                   <Route exact path="/shop" user={user} component={Shop} />
                   <Route exact path="/shop/:id" user={user} component={Shop} />
                   <Route exact path="/products/:ItemId"
