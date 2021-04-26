@@ -13,6 +13,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import API from '../../utils/API';
 import { Redirect } from 'react-router';
+import './style.css'
 
 function Login({ setUser, user }) {
     const [form, setForm] = useState({ username: '', password: '' });
