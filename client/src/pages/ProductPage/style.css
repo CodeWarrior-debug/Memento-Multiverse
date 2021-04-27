@@ -62,3 +62,25 @@
 .price {
     margin-top: 8%;
 }
+
+@media only screen and (max-width: 905px) {
+    .title{
+        display: flex;
+        flex-direction: column;
+    }
+    .grid{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .row{
+        display: flex;
+        flex-direction: column;
+    }
+    .image {
+        width: 60vw !important;
+    }
+    .btns {
+        margin-left: 35%;
+    }
+}
