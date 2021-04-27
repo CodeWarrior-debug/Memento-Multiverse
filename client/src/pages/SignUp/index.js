@@ -25,6 +25,7 @@ function SignUp({ setUser, user }) {
     try {
       const signedUpUser = await API.signUp(details);
       setUser(signedUpUser.data);
+      console.log(signedUpUser.data.msg)
     } catch(err) {
       console.log(err);
     }

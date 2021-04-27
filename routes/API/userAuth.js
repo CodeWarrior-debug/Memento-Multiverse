@@ -18,18 +18,15 @@ router.post('/signup', async (req, res) => {
         if (user) {
             res.json({ msg: 'There is already an account with this email/username' });
         } else {
-            console.log('made it in to the else')
             const newUser = await db.User.create(req.body);
             delete newUser.password;
             res.json(newUser)
-            res.json({ msg: 'There is already an account with this email/username' });
             
         }
         
     } catch (err) {
         console.log(err);
-        res.sendStatus(500);
-        res.json({ msg: 'There is already an account with this email/username' });
+        res.sendStatus(500)
     }
 
 });
