@@ -2,7 +2,7 @@
 
 ## Table of Contents
 ---
-* [Description](#description) | [Installation](#installation) | [Tests](#tests) | [Usage](#usage) | [Contributing](#contributing) | [Credits](#credits) | [Repository](#repository) | [FutureDevelopments](#futuredevelopments) | [License](#license)
+* [Description](#description) | [Installation](#installation) | [Preview](#preview) | [Tests](#tests) | [Usage](#usage) | [Contributing](#contributing) | [Credits](#credits) | [Repository](#repository) | [FutureDevelopments](#futuredevelopments) | [License](#license)
 
 ## Description
 ---
@@ -17,6 +17,10 @@ https://memento-multiverse.herokuapp.com/
 OR
 
 Go to Github and Clone or Fork repository into your code editor. Run npm i in the correct file to install dependencies. Run npm start to start the application.
+
+## Preview
+---
+
 
 ## Tests
 --- 
