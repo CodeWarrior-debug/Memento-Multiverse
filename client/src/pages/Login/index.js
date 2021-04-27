@@ -85,9 +85,10 @@ function Login({ setUser, user }) {
             <Flex alignItems='center'>
                 <Box>
                     <Button className="btns" type="submit">Login</Button>
-                    <Label className="lable">
-                     <p className="lable-text">Don't have an account?</p> {' '} <a className="redirect" href="/signup"> <p className="lable-text">Sign up here!</p></a>
-                    </Label>
+                    <Box>
+                     <p className="lable-text">Don't have an account?</p>
+                     <a className="redirect" href="/signup"> <p className="lable-text">Sign up here!</p></a>
+                     </Box>
                 </Box>
                 </Flex>
                 </Flex>
