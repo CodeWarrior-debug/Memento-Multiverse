@@ -30,9 +30,11 @@ const MyCart = ({ user }) => {
     
     if (!user.user_name) return setRedirect(true)
 
-    toast.info('Your item has been added to the cart!', {
-
-    });
+    if(!cart.items.length) {
+      toast.warn('There are no items in your cart!');
+    } else {
+      toast.info('Your item has been added to the cart!');
+    }
 
     try {
       const purchaseArr = cart.items.map(item => item.id)
