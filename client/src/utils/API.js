@@ -2,18 +2,18 @@ import axios from 'axios';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
+
     getOneFranchise: (franchiseId) => {
         return axios.get('/api/products/fran/' + franchiseId)
     },
+
     getAll: () => {
         return axios.get('/api/products/')
     },
+
     getOneItem: (itemId) => {
         return axios.get('/api/products/' + itemId);
     },
-    // getOneItemPage: (itemId) => {
-    //     return axios.get('/api/product/' + itemId);
-    // },
 
     addToCart: (item) => {
         console.log('add to cart');
@@ -42,10 +42,15 @@ export default {
     getAllTransactions: () => {
         return axios.get('/api/transactions');
     },
-
-    postTransactions: (id) => {
-        return axios.post('/api/transactions', id);
+    //bodies
+//user_id:parseInt(bodies.user_id)
+    create: (body) => {   // TODO: make it work
+        return axios.post('/api/transactions', { product_id: body.id, franchise_id: body.franchise_id, user_id: body.user_id, price: parseFloat(body.fake_price), quantity: 1 });
     },
+
+    // postTransactions: (id,user_id,fake_price) => {   // TODO: make work
+    //     return axios.post('/api/transactions', id);
+    // },
 
     getFranchises: () => {
         return axios.get('/api/franchise');
@@ -55,13 +60,10 @@ export default {
         return axios.post('/api/users/login', userInfo);
     },
 
-    //logOut: () => {  
-     //   return axios.get('/')
     logOut: () => {
         return axios.post('/api/users/logout');
     },
 
-    //TODO 
     signUp: (userInfo) => {
         return axios.post('/api/users/signup', userInfo);
     },

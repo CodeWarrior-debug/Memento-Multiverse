@@ -149,31 +149,31 @@ img {
 }
 
 @media (max-width:1100px) {
-    .css-vurnku {
+    .biggerboot {
         flex: 25%;
     }
 }
 
 @media (max-width:750px) {
-    .css-vurnku {
+    .biggerboot {
         flex: 38%;
     }
 }
 
 @media (max-width:500px) {
-    .css-vurnku {
+    .biggerboot {
         flex: 50%;
     }
 }
 
 @media (max-width:1100px) {
     img {
-        width: 80%;
+        width: 80% !important;
     }
 }
 
 @media screen and (max-width: 515px) {
     img {
-         width: 50px;
+         width: 100px !important;
     }
 }

@@ -44,6 +44,8 @@
     "react-select": "^4.3.0",
     "react-shopping-cart": "^1.9.5",
     "react-table": "^7.6.3",
+    "react-toast-notifications": "^2.4.4",
+    "react-toastify": "^7.0.4",
     "reactjs-popup": "^2.0.4",
     "rebass": "^4.0.7",
     "sequelize": "^6.6.2",

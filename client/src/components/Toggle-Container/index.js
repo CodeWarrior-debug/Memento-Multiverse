@@ -6,6 +6,7 @@ import {
 import React from 'react';
 import Toggle from '../Toggle';
 import API from '../../utils/API';
+import './style.css';
 
 
 const ToggleContainer = ({franchiseSelected}) => {

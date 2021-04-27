@@ -1,15 +1,17 @@
+.lable-text {
+  text-align: center;
+  padding-left: 120px;
+}
 
 Button {
-    width: 20% !important;
+    width: 24% !important;
+    align-items: center;
 }
 
 .formCard {
+  background-color: hsl(0, 0%, 7%, 60%);
     margin-left: 35% !important;   
     margin-right: 35% !important;
-}
-
-.btns {
-    width: 20%;
 }
 
 @media only screen and (max-width: 1100px) {

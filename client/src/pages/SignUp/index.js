@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Box,
   Flex,
@@ -10,26 +10,30 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Redirect } from 'react-router-dom';
 import API from '../../utils/API';
 
-function SignUp() {
+function SignUp({ setUser, user }) {
   const [details, setDetails] = useState({ user_name: "", email: "", password: "" });
   const [redirect, setRedirect] = useState(false);
 
+  // For some reason after signing up, if you refresh the page it'll kick you out of the server. Don't refresh!
 
-  // TODO: signup redirects to /shop page but doesn't signs you in, will fix it tomorrow -Eren
+  useEffect(() => {
+    if (user.user_name) setRedirect(true);
+  }, [user]);
   
   const handleSignUp = async e => {
     e.preventDefault();
-    console.log(details);
-
-    setRedirect(true);
-
-    const signedUpUser = await API.signUp(details);
-    console.log(signedUpUser);
+    try {
+      const signedUpUser = await API.signUp(details);
+      setUser(signedUpUser.data);
+      console.log(signedUpUser.data.msg)
+    } catch(err) {
+      console.log(err);
+    }
   }
 
   return (
-    <div className="container">
-      {redirect && <Redirect to="/shop" />}
+    <Flex className="container" alignItems='center'>
+      {redirect && <Redirect to="/" />}
       <Box
         className="formCard"
         as='form'
@@ -80,7 +84,6 @@ function SignUp() {
         Password
         </div>
             </Label>
-
             <Input
               id='password'
               name='password'
@@ -89,38 +92,12 @@ function SignUp() {
               onChange={e => setDetails({ ...details, password: e.target.value })}
               value={details.password}
             />
-
-            {/* confirm password */}
-            <Label htmlFor='confirmPassword'>
-              <div className="form">
-                <FontAwesomeIcon icon="key" />
-                {' '}
-        Confirm Password
-        </div>
-            </Label>
-            <Input
-              id='confirmPassword'
-              name='confirmPassword'
-              placeholder='password'
-              type='password'
-            />
-
-            {/* checkbox auth */}
-
-            <Label>
-              <Checkbox
-                id='auth'
-                name='auth'
-              />
-              I am not a Robot
-            </Label>
-
           </Box>
         </Flex>
         {/* Signup button */}
         <Button type="submit" mr={2} onSubmit={handleSignUp}>Sign Up</Button>
       </Box>
-    </div>
+    </Flex>
   )
 }
 

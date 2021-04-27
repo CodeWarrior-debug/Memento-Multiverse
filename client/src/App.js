@@ -71,7 +71,7 @@ function App() {
               sx={{
                 p: 3
               }}>
-              <Header />
+              <Header user={user} handleLogout={handleLogout} />
             </Box>
             <Box
               sx={{
@@ -80,14 +80,17 @@ function App() {
               }}>
               {loaded ? (
                 <Switch>
-                  <WithAuth exact path="/" user={user} component={Shop} />
+                  <Route exact path="/" user={user} component={Shop} />
                   <Route exact path="/login" render={(props) => <Login {...props}
                     setUser={setUser}
                     user={user}
                   />
                   } />
-                  <Route exact path="/signup" component={SignUp} />
-                  <Route exact path="/logout" logOut={handleLogout} />
+                  <Route exact path="/signup" render={(props) => <SignUp {...props}
+                    setUser={setUser}
+                    user={user}
+                  />
+                  } />
                   <Route exact path="/shop" user={user} component={Shop} />
                   <Route exact path="/shop/:id" user={user} component={Shop} />
                   <Route exact path="/products/:ItemId"
@@ -95,9 +98,9 @@ function App() {
                   />
                   <WithAuth exact path="/dashboard" user={user} component={Consumer} />
                   <WithAuth exact path="/admin" user={user} component={Admin} />
-                  <WithAuth exact path="/cart" user={user} component={MyCart} />
+                  <Route exact path="/cart" render={(props) => <MyCart {...props} user={user} />} />
                 </Switch>) :
-                (<h1> Loading... </h1>)
+                (<h1> Loading... </h1>) // future dev. will be adding loader effects here -Eren
               }
             </Box>
             <Box

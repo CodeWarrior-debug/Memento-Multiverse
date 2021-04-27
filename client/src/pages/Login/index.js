@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
     Label,
     Input,
-    Checkbox,
+    Checkbox
 } from '@rebass/forms';
 import {
     Box,
@@ -13,27 +13,29 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import API from '../../utils/API';
 import { Redirect } from 'react-router-dom';
 import './style.css'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login({ setUser, user }) {
     const [form, setForm] = useState({ username: '', password: '' });
     const [redirect, setRedirect] = useState(false);
     useEffect(() => {
-        if(user.user_name) setRedirect(true)
+        if (user.user_name) setRedirect(true)
 
-    }, [user])
+    }, [user]);
     const submitHandler = async e => {
         e.preventDefault();
         try {
             const loggedInUser = await API.logIn(form);
             setUser(loggedInUser.data);
-        } catch(err) {
+        } catch (err) {
             console.log(err);
         }
     }
 
 
     return (
-        <div className="container">
+        <Flex className="container" alignItems='center'>
             {redirect && <Redirect to="/" />}
             <Box
                 className="formCard"
@@ -75,6 +77,7 @@ function Login({ setUser, user }) {
                             value={form.password}
                         />
                     </Box>
+
                     <Label width={[1 / 2, 1 / 4]} p={2}>
                         <Checkbox
                             id='auth'
@@ -82,16 +85,18 @@ function Login({ setUser, user }) {
                         />
                              I am not a Robot
                          </Label>
+            <Flex alignItems='center'>
+                <Box>
+                    <Button className="btns" type="submit">Login</Button>
+                    <Box>
+                     <p className="lable-text">Don't have an account?</p>
+                     <a className="redirect" href="/signup"> <p className="lable-text">Sign up here!</p></a>
+                     </Box>
+                </Box>
                 </Flex>
-                <div className="btns">
-                    <Button type="submit">Login</Button>
-                    <Label className="lable">
-                    Don't have an account? {' '} <a className="redirect" href="/signup">Sign up here!</a>
-                    </Label>
-                </div>
+                </Flex>
             </Box>
-
-        </div>
+        </Flex>
     )
 }
 
