@@ -15,23 +15,23 @@ function Header({ user, handleLogout }) {
     let menu;
 
     if (showMenu) {
-        menu = <div ClassName='menu'>
-            <Link className="navLink" variant='nav' href='/shop'>
+        menu = <div className='menu'>
+            <Link className="navLink mini" variant='nav' href='/shop'>
                 <FontAwesomeIcon icon="home" />
                 {' '}
                 Shop
             </Link>
-            <Link className="navLink" variant='nav' href='/dashboard'>
+            <Link className="navLink mini" variant='nav' href='/dashboard'>
                 <FontAwesomeIcon icon="chalkboard-teacher" />
                 {' '}
                 Dashboard
             </Link>
-            <Link className="navLink" variant='nav' href='/cart'>
+            <Link className="navLink mini" variant='nav' href='/cart'>
                 <FontAwesomeIcon className="icons" icon="shopping-cart" />
                 {' '}
                 Cart
             </Link>
-            <Link className="navLink" variant='nav' href='/' onClick={handleLogout}>
+            <Link className="navLink mini" variant='nav' href='/' onClick={handleLogout}>
                 <FontAwesomeIcon icon="sign-out-alt" />
                 {' '}
                 Logout
@@ -39,18 +39,18 @@ function Header({ user, handleLogout }) {
         </div>
     }
     if (showMenu2) {
-        menu2 = <div ClassName='menu'>
-            <Link className="navLink" variant='nav' href='/shop'>
+        menu2 = <div className='menu'>
+            <Link className="navLink mini" variant='nav' href='/shop'>
                 <FontAwesomeIcon icon="home" />
                 {' '}
                 Shop
             </Link>
-            <Link className="navLink" variant='nav' href='/cart'>
+            <Link className="navLink mini" variant='nav' href='/cart'>
                 <FontAwesomeIcon className="icons" icon="shopping-cart" />
                 {' '}
                 Cart
             </Link>
-            <Link className="navLink" variant='nav' href='/login'>
+            <Link className="navLink mini" variant='nav' href='/login'>
                 <FontAwesomeIcon icon="sign-in-alt" />
                 {' '}
                 Login
@@ -84,7 +84,7 @@ function Header({ user, handleLogout }) {
                         {menu2}
                     </Box>
                 )}
-                <Text p={4} fontWeight='bold' fontSize="30px" color="#eee">Memento Multiverse</Text>
+                <h1 p={4} className="name" fontWeight='bold' fontSize="30px" color="#eee">Memento Multiverse</h1>
                 {user.user_name ? (
                     <Box mx='auto' className="reg">
                         <Link className="navLink" variant='nav' to='/shop'>

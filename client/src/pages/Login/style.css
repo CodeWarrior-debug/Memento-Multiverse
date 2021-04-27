@@ -9,6 +9,7 @@ Button {
 }
 
 .formCard {
+  background-color: hsl(0, 0%, 7%, 60%);
     margin-left: 35% !important;   
     margin-right: 35% !important;
 }
