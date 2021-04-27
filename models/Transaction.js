@@ -7,7 +7,7 @@ Transaction.init(
     {
         product_id: {
             type: DataTypes.INTEGER,
-            // allowNull: false
+            //allowNull: false
             // ,
             // references: {
             //     model: "product",
@@ -16,11 +16,11 @@ Transaction.init(
         },
         quantity: {
             type: DataTypes.INTEGER,
-            // allowNull: false,
+            //allowNull: false,
         },
         franchise_id: {  //TODO get seed data changed
             type: DataTypes.INTEGER,
-            // allowNull: false
+            //allowNull: false
             // ,
             // references: {
             //     model: "franchise",
@@ -29,11 +29,11 @@ Transaction.init(
         },
         user_id: {
             type: DataTypes.INTEGER,
-            // allowNull: false
+            //allowNull: false
         },
         price: {
             type: DataTypes.DECIMAL(10,2),
-            // allowNull: false
+            //allowNull: false
         }
     },
     {

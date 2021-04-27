@@ -8,34 +8,34 @@ import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom'
-function Header() {
+function Header({ user, handleLogout }) {
     const [showMenu, setShowMenu] = useState(false)
     const [showMenu2, setShowMenu2] = useState(false)
-    let menu2
-    let menu
+    let menu2;
+    let menu;
 
     if (showMenu) {
         menu = <div ClassName='menu'>
             <Link className="navLink" variant='nav' href='/shop'>
                 <FontAwesomeIcon icon="home" />
                 {' '}
-    Shop
-</Link>
+                Shop
+            </Link>
             <Link className="navLink" variant='nav' href='/dashboard'>
                 <FontAwesomeIcon icon="chalkboard-teacher" />
                 {' '}
-    Dashboard
-</Link>
+                Dashboard
+            </Link>
             <Link className="navLink" variant='nav' href='/cart'>
                 <FontAwesomeIcon className="icons" icon="shopping-cart" />
                 {' '}
-    Cart
-</Link>
-            <Link className="navLink" variant='nav' href='/logout'>
+                Cart
+            </Link>
+            <Link className="navLink" variant='nav' href='/' onClick={handleLogout}>
                 <FontAwesomeIcon icon="sign-out-alt" />
                 {' '}
-    Logout
-</Link>
+                Logout
+            </Link>
         </div>
     }
     if (showMenu2) {
@@ -43,18 +43,18 @@ function Header() {
             <Link className="navLink" variant='nav' href='/shop'>
                 <FontAwesomeIcon icon="home" />
                 {' '}
-    Shop
-</Link>
+                Shop
+            </Link>
             <Link className="navLink" variant='nav' href='/cart'>
                 <FontAwesomeIcon className="icons" icon="shopping-cart" />
                 {' '}
-    Cart
-</Link>
-            <Link className="navLink" variant='nav' href='/logout'>
+                Cart
+            </Link>
+            <Link className="navLink" variant='nav' href='/login'>
                 <FontAwesomeIcon icon="sign-in-alt" />
                 {' '}
-    Login
-</Link>
+                Login
+            </Link>
         </div>
     }
 
@@ -67,36 +67,65 @@ function Header() {
                 color='white'
                 bg='black'
                 alignItems='center'
-                >
-                <Box className="ham">
-                    <FontAwesomeIcon
-                    icon="bars"
-                    onClick={() => setShowMenu(!showMenu)} />
-                    {menu}
-                </Box>
+            >
+                {user.user_name ? (
+                    <Box className="ham">
+                        <FontAwesomeIcon
+                            icon="bars"
+                            onClick={() => setShowMenu(!showMenu)}
+                        />
+                        {menu}
+                    </Box>) : (
+                    <Box className="ham">
+                        <FontAwesomeIcon
+                            icon="bars"
+                            onClick={() => setShowMenu2(!showMenu2)}
+                        />
+                        {menu2}
+                    </Box>
+                )}
                 <Text p={4} fontWeight='bold' fontSize="30px" color="#eee">Memento Multiverse</Text>
-                <Box mx='auto' className="reg">
-                <Link className="navLink" variant='nav' href='/shop'>
-                    <FontAwesomeIcon icon="home" />
-                    {' '}
-                    Shop
-                </Link>
-                    <Link className="navLink" variant='nav' to='/dashboard'>
-                        <FontAwesomeIcon icon="chalkboard-teacher" />
-                        {' '}
-                    Dashboard
-                </Link>
-                    <Link className="navLink" variant='nav' to='/cart'>
-                        <FontAwesomeIcon className="icons" icon="shopping-cart" />
-                        {' '}
-                    Cart
-                </Link>
-                    <Link className="navLink" variant='nav' to='/logout'>
-                        <FontAwesomeIcon icon="sign-out-alt" />
-                        {' '}
-                    Logout
-                </Link>
-                </Box>
+                {user.user_name ? (
+                    <Box mx='auto' className="reg">
+                        <Link className="navLink" variant='nav' to='/shop'>
+                            <FontAwesomeIcon icon="home" />
+                            {' '}
+                        Shop
+                    </Link>
+                        <Link className="navLink" variant='nav' to='/dashboard'>
+                            <FontAwesomeIcon icon="chalkboard-teacher" />
+                            {' '}
+                        Dashboard
+                    </Link>
+                        <Link className="navLink" variant='nav' to='/cart'>
+                            <FontAwesomeIcon className="icons" icon="shopping-cart" />
+                            {' '}
+                        Cart
+                    </Link>
+                        <Link className="navLink" variant='nav' to='/' onClick={handleLogout}>
+                            <FontAwesomeIcon icon="sign-out-alt" />
+                            {' '}
+                        Logout
+                    </Link>
+                    </Box>) : (
+                    <Box mx='auto' className="reg">
+                        <Link className="navLink" variant='nav' to='/shop'>
+                            <FontAwesomeIcon icon="home" />
+                            {' '}
+                            Shop
+                        </Link>
+                        <Link className="navLink" variant='nav' to='/cart'>
+                            <FontAwesomeIcon className="icons" icon="shopping-cart" />
+                            {' '}
+                            Cart
+                        </Link>
+                        <Link className="navLink" variant='nav' to='/login'>
+                            <FontAwesomeIcon icon="sign-in-alt" />
+                            {' '}
+                            Login
+                        </Link>
+                    </Box>
+                )}
             </Flex>
 
             {/* <Flex

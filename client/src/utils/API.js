@@ -42,9 +42,10 @@ export default {
     getAllTransactions: () => {
         return axios.get('/api/transactions');
     },
-
-    create: (user_id, product_id, quantity, fake_price,franchise_id) => {   // TODO: make work
-        return axios.post('/api/transactions', {user_id:user_id, product_id:product_id, quantity:quantity, fake_price:fake_price, franchise_id:franchise_id} );
+    //bodies
+//user_id:parseInt(bodies.user_id)
+    create: (body) => {   // TODO: make work
+        return axios.post('/api/transactions', {user_id:1, product_id:body.id, quantity:1, price:1.99, franchise_id:1} );
     },
 
     // postTransactions: (id,user_id,fake_price) => {   // TODO: make work

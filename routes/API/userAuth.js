@@ -13,21 +13,20 @@ router.post('/signup', async (req, res) => {
     console.log('signup route hit!! YAY', req.body);
     try {
         if (!req.body.user_role) req.body.user_role = 'user';
-        const user = await db.User.findOne({ where: { email: req.body.email } })
+        const user = await db.User.findOne({ where: { email: req.body.user_name } })
         console.log(user)
         if (user) {
-            res.json({ msg: 'There is already an account with this email' });
+            res.json({ msg: 'There is already an account with this email/username' });
         } else {
-            console.log('made it in to the else')
             const newUser = await db.User.create(req.body);
             delete newUser.password;
             res.json(newUser)
-
+            
         }
-
+        
     } catch (err) {
         console.log(err);
-        res.sendStatus(500);
+        res.sendStatus(500)
     }
 
 });
