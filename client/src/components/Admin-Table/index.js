@@ -19,19 +19,18 @@ const AdminTable = () => {
 
   const [mydata, setMydata] = useState([]);
 
-    const [mydata, setMydata] = useState([]);
-    
-  useEffect(()=>{
-    
-      API.getAllTransactions().then(transactions => {
-        console.log(transactions.data);
-        // console.log(e.data);
-        // setMydata(JSON.parse(e));
-        // setMydata(JSON.parse(transactions.data));
-        setMydata(transactions.data);
-        // console.log("this is the goods", mydata);
-        return;
-      });
+  useEffect(() => {
+
+    API.getAllTransactions().then(transactions => {
+      console.log(transactions.data);
+      // console.log(e.data);
+      // setMydata(JSON.parse(e));
+      // setMydata(JSON.parse(transactions.data));
+      setMydata(transactions.data);
+      // console.log("this is the goods", mydata);
+      return;
+    });
+  }, [])
 
 
   //***setting up data end */
@@ -39,8 +38,8 @@ const AdminTable = () => {
   const columns = useMemo(() => COLUMNS, []);
 
   const data = useMemo(() => mydata, []);
-  
-  
+
+
 
   const defaultColumn = useMemo(
     () => ({
@@ -201,5 +200,6 @@ const AdminTable = () => {
     </>
   );
 };
+
 
 export default AdminTable;
