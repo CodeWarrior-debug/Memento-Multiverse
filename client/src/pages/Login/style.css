@@ -1,6 +1,11 @@
+.lable-text {
+  text-align: end;
+  padding-left: 20px;
+}
 
 Button {
-    width: 20% !important;
+    width: 24% !important;
+    align-items: center;
 }
 
 .formCard {
