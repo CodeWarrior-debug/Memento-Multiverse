@@ -16,22 +16,30 @@ function Header({ user, handleLogout }) {
 
     if (showMenu) {
         menu = <div className='menu'>
-            <Link className="navLink mini" variant='nav' href='/shop'>
+            <Link className="navLink mini" variant='nav' to='/shop'>
                 <FontAwesomeIcon icon="home" />
                 {' '}
                 Shop
             </Link>
-            <Link className="navLink mini" variant='nav' href='/dashboard'>
-                <FontAwesomeIcon icon="chalkboard-teacher" />
-                {' '}
+            {user.user_role === 'user' ? (
+                <Link className="navLink mini" variant='nav' to='/dashboard'>
+                    <FontAwesomeIcon icon="chalkboard-teacher" />
+                    {' '}
                 Dashboard
-            </Link>
-            <Link className="navLink mini" variant='nav' href='/cart'>
+                </Link>
+            ) : (
+                <Link className="navLink mini" variant='nav' to='/admin'>
+                    <FontAwesomeIcon icon="chalkboard-teacher" />
+                    {' '}
+                Dashboard
+                </Link>
+            )}
+            <Link className="navLink mini" variant='nav' to='/cart'>
                 <FontAwesomeIcon className="icons" icon="shopping-cart" />
                 {' '}
                 Cart
             </Link>
-            <Link className="navLink mini" variant='nav' href='/' onClick={handleLogout}>
+            <Link className="navLink mini" variant='nav' to='/' onClick={handleLogout}>
                 <FontAwesomeIcon icon="sign-out-alt" />
                 {' '}
                 Logout
@@ -40,17 +48,17 @@ function Header({ user, handleLogout }) {
     }
     if (showMenu2) {
         menu2 = <div className='menu'>
-            <Link className="navLink mini" variant='nav' href='/shop'>
+            <Link className="navLink mini" variant='nav' to='/shop'>
                 <FontAwesomeIcon icon="home" />
                 {' '}
                 Shop
             </Link>
-            <Link className="navLink mini" variant='nav' href='/cart'>
+            <Link className="navLink mini" variant='nav' to='/cart'>
                 <FontAwesomeIcon className="icons" icon="shopping-cart" />
                 {' '}
                 Cart
             </Link>
-            <Link className="navLink mini" variant='nav' href='/login'>
+            <Link className="navLink mini" variant='nav' to='/login'>
                 <FontAwesomeIcon icon="sign-in-alt" />
                 {' '}
                 Login
@@ -92,11 +100,19 @@ function Header({ user, handleLogout }) {
                             {' '}
                         Shop
                     </Link>
-                        <Link className="navLink" variant='nav' to='/dashboard'>
-                            <FontAwesomeIcon icon="chalkboard-teacher" />
-                            {' '}
-                        Dashboard
-                    </Link>
+                        {user.user_role === 'user' ? (
+                            <Link className="navLink mini" variant='nav' to='/dashboard'>
+                                <FontAwesomeIcon icon="chalkboard-teacher" />
+                                {' '}
+                                Dashboard
+                            </Link>
+                        ) : (
+                            <Link className="navLink mini" variant='nav' to='/admin'>
+                                <FontAwesomeIcon icon="chalkboard-teacher" />
+                                {' '}
+                                Dashboard
+                            </Link>
+                        )}
                         <Link className="navLink" variant='nav' to='/cart'>
                             <FontAwesomeIcon className="icons" icon="shopping-cart" />
                             {' '}
