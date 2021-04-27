@@ -4,6 +4,7 @@ import { Box } from 'rebass';
 import Shop from './pages/Shop';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import BgImage from './components/BgImage';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import MyCart from './pages/MyCart';
