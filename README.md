@@ -20,7 +20,7 @@ Go to Github and Clone or Fork repository into your code editor. Run npm i in th
 
 ## Preview
 ---
-
+https://drive.google.com/file/d/1XoUuc1XHKcBJ_tzXw-_diD3gw9xRIJ0U/view
 
 ## Tests
 --- 
