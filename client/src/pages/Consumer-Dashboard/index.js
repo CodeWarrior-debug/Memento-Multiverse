@@ -16,7 +16,7 @@ function Consumer() {
             </Box>
             <Box className="dashcards2">
                 <Button>
-                    <h2><a className="dash" href="/dashboard">Your Orders</a></h2>
+                    <h2><a className="dash" href="/client-dashboard">Your Orders</a></h2>
                 </Button>
             </Box>
         </div>
