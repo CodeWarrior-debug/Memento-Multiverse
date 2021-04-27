@@ -79,7 +79,7 @@ function App() {
               }}>
               {loaded ? (
                 <Switch>
-                  <WithAuth exact path="/" user={user} component={Shop} />
+                  <Route exact path="/" user={user} component={Shop} />
                   <Route exact path="/login" render={(props) => <Login {...props}
                     setUser={setUser}
                     user={user}

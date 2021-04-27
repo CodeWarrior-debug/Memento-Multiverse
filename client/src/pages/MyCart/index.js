@@ -23,11 +23,11 @@ const MyCart = ({ user }) => {
     }
     setCartTotal(totalVal);
   }, [cart]);
-      //set hooks END
 
   //create functions
   const handleCheckout = async (e) => {
     e.preventDefault();
+    
     if (!user.user_name) return setRedirect(true)
 
     toast.info('Your item has been added to the cart!', {
@@ -51,7 +51,6 @@ const MyCart = ({ user }) => {
     localStorage.clear();
     window.location.reload();
   }
-    //create functions END
   
   //display
   return (
