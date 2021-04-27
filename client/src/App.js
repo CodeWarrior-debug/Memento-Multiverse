@@ -8,6 +8,7 @@ import BgImage from './components/BgImage';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import MyCart from './pages/MyCart';
+import ConsumerDash from './pages/Consumer-Dash-Table';
 import Consumer from './pages/Consumer-Dashboard';
 import Admin from './pages/Admin-Dashboard';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -97,6 +98,7 @@ function App() {
                     render={(props) => <ProductPage {...props} user={user} />}
                   />
                   <WithAuth exact path="/dashboard" user={user} component={Consumer} />
+                  <WithAuth exact path="/client-dashboard" user={user} component={Consumer} />
                   <WithAuth exact path="/admin" user={user} component={Admin} />
                   <Route exact path="/cart" render={(props) => <MyCart {...props} user={user} />} />
                 </Switch>) :
