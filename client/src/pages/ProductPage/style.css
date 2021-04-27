@@ -1,42 +1,51 @@
 .container {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
 .title {
     font-size: 30px;
     font-weight: 600;
     font-style: bold;
     text-align: center;
     color: #eee;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #eee;
 }
+
 .grid {
     display: grid;
     grid-template-columns: 2;
     grid-template-rows: 2;
     margin-left: 10%;
 }
+
 .row {
     display: grid;
     grid-column: 2;
 }
+
 .description {
     background-color: hsl(0, 0%, 7%, 60%);
     border-radius: 20px;
     border: #eee;
     border-style: solid;
     border-width: 3px;
-    width: 30vw;
+    width: 20vw;
     margin: 3%;
     padding: 1%;
     color: #eee;
     font-size: 25px;
 
 }
+
 .image {
     margin: 3%;
     padding: .25%;
     width: 20vw !important;
 }
+
 .info {
     background-color: hsl(0, 0%, 7%, 60%);
     color: #eee;
@@ -48,9 +57,10 @@
     margin: 3%;
     padding: 1%;
     text-align: center;
-    width: 40vw;
-    font-size: 50px;
+    width: 20vw;
+    font-size: 25px;
 }
+
 .btns {
     text-align: center;
     border-color: #eee !important;
@@ -59,6 +69,7 @@
     margin-left: 4%;
     cursor: pointer;
 }
+
 .price {
     margin-top: 8%;
 }
