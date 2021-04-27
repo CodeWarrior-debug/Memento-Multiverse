@@ -1,3 +1,7 @@
 .form {
-    color: #eee;
+    color: #eee !important;
+}
+
+.text {
+    color: #eee !important;
 }
