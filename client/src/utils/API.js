@@ -44,8 +44,8 @@ export default {
     },
     //bodies
 //user_id:parseInt(bodies.user_id)
-    create: (body) => {   // TODO: make work
-        return axios.post('/api/transactions', {user_id:1, product_id:body.id, quantity:1, price:1.99, franchise_id:1} );
+    create: (body) => {   // TODO: make it work
+        return axios.post('/api/transactions', { product_id: body.id, franchise_id: body.franchise_id, user_id: body.user_id, price: parseFloat(body.fake_price), quantity: 1 });
     },
 
     // postTransactions: (id,user_id,fake_price) => {   // TODO: make work

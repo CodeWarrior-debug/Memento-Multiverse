@@ -25,7 +25,7 @@ module.exports = {
 
 
   create: function (req, res) {
-    console.log(req.body);
+    console.log("LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOG", req.body);
     Transaction.create(
     // product_id: req.body.product_id,
     // quantity: req.body.quantity,
