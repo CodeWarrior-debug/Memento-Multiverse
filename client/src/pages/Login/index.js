@@ -83,7 +83,7 @@ function Login({ setUser, user }) {
                             id='auth'
                             name='auth'
                         />
-                             I am not a Robot
+                             <p>I am not a Robot</p>
                          </Label>
             <Flex alignItems='center'>
                 <Box>
