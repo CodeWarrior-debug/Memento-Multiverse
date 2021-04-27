@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {
     Label,
     Input,
-    Checkbox,
 } from '@rebass/forms';
 import {
     Box,
@@ -13,20 +12,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import API from '../../utils/API';
 import { Redirect } from 'react-router-dom';
 import './style.css'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login({ setUser, user }) {
     const [form, setForm] = useState({ username: '', password: '' });
     const [redirect, setRedirect] = useState(false);
     useEffect(() => {
-        if(user.user_name) setRedirect(true)
+        if (user.user_name) setRedirect(true)
 
-    }, [user])
+    }, [user]);
     const submitHandler = async e => {
         e.preventDefault();
         try {
             const loggedInUser = await API.logIn(form);
             setUser(loggedInUser.data);
-        } catch(err) {
+        } catch (err) {
             console.log(err);
         }
     }
@@ -75,24 +76,14 @@ function Login({ setUser, user }) {
                             value={form.password}
                         />
                     </Box>
-                    <Label width={[1 / 2, 1 / 4]} p={2}>
-                        <Checkbox
-                            id='auth'
-                            name='auth'
-                        />
-                             I am not a Robot
-                         </Label>
-            <Flex alignItems='center'>
-                <Box>
+                </Flex>
+                <div className="btns">
                     <Button variant="badge" className="btns" type="submit">Login</Button>
                     <Label className="lable">
-                     Don't have an account? {' '} <a className="redirect" href="/signup">Sign up here!</a>
+                        Don't have an account? {' '} <a className="redirect" href="/signup">Sign up here!</a>
                     </Label>
-                </Box>
-                </Flex>
-                </Flex>
+                </div>
             </Box>
-
         </Flex>
     )
 }

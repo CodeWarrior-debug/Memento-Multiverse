@@ -3,12 +3,16 @@ import "./style.css";
 import { Button } from "rebass";
 import CartContext from "../../utils/CartContext";
 import API from "../../utils/API";
+import { Redirect } from "react-router";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const MyCart = () => {
+toast.configure();
 
-  //set hooks 
+const MyCart = ({ user }) => {
   const cart = useContext(CartContext);
   const [cartTotal, setCartTotal] = useState(0);
+  const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
     console.log(cart);
@@ -19,13 +23,19 @@ const MyCart = () => {
     }
     setCartTotal(totalVal);
   }, [cart]);
-      //set hooks END
 
   //create functions
   const handleCheckout = async (e) => {
     e.preventDefault();
-    // const myusername = CartContext.user_name;
     
+    if (!user.user_name) return setRedirect(true)
+
+    if(!cart.items.length) {
+      toast.warn('There are no items in your cart!');
+    } else {
+      toast.info('Checkout has been successfull!');
+    }
+
     try {
       const purchaseArr = cart.items.map(item => item.id)
       console.log(purchaseArr,"tested code");
@@ -43,11 +53,11 @@ const MyCart = () => {
     localStorage.clear();
     window.location.reload();
   }
-    //create functions END
   
   //display
   return (
     <div className="cart">
+      {redirect && <Redirect to="/login" />}
       <h1>My Cart</h1>
         {cart.items.map((item, i) => (
           <p>{item.product_name} = ${item.fake_price}</p>
