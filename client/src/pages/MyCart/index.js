@@ -33,7 +33,7 @@ const MyCart = ({ user }) => {
     if(!cart.items.length) {
       toast.warn('There are no items in your cart!');
     } else {
-      toast.info('Your item has been added to the cart!');
+      toast.info('Checkout has been successfull!');
     }
 
     try {
