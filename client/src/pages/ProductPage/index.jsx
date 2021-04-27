@@ -26,26 +26,22 @@ const ProductPage = ({ user }) => {
         toast.info('The item has been added to the cart!');
     }
 
-    
+
     return (
         <>
             <div className="container">
                 <div className="title">{item.product_name}</div>
                 <div className="grid">
                     <img src={item.image_link} className="image" alt="Product"></img>
-                    <div className="row">
-                        <div className="info">
-                            <div className="price">Price:{' '}{item.fake_price}</div>
-                            <div>Stock:{' '}{item.fake_quantity} </div>
-                            <div>Sold:{' '}{item.fake_sold} </div>
-                        </div>
-                    </div>
                     <div className="description">{item.fun_description}</div>
-                    <div className="row">
-                        <div className="btns">
-                            <Button onClick={() => cart.addItem(item)}>Add to Cart</Button>
-                        </div>
+                    <div className="info">
+                        <div className="price">Price:{' '}{item.fake_price}</div>
+                        <div>Stock:{' '}{item.fake_quantity} </div>
+                        <div>Sold:{' '}{item.fake_sold} </div>
                     </div>
+                </div>
+                <div className="btn">
+                    <Button onClick={() => cart.addItem(item)}>Add to Cart</Button>
                 </div>
             </div>
         </>

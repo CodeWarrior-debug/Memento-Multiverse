@@ -14,20 +14,21 @@
     border-bottom: 2px solid #eee;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: 2;
-    grid-template-rows: 2;
-    margin-left: 10%;
+.image {
+    margin: 3%;
+    padding: .25%;
+    width: 20vw !important;
+    border-radius: 20px;
 }
 
-.row {
+.grid {
     display: grid;
-    grid-column: 2;
+    grid-template-columns: 2fr 2fr 2fr;
 }
 
 .description {
     background-color: hsl(0, 0%, 7%, 60%);
+    text-align: center;
     border-radius: 20px;
     border: #eee;
     border-style: solid;
@@ -37,13 +38,6 @@
     padding: 1%;
     color: #eee;
     font-size: 25px;
-
-}
-
-.image {
-    margin: 3%;
-    padding: .25%;
-    width: 20vw !important;
 }
 
 .info {
@@ -53,23 +47,16 @@
     border: #eee;
     border-style: solid;
     border-width: 3px;
-    width: 60%;
+    /* width: 30%; */
     margin: 3%;
     padding: 1%;
     text-align: center;
     width: 20vw;
     font-size: 25px;
 }
-
-.btns {
+ 
+.btn {
     text-align: center;
     border-color: #eee !important;
-    margin: 3%;
-    width: 80vw;
-    margin-left: 4%;
-    cursor: pointer;
-}
-
-.price {
-    margin-top: 8%;
+    width: 1000px !important;
 }
