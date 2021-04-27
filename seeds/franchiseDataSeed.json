@@ -2,26 +2,26 @@
     {
         "franchise_id": 1,
         "name": "Seinfeld",
-        "logo": "ADD LATER"
+        "logo": "../../images/stage.png"
     },
     {
         "franchise_id": 2,
         "name": "Rick and Morty",
-        "logo": "ADD LATER"
+        "logo": "../../images/cat.png"
     },
     {
         "franchise_id": 3,
-        "name": "Tool Time",
-        "logo": "ADD LATER"
+        "name": "Home Improvement",
+        "logo": "../../images/tool.png"
     },
     {
         "franchise_id": 4,
         "name": "Family Guy",
-        "logo": "ADD LATER"
+        "logo": "../../images/family.png"
     },
     {
         "franchise_id": 5,
         "name": "The Office",
-        "logo": "ADD LATER"
+        "logo": "../../images/office.png"
     }
 ]
