@@ -5,13 +5,7 @@ import CartContext from "../../utils/CartContext";
 import API from "../../utils/API";
 import { Redirect } from "react-router";
 
-<<<<<<< HEAD
 const MyCart = ({ user }) => {
-=======
-const MyCart = () => {
-
-  //set hooks 
->>>>>>> main
   const cart = useContext(CartContext);
   const [cartTotal, setCartTotal] = useState(0);
   const [redirect, setRedirect] = useState(false);
@@ -30,13 +24,8 @@ const MyCart = () => {
   //create functions
   const handleCheckout = async (e) => {
     e.preventDefault();
-<<<<<<< HEAD
     if (!user.user_name) return setRedirect(true)
 
-=======
-    // const myusername = CartContext.user_name;
-    
->>>>>>> main
     try {
       const purchaseArr = cart.items.map(item => item.id)
       console.log(purchaseArr,"tested code");
