@@ -13,6 +13,9 @@ Button {
     margin-left: 35% !important;   
     margin-right: 35% !important;
 }
+.form {
+  color: #eee;
+}
 
 @media only screen and (max-width: 1100px) {
     .formCard {
