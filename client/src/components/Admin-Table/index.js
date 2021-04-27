@@ -19,26 +19,48 @@ const AdminTable = () => {
 
   const [mydata, setMydata] = useState([]);
 
+<<<<<<< HEAD
   useEffect(() => {
     API.getAllTransactions()
       .then(transactions => {
         setMydata(JSON.parse(transactions.data));
         console.log(mydata);
+=======
+    const [mydata, setMydata] = useState([]);
+    
+  useEffect(()=>{
+    
+      API.getAllTransactions().then(transactions => {
+        console.log(transactions.data);
+        // console.log(e.data);
+        // setMydata(JSON.parse(e));
+        // setMydata(JSON.parse(transactions.data));
+        setMydata(transactions.data);
+        // console.log("this is the goods", mydata);
+>>>>>>> main
         return;
       });
 
 
+<<<<<<< HEAD
   }, [])
 
   // getdata();
 
+=======
+>>>>>>> main
   //***setting up data end */
 
   const columns = useMemo(() => COLUMNS, []);
-  // const data = useMemo(() => MOCK_DATA, []);
+
   const data = useMemo(() => mydata, []);
+<<<<<<< HEAD
   // const data = useMemo(() => mydata, []);
 
+=======
+  
+  
+>>>>>>> main
 
   const defaultColumn = useMemo(
     () => ({

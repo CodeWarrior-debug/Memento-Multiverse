@@ -32,7 +32,11 @@
 
 //     return (
 //         <>
+<<<<<<< HEAD
 //             <style>{`body {background-image: url('`+setbgimage+`');}`}</style>
+=======
+//             <style>{`body {background-image: url('`+setbgimage+`');}`}</style>  THIS ONE
+>>>>>>> main
 //             <Select options={image} onChange={bghandle}></Select>
 //         </>
 //     )
