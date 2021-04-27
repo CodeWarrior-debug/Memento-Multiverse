@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {
     Label,
     Input,
-    Checkbox,
 } from '@rebass/forms';
 import {
     Box,
@@ -13,6 +12,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import API from '../../utils/API';
 import { Redirect } from 'react-router-dom';
 import './style.css'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login({ setUser, user }) {
     const [form, setForm] = useState({ username: '', password: '' });
