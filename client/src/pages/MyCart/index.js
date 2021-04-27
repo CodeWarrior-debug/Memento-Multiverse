@@ -27,21 +27,21 @@ const MyCart = ({ user }) => {
   //create functions
   const handleCheckout = async (e) => {
     e.preventDefault();
-    
+
     if (!user.user_name) return setRedirect(true)
 
-    if(!cart.items.length) {
+    if (!cart.items.length) {
       toast.warn('There are no items in your cart!');
     } else {
       toast.info('Checkout has been successfull!');
     }
 
     try {
-      const purchaseArr = cart.items.map(item => item.id)
-      console.log(purchaseArr,"tested code");
+      const purchaseArr = cart.items.map(item => item)
+      console.log(purchaseArr, "tested code");
       //looping through each in purchaseArr.
       let i;
-       for (i=0; i < purchaseArr.length; i++) {
+      for (i = 0; i < purchaseArr.length; i++) {
         API.create(purchaseArr[i]);
       }
     } catch (err) {
@@ -53,15 +53,15 @@ const MyCart = ({ user }) => {
     localStorage.clear();
     window.location.reload();
   }
-  
+
   //display
   return (
     <div className="cart">
       {redirect && <Redirect to="/login" />}
       <h1>My Cart</h1>
-        {cart.items.map((item, i) => (
-          <p>{item.product_name} = ${item.fake_price}</p>
-        ))}
+      {cart.items.map((item, i) => (
+        <p>{item.product_name} = ${item.fake_price}</p>
+      ))}
       <h3>Total: ${parseFloat(cartTotal)}</h3>
       <Button className="btn" onClick={handleCheckout}>Checkout</Button>
       <Button className="btn" onClick={emptyCart}>Empty Cart</Button>
