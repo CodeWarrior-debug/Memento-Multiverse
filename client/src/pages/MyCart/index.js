@@ -37,11 +37,11 @@ const MyCart = ({ user }) => {
     }
 
     try {
-      const purchaseArr = cart.items.map(item => item)
-      console.log(purchaseArr, "tested code");
+      // const userName = user.user_name;
+      const purchaseArr = cart.items.map((item) => item)
+      console.log(purchaseArr)
       //looping through each in purchaseArr.
-      let i;
-      for (i = 0; i < purchaseArr.length; i++) {
+      for (let i = 0; i < purchaseArr.length; i++) {
         API.create(purchaseArr[i]);
       }
     } catch (err) {
