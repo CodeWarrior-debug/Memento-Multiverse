@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
     Label,
     Input,
+    Checkbox
 } from '@rebass/forms';
 import {
     Box,
