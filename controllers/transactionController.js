@@ -1,8 +1,8 @@
-const db = require("../models");
+const {Transaction} = require("../models");
 
 module.exports = {
   findAllTransactions: function (req, res) {
-    db.Transaction.findAll()
+    Transaction.findAll()
       .then((transactionDB) => {
         res.json(transactionDB);
       })
@@ -11,20 +11,34 @@ module.exports = {
       });
   },
 
+//   // CREATE a book
+// router.post('/', (req, res) => {
+//     Book.create(req.body)
+//       .then((newBook) => {
+//         res.json(newBook);
+//       })
+//       .catch((err) => {
+//         res.json(err);
+//       });
+//   });
+
+
+
   create: function (req, res) {
     console.log(req.body);
-    db.Transaction.create({
-      product_id: req.body.product_id,
-      quantity: req.body.quantity,
-      franchise_id: req.body.franchise_id,
-      price: req.body.fake_price,
-      user_id: req.body.user_id,
+    Transaction.create(
+    // product_id: req.body.product_id,
+    // quantity: req.body.quantity,
+    // franchise_id: req.body.franchise_id,
+    // price: req.body.fake_price,
+    // user_id: req.body.user_id,
+    req.body
+    )
+    .then((newTransaction) => {
+        res.json(newTransaction);
     })
-      .then(() => {
-        console.log(res);
-      })
-      .catch((err) => {
+    .catch((err) => {
         console.log(err);
-      });
+    });
   },
 };
