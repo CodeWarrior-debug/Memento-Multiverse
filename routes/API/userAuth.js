@@ -37,7 +37,8 @@ router.post('/login', passport.authenticate('local'), function (req, res) {
     const userInfo = {
         user_role: req.user.dataValues.user_role,
         user_name: req.user.dataValues.user_name,
-        email: req.user.dataValues.email
+        email: req.user.dataValues.email,
+        user_id: req.user.dataValues.id
     };
 
     res.json(userInfo);
