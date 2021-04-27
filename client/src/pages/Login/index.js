@@ -19,7 +19,7 @@ function Login({ setUser, user }) {
     const [form, setForm] = useState({ username: '', password: '' });
     const [redirect, setRedirect] = useState(false);
     useEffect(() => {
-        if(user.user_name) setRedirect(true)
+        if (user.user_name) setRedirect(true)
 
     }, [user]);
     const submitHandler = async e => {
@@ -27,14 +27,14 @@ function Login({ setUser, user }) {
         try {
             const loggedInUser = await API.logIn(form);
             setUser(loggedInUser.data);
-        } catch(err) {
+        } catch (err) {
             console.log(err);
         }
     }
 
 
     return (
-        <div className="container">
+        <Flex className="container" alignItems='center'>
             {redirect && <Redirect to="/" />}
             <Box
                 className="formCard"
@@ -78,14 +78,13 @@ function Login({ setUser, user }) {
                     </Box>
                 </Flex>
                 <div className="btns">
-                    <Button type="submit">Login</Button>
+                    <Button variant="badge" className="btns" type="submit">Login</Button>
                     <Label className="lable">
-                    Don't have an account? {' '} <a className="redirect" href="/signup">Sign up here!</a>
+                        Don't have an account? {' '} <a className="redirect" href="/signup">Sign up here!</a>
                     </Label>
                 </div>
             </Box>
-
-        </div>
+        </Flex>
     )
 }
 
