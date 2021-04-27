@@ -4,6 +4,10 @@ import { Button } from "rebass";
 import CartContext from "../../utils/CartContext";
 import API from "../../utils/API";
 import { Redirect } from "react-router";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure();
 
 const MyCart = ({ user }) => {
   const cart = useContext(CartContext);
@@ -25,6 +29,10 @@ const MyCart = ({ user }) => {
   const handleCheckout = async (e) => {
     e.preventDefault();
     if (!user.user_name) return setRedirect(true)
+
+    toast.info('Your item has been added to the cart!', {
+
+    });
 
     try {
       const purchaseArr = cart.items.map(item => item.id)
