@@ -53,6 +53,7 @@ function Login({ setUser, user }) {
                              </div>
                         </Label>
                         <Input
+                            className="text"
                             id='username'
                             name='username'
                             placeholder='username'
@@ -69,6 +70,7 @@ function Login({ setUser, user }) {
                              </div>
                         </Label>
                         <Input
+                            className="text"
                             id='password'
                             name='password'
                             type='password'
@@ -77,23 +79,15 @@ function Login({ setUser, user }) {
                             value={form.password}
                         />
                     </Box>
-
-                    <Label width={[1 / 2, 1 / 4]} p={2}>
-                        <Checkbox
-                            id='auth'
-                            name='auth'
-                        />
-                             <p>I am not a Robot</p>
-                         </Label>
-            <Flex alignItems='center'>
-                <Box>
-                    <Button className="btns" type="submit">Login</Button>
-                    <Box>
-                     <p className="lable-text">Don't have an account?</p>
-                     <a className="redirect" href="/signup"> <p className="lable-text">Sign up here!</p></a>
-                     </Box>
-                </Box>
-                </Flex>
+                    <Flex alignItems='center'>
+                        <Box>
+                            <Button className="btns" type="submit">Login</Button>
+                            <Box>
+                                <p className="lable-text">Don't have an account?</p>
+                                <a className="redirect" href="/signup"> <p className="lable-text">Sign up here!</p></a>
+                            </Box>
+                        </Box>
+                    </Flex>
                 </Flex>
             </Box>
         </Flex>

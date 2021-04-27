@@ -31,9 +31,21 @@ const MyCart = ({ user }) => {
     if (!user.user_name) return setRedirect(true)
 
     if (!cart.items.length) {
-      toast.warn('There are no items in your cart!');
+      toast.warn('There are no items in your cart!', {
+        autoClose: 2500
+      });
+      localStorage.clear();
+      setTimeout(() => {
+        window.location.reload()
+      }, 2500)
     } else {
-      toast.info('Checkout has been successfull!');
+      toast.info('Checkout has been successfull!', {
+        autoClose: 2500
+      });
+      localStorage.clear();
+      setTimeout(() => {
+        window.location.reload()
+      }, 2500)
     }
 
     try {
