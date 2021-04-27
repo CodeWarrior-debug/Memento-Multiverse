@@ -53,6 +53,7 @@ function SignUp({ setUser, user }) {
               id='username'
               name='username'
               placeholder='Username'
+              className="text"
               onChange={e => setDetails({ ...details, user_name: e.target.value })}
               value={details.user_name}
             />
@@ -71,6 +72,7 @@ function SignUp({ setUser, user }) {
                 name='email'
                 type='email'
                 placeholder='jane@example.com'
+                className="text"
                 onChange={e => setDetails({ ...details, email: e.target.value })}
                 value={details.email}
               />
@@ -88,6 +90,7 @@ function SignUp({ setUser, user }) {
               id='password'
               name='password'
               placeholder='password'
+              className="text"
               type='password'
               onChange={e => setDetails({ ...details, password: e.target.value })}
               value={details.password}
