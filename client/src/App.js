@@ -40,13 +40,13 @@ function App() {
   useEffect(() => {
     API.loggedIn()
       .then(results => {
-        console.log(results.data)
-        setUser(results.data)
+        console.log(results.data);
+        setUser(results.data);
         setLoaded(true);
       })
       .catch(err => {
-        console.log(err)
-        setLoaded(true)
+        console.log(err);
+        setLoaded(true);
       })
     const currentCart = JSON.parse(localStorage.getItem("currentCart")) || [];
     setCart((curr) => ({ ...curr, items: currentCart }));
