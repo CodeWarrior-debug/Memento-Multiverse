@@ -22,7 +22,7 @@ function Shop() {
       API.getAll()
         .then((list) => {
           setItemList(list.data);
-          setFranchise("0")
+          setFranchise(0)
         });
     }
   }, [id]);

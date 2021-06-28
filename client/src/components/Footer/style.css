@@ -116,7 +116,7 @@ Button {
     display: grid;
     grid-template-rows: 3;
     text-align: center;
-    margin-left: 5% !important;
+    /* margin-left: 5% !important; */
 }
 .imgs {
     margin-right: 2% !important;
