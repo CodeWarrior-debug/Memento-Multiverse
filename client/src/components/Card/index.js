@@ -6,7 +6,7 @@ import {
     Flex
 } from 'rebass'
 
-const Card = ({ image_link, product_name, fake_price, fake_quantity, fake_sold, id, description }) => {
+const Card = ({ image_link, product_name, fake_price, fake_quantity, fake_sold, id}) => {
     const history = useHistory()
     const redirect = () => {
         history.push(`/products/${id}`)
@@ -16,8 +16,8 @@ const Card = ({ image_link, product_name, fake_price, fake_quantity, fake_sold, 
             <Flex>
                 <div>
                     <Box className="boot">
-                        <Box className="title">
-                            <p className="display">{product_name}</p>
+                        <Box className="title display">
+                            {product_name}
                         </Box>
                         <Box className="smallerboot">
                             <Box className="imgs">
@@ -25,15 +25,14 @@ const Card = ({ image_link, product_name, fake_price, fake_quantity, fake_sold, 
                                 style={{ maxHeight: 160 }} alt="item"></img>
                             </Box>
                             <Box className="toes">
-                                <h3><div>
-                                    Price:{" "}${fake_price}
-                                    {/* console.log(new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(number)); */}
+                                <h3><div className="minidisplay">
+                                    Price:{" "}{new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(fake_price)}
                                 </div>
-                                    <div>
-                                        Stock:{" "}{fake_quantity}
+                                    <div className="minidisplay">
+                                        Stock:{" "}{new Intl.NumberFormat().format(fake_quantity)}
                                     </div>
-                                    <div>
-                                        Sold:{" "}{fake_sold}
+                                    <div className="minidisplay">
+                                        Sold:{" "}{new Intl.NumberFormat().format(fake_sold)}
                                     </div>
                                 </h3>
                             </Box>

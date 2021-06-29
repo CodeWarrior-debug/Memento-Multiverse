@@ -117,7 +117,10 @@ Button {
     display: grid;
     grid-template-rows: 3;
     text-align: center;
-    margin-left: 5% !important;
+    justify-content: center;
+    align-content: flex-end;
+    margin-left: 0;
+    /* margin-left: 5% !important; */
 }
 .imgs {
     margin-right: 2% !important;
@@ -133,7 +136,8 @@ img {
     width: 100% !important;
     height: 10% !important;
     position: center;
-    margin-bottom: 2% !important
+    margin-bottom: 2% !important;
+    margin: auto !important;
 }
 .display {
     display: table-row !important;
@@ -141,7 +145,19 @@ img {
     font-style: bold !important;
     font-weight: 600 !important;
     text-align: center;
+    width: 100% !important;
 }
+
+.minidisplay {
+    display: table-row !important;
+    font-size: 1rem !important;
+    font-style: bold !important;
+    font-weight: 400 !important;
+    text-align: center;
+    width: 100% !important;
+}
+
+
 @media only screen and (max-width:1515px) {
     .display {
         font-size: 1rem !important;

@@ -23,7 +23,9 @@ const Toggle = (props) => {
             <Radio className="radio"
                 name={props.name}
                 id={props.id}
+                onChange={ () => changeFranchise}
                 checked= {props.franchiseSelected === props.id}
+                
                 />
             {props.name}
             </Label>
