@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../../models");
+const bcrypt = require('bcrypt');
 // const passport = require('passport');
 // const LocalStrategy = require('passport-local').Strategy;
 
@@ -11,12 +12,16 @@ router.get("/test", function (req, res) {
 // Route for Signup
 router.post("/signup", async (req, res) => {
   console.log("signup route hit!! YAY", req.body);
+  console.log('*****************************************************', req.body.user_name);
   try {
     if (!req.body.user_role) req.body.user_role = "user";
+
     const user = await db.User.findOne({
-      where: { email: req.body.user_name },
+      where: { user_name: req.body.user_name },
     });
-    console.log(user);
+
+    console.log('LINE 22 OF USERAUTH.JS: ', user);
+
     if (user) {
       res.json({ msg: "There is already an account with this email/username" });
     } else {
@@ -32,10 +37,12 @@ router.post("/signup", async (req, res) => {
 
 // Route for Login
 router.post("/login", async function (req, res) {
-    console.log(req.body.username);
+    console.log('***********************************************************', req.body.username);
     try {
     const user = await db.User.findOne({ where: {user_name: req.body.username } });  //check point of failure
+
     if (!user) {
+      console.log('if !user ************************', user);
       res.status(404).json({ msg: "Login failed." });
       return;
     }
@@ -49,6 +56,7 @@ router.post("/login", async function (req, res) {
       
   } catch (err) {
       res.status(500).json(err);
+      console.log('*************************CATCH ERR', err)
   }
 });
 
@@ -95,10 +103,20 @@ router.post("/login", async function (req, res) {
 //         res.status(404).end();
 //     }
 // })
-router.get("/logout", function (req, res) {
-  console.log("You are logged out!");
-  req.logout();
-  res.sendStatus(200);
+// router.get("/logout", function (req, res) {
+//   console.log("You are logged out!");
+//   req.logout();
+//   res.sendStatus(200);
+// });
+
+router.post('/logout', (req, res) => {
+  if (req.session) {
+      req.session.destroy(() => {
+          res.status(204).end();
+      })
+  } else {
+      res.status(404).end();
+  }
 });
 
 router.get("/user", async (req, res) => {

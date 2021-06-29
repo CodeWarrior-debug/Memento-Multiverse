@@ -13,17 +13,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import API from '../../utils/API';
 import { Redirect } from 'react-router-dom';
 import './style.css'
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function Login({ setUser, user }) {
     const [form, setForm] = useState({ username: '', password: '' });
     const [redirect, setRedirect] = useState(false);
     useEffect(() => {
-        if (user.user_name) setRedirect(true)
+        if (user.username) setRedirect(true)
 
     }, [user]);
     const submitHandler = async e => {
+        console.log("USER.USERNAME LINE 27", user.user_name)
         e.preventDefault();
         try {
             const loggedInUser = await API.logIn(form);
