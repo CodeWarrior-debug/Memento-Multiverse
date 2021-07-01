@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import {
   Box,
   Flex,
@@ -11,8 +11,12 @@ import { Redirect } from 'react-router-dom';
 import API from '../../utils/API';
 
 function SignUp({ setUser, user }) {
-  const [details, setDetails] = useState({ user_name: "", email: "", password: "" });
+  // const [details, setDetails] = useState({ user_name: "", email: "", password: "" });
+  
   const [redirect, setRedirect] = useState(false);
+  const email = useRef();
+  const user_name = useRef();
+  const password = useRef();
 
   // For some reason after signing up, if you refresh the page it'll kick you out of the server. Don't refresh!
 
@@ -23,9 +27,9 @@ function SignUp({ setUser, user }) {
   const handleSignUp = async e => {
     e.preventDefault();
     try {
-      const signedUpUser = await API.signUp(details);
-      setUser(signedUpUser.data);
-      console.log(signedUpUser.data.msg)
+      const signedUpUser = await API.signUp( { user_name: user_name.current.value, password: password.current.value, email: email.current.value});
+      // setUser(signedUpUser.data);
+      console.log(signedUpUser);
     } catch(err) {
       console.log(err);
     }
@@ -46,16 +50,17 @@ function SignUp({ setUser, user }) {
               <div className="form">
                 <FontAwesomeIcon icon="user" />
                 {' '}
-                  Username
+                  user_name
                   </div>
             </Label>
             <Input
-              id='username'
-              name='username'
-              placeholder='Username'
+              id='user_name'
+              name='user_name'
+              placeholder='user_name'
               className="text"
-              onChange={e => setDetails({ ...details, user_name: e.target.value })}
-              value={details.user_name}
+              ref={user_name}
+              // onChange={e => setDetails({ ...details, user_name: e.target.value })}
+              // value={details.user_name}
             />
 
             {/* email */}
@@ -73,8 +78,9 @@ function SignUp({ setUser, user }) {
                 type='email'
                 placeholder='jane@example.com'
                 className="text"
-                onChange={e => setDetails({ ...details, email: e.target.value })}
-                value={details.email}
+                ref={email}
+                // onChange={e => setDetails({ ...details, email: e.target.value })}
+                // value={details.email}
               />
             </Box>
 
@@ -92,8 +98,9 @@ function SignUp({ setUser, user }) {
               placeholder='password'
               className="text"
               type='password'
-              onChange={e => setDetails({ ...details, password: e.target.value })}
-              value={details.password}
+              ref={password}
+              // onChange={e => setDetails({ ...details, password: e.target.value })}
+              // value={details.password}
             />
           </Box>
         </Flex>

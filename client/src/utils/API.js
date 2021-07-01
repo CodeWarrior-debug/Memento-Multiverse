@@ -70,5 +70,9 @@ export default {
 
     loggedIn: () => {
         return axios.get('/api/users/user')
+    },
+
+    getAllUsers: () => {
+        return axios.get('/api/users');
     }
 }

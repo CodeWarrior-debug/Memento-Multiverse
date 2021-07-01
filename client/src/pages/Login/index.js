@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
     Label,
-    Input,
-    Checkbox
-} from '@rebass/forms';
+    Input} from '@rebass/forms';
 import {
     Box,
     Button,
@@ -12,13 +10,16 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import API from '../../utils/API';
 import { Redirect } from 'react-router-dom';
-import './style.css'
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useHistory } from 'react-router';
+import './style.css';
 
 function Login({ setUser, user }) {
-    const [form, setForm] = useState({ username: '', password: '' });
     const [redirect, setRedirect] = useState(false);
+    const user_name = useRef();
+    const password = useRef();
+
+    const history= useHistory();
+
     useEffect(() => {
         if (user.user_name) setRedirect(true)
 
@@ -26,8 +27,11 @@ function Login({ setUser, user }) {
     const submitHandler = async e => {
         e.preventDefault();
         try {
-            const loggedInUser = await API.logIn(form);
-            setUser(loggedInUser.data);
+            const loggedInUser = await API.logIn({ user_name : user_name.current.value, password : password.current.value} );
+            // setUser(loggedInUser.data);
+            console.log(loggedInUser);
+            history.push('/');
+
         } catch (err) {
             console.log(err);
         }
@@ -49,16 +53,15 @@ function Login({ setUser, user }) {
                             <div className="form">
                                 <FontAwesomeIcon icon="user" />
                                 {' '}
-                                 Username
+                                 user_name
                              </div>
                         </Label>
                         <Input
                             className="text"
-                            id='username'
-                            name='username'
-                            placeholder='username'
-                            onChange={e => setForm({ ...form, username: e.target.value })}
-                            value={form.username}
+                            id='user_name'
+                            name='user_name'
+                            placeholder='user_name'
+                            ref={user_name}
                         />
                     </Box>
                     <Box width={1 / 2} px={3}>
@@ -71,12 +74,11 @@ function Login({ setUser, user }) {
                         </Label>
                         <Input
                             className="text"
+                            ref={password}
                             id='password'
                             name='password'
                             type='password'
                             placeholder='password'
-                            onChange={e => setForm({ ...form, password: e.target.value })}
-                            value={form.password}
                         />
                     </Box>
                     <Flex alignItems='center'>
