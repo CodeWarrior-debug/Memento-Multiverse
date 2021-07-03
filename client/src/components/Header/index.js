@@ -9,10 +9,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 function Header({ user, handleLogout }) {
+
+    
+
     const [showMenu, setShowMenu] = useState(false)
     const [showMenu2, setShowMenu2] = useState(false)
     let menu2;
     let menu;
+
 
     if (showMenu) {
         menu = <div className='menu'>

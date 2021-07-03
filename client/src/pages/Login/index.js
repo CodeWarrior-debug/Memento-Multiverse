@@ -17,7 +17,6 @@ function Login({ setUser, user }) {
     const [redirect, setRedirect] = useState(false);
     const user_name = useRef();
     const password = useRef();
-
     const history= useHistory();
 
     useEffect(() => {
@@ -28,8 +27,8 @@ function Login({ setUser, user }) {
         e.preventDefault();
         try {
             const loggedInUser = await API.logIn({ user_name : user_name.current.value, password : password.current.value} );
-            // setUser(loggedInUser.data);
-            console.log(loggedInUser);
+            setUser(loggedInUser);
+            setRedirect(true);
             history.push('/');
 
         } catch (err) {
