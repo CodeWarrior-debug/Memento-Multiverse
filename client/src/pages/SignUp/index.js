@@ -28,8 +28,9 @@ function SignUp({ setUser, user }) {
     e.preventDefault();
     try {
       const signedUpUser = await API.signUp( { user_name: user_name.current.value, password: password.current.value, email: email.current.value});
-      // setUser(signedUpUser.data);
+      setUser(signedUpUser);
       console.log(signedUpUser);
+      setRedirect(true);
     } catch(err) {
       console.log(err);
     }
