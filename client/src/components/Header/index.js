@@ -19,7 +19,7 @@ function Header({ user, handleLogout }) {
                 {' '}
                 Shop
             </Link>
-            {user.user_role === 'user' ? (
+            {/* {user.user_role === 'user' ? (
                 <Link className="navLink mini" variant='nav' to='/dashboard'>
                     <FontAwesomeIcon icon="chalkboard-teacher" />
                     {' '}
@@ -31,7 +31,7 @@ function Header({ user, handleLogout }) {
                     {' '}
                 Dashboard
                 </Link>
-            )}
+            )} */}
             <Link className="navLink mini" variant='nav' to='/cart'>
                 <FontAwesomeIcon className="icons" icon="shopping-cart" />
                 {' '}
