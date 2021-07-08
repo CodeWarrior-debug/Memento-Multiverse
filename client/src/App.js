@@ -38,7 +38,6 @@ function App() {
   useEffect(() => {
     API.loggedIn()
       .then(results => {
-        console.log(results.data);
         setUser(results.data);
         setLoaded(true);
       })

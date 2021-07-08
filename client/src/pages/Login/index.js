@@ -19,8 +19,8 @@ function Login({ setUser, user }) {
 
     useEffect(() => {
         if (user.user_name) setRedirect(true)
-
     }, [user]);
+
     const submitHandler = async e => {
         e.preventDefault();
         try {

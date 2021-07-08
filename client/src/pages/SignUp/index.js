@@ -28,10 +28,10 @@ function SignUp({ setUser, user }) {
     e.preventDefault();
     try {
       const signedUpUser = await API.signUp( { user_name: user_name.current.value, password: password.current.value, email: email.current.value});
-      console.log(signedUpUser);
       delete signedUpUser.data.password;
       setUser(signedUpUser);
       setRedirect(true);
+      
       window.location.reload();
     } catch(err) {
       console.log('Signup error: ',err);

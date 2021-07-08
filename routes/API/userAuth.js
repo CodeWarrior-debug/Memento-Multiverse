@@ -17,6 +17,11 @@ router.post("/signup", async (req, res) => {
     } else {
       const newUser = await db.User.create(req.body);
       delete newUser.password;
+
+      req.session.user_id=newUser.id;
+      req.session.logged_in= true;
+      req.session.user_name = newUser.user_name;
+
       res.json(newUser);
     }
   } catch (err) {
