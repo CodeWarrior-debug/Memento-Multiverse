@@ -11,6 +11,7 @@ function Header({ user, handleLogout }) {
     let menu2;
     let menu;
 
+
     if (showMenu) {
         menu = <div className='menu'>
             <Link className="navLink mini" variant='nav' to='/shop'>

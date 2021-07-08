@@ -25,7 +25,6 @@ library.add(faEnvelope, faKey, faSignInAlt, faShoppingCart, faHome, faSignOutAlt
 
 function App() {
   const [user, setUser] = useState({});
-
   const [loaded, setLoaded] = useState(false);
   const [cart, setCart] = useState({
     items: [],
