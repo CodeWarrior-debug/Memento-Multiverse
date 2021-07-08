@@ -5,7 +5,7 @@ import {
   Button
 } from 'rebass';
 import './style.css'
-import { Label, Input, Checkbox } from '@rebass/forms'
+import { Label, Input } from '@rebass/forms'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Redirect } from 'react-router-dom';
 import API from '../../utils/API';
@@ -28,10 +28,13 @@ function SignUp({ setUser, user }) {
     e.preventDefault();
     try {
       const signedUpUser = await API.signUp( { user_name: user_name.current.value, password: password.current.value, email: email.current.value});
-      // setUser(signedUpUser.data);
       console.log(signedUpUser);
+      delete signedUpUser.data.password;
+      setUser(signedUpUser);
+      setRedirect(true);
+      window.location.reload();
     } catch(err) {
-      console.log(err);
+      console.log('Signup error: ',err);
     }
   }
 
@@ -59,11 +62,8 @@ function SignUp({ setUser, user }) {
               placeholder='user_name'
               className="text"
               ref={user_name}
-              // onChange={e => setDetails({ ...details, user_name: e.target.value })}
-              // value={details.user_name}
             />
 
-            {/* email */}
             <Box>
               <Label htmlFor='email'>
                 <div className="form">
@@ -79,12 +79,9 @@ function SignUp({ setUser, user }) {
                 placeholder='jane@example.com'
                 className="text"
                 ref={email}
-                // onChange={e => setDetails({ ...details, email: e.target.value })}
-                // value={details.email}
               />
             </Box>
 
-            {/* password */}
             <Label htmlFor='password'>
               <div className="form">
                 <FontAwesomeIcon icon="key" />
@@ -99,12 +96,9 @@ function SignUp({ setUser, user }) {
               className="text"
               type='password'
               ref={password}
-              // onChange={e => setDetails({ ...details, password: e.target.value })}
-              // value={details.password}
             />
           </Box>
         </Flex>
-        {/* Signup button */}
         <Button type="submit" mr={2} onSubmit={handleSignUp}>Sign Up</Button>
       </Box>
     </Flex>

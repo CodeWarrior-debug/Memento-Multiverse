@@ -4,10 +4,6 @@ import API from "../../utils/API";
 import { Button } from "rebass";
 import "./style.css";
 import CartContext from "../../utils/CartContext";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
-toast.configure();
 
 const ProductPage = ({ user }) => {
   const cart = useContext(CartContext);
@@ -19,10 +15,6 @@ const ProductPage = ({ user }) => {
   useEffect(() => {
     API.getOneItem(ItemId).then((thing) => setItem(thing.data));
   }, [ItemId]);
-
-  const addToCart = () => {
-    toast.info("The item has been added to the cart!");
-  };
 
   return (
     <>

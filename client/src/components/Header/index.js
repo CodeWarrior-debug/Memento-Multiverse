@@ -1,16 +1,13 @@
 import React, { useState } from 'react'
 import {
     Box,
-    Flex,
-    Text
-} from 'rebass';
+    Flex} from 'rebass';
 import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { useHistory } from 'react-router-dom';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 function Header({ user, handleLogout }) {
-    const [showMenu, setShowMenu] = useState(false)
-    const [showMenu2, setShowMenu2] = useState(false)
+    const [showMenu, setShowMenu] = useState(false);
+    const [showMenu2, setShowMenu2] = useState(false);
     let menu2;
     let menu;
 
@@ -106,7 +103,9 @@ function Header({ user, handleLogout }) {
                                 {' '}
                                 Dashboard
                             </Link>
-                        ) : (
+                        ) 
+                        : //ternary 1
+                        (
                             <Link className="navLink mini" variant='nav' to='/admin'>
                                 <FontAwesomeIcon icon="chalkboard-teacher" />
                                 {' '}
@@ -123,7 +122,9 @@ function Header({ user, handleLogout }) {
                             {' '}
                         Logout
                     </Link>
-                    </Box>) : (
+                    </Box>)
+                    : //ternary 2
+                    (
                     <Box mx='auto' className="reg">
                         <Link className="navLink" variant='nav' to='/shop'>
                             <FontAwesomeIcon icon="home" />

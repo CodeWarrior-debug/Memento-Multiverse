@@ -10,15 +10,12 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import API from '../../utils/API';
 import { Redirect } from 'react-router-dom';
-import { useHistory } from 'react-router';
 import './style.css';
 
 function Login({ setUser, user }) {
     const [redirect, setRedirect] = useState(false);
     const user_name = useRef();
     const password = useRef();
-
-    const history= useHistory();
 
     useEffect(() => {
         if (user.user_name) setRedirect(true)
@@ -29,11 +26,12 @@ function Login({ setUser, user }) {
         try {
             const loggedInUser = await API.logIn({ user_name : user_name.current.value, password : password.current.value} );
             // setUser(loggedInUser.data);
-            console.log(loggedInUser);
-            history.push('/');
-
+            delete loggedInUser.data.user.password;
+            setUser(loggedInUser);
+            setRedirect(true);
+            window.location.reload();
         } catch (err) {
-            console.log(err);
+            console.log('Login error: ', err);
         }
     }
 
