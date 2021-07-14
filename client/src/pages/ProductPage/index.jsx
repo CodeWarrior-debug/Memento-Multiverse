@@ -19,7 +19,7 @@ const ProductPage = ({ user }) => {
   return (
     <>
       <div className="container">
-        <div className="title">{item.product_name}</div>
+        <div className="title">{item.product_name}</div> 
         <div className="grid">
           <img src={item.image_link} className="image" alt="Product"></img>
           <div className="row">

@@ -3,6 +3,7 @@
     flex-direction: column;
 }
 .title {
+    margin-left: 0 !important;
     font-size: 30px;
     font-weight: 600;
     font-style: bold;
