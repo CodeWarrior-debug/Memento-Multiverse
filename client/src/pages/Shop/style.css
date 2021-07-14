@@ -10,6 +10,35 @@
     flex-direction: row !important;
 }
 
+.bgFG{
+    display: flex;
+    flex-direction: row !important;
+    background-image: url("../../images/family.png");
+}
+
+.bgRAM{
+    display: flex;
+    flex-direction: row !important;
+    background-image: url("../../images/cats.png");
+}
+.bgHI{
+    display: flex;
+    flex-direction: row !important;
+    background-image: url("../../images/tool.png");
+}
+
+.bgS{
+    display: flex;
+    flex-direction: row !important;
+    background-image: url("../../images/stage.png");
+}
+
+.bgTO{
+    display: flex;
+    flex-direction: row !important;
+    background-image: url("../../images/office.png");
+}
+
 .tog {
     display: grid;
     grid-template-rows: 1;

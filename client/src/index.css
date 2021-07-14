@@ -15,7 +15,8 @@ code {
 }
 
 .bg {
-  background-color: #232323;
+  /* background-color: #232323; */
+  background-color: black;
   position: fixed;
   z-index: -5;
   width: 100vw;
@@ -23,7 +24,7 @@ code {
   overflow: hidden;
 }
 
-.bg:before, .bg:after {
+/* .bg:before, .bg:after {
   content: "";
   z-index: -5;
   position: fixed;
@@ -37,7 +38,7 @@ code {
 .bg:before {
   z-index: -5;
   right: 100%;
-}
+} */
 
 @keyframes move {
   from {transform: translateX(  0%);}
