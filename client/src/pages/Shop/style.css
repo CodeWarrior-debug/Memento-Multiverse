@@ -12,6 +12,7 @@
 
 .bgFG{
     display: flex;
+    background-size: 100%;
     flex-direction: row !important;
     background-image: url("../../images/family.png");
 }
@@ -19,22 +20,26 @@
 .bgRAM{
     display: flex;
     flex-direction: row !important;
+    background-size: 100%;
     background-image: url("../../images/cats.png");
 }
 .bgHI{
     display: flex;
     flex-direction: row !important;
+    background-size: 100%;
     background-image: url("../../images/tool.png");
 }
 
 .bgS{
     display: flex;
+    background-size: 100%;
     flex-direction: row !important;
     background-image: url("../../images/stage.png");
 }
 
 .bgTO{
     display: flex;
+    background-size: 100%;
     flex-direction: row !important;
     background-image: url("../../images/office.png");
 }

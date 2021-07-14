@@ -98,21 +98,21 @@ function Header({ user, handleLogout }) {
                             {' '}
                         Shop
                     </Link>
-                        {user.user_role === 'user' ? (
+                        {/* {user.user_role === 'user' ? (
                             <Link className="navLink mini" variant='nav' to='/dashboard'>
                                 <FontAwesomeIcon icon="chalkboard-teacher" />
                                 {' '}
                                 Dashboard
                             </Link>
-                        ) 
-                        : //ternary 1
-                        (
+                        )  */}
+                        
+                        {/* (
                             <Link className="navLink mini" variant='nav' to='/admin'>
                                 <FontAwesomeIcon icon="chalkboard-teacher" />
                                 {' '}
                                 Dashboard
                             </Link>
-                        )}
+                        )} */}
                         <Link className="navLink" variant='nav' to='/cart'>
                             <FontAwesomeIcon className="icons" icon="shopping-cart" />
                             {' '}
