@@ -12,7 +12,7 @@ Do you love collecting TV merch? Then you need a fun and funny web store for mer
 ---
 Visit on Heroku 
 
-https://memento-multiverse.herokuapp.com/
+https://memento-tv-multiverse.herokuapp.com/
 
 OR
 
