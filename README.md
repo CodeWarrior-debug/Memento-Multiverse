@@ -2,7 +2,7 @@
 
 ## Table of Contents
 ---
-* [Description](#description) | [Installation](#installation) | [Preview](#preview) | [Tests](#tests) | [Usage](#usage) | [Contributing](#contributing) | [Credits](#credits) | [Repository](#repository) | [FutureDevelopments](#futuredevelopments) | [License](#license)
+* [Description](#description) | [Installation](#installation) | [Preview](#preview) | [Tests](#tests) | [Usage](#usage) | [Contributing](#contributing) | [Credits](#credits) | [Repository](#repository) | [License](#license)
 
 ## Description
 ---
@@ -48,10 +48,6 @@ Following tutorials on react tables used:
  Repo: https://github.com/erenozgur98/Memento-Multiverse
 
  Heroku: https://memento-multiverse.herokuapp.com/
-
- ## FutureDevelopments
- ---
- 
 
 ## License
   ---
